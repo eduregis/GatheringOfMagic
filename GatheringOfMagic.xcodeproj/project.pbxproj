@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E410E1424E4125D00345160 /* CollectionViewCell.xib */; };
+		2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E410E1624E413B400345160 /* CollectionViewCellController.swift */; };
 		2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */; };
 		2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */; };
 		2E4D2CDA24E171F500BF7AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD924E171F500BF7AA6 /* Assets.xcassets */; };
@@ -16,7 +18,7 @@
 		2E6C54EB24E2BEFD00F4F3DA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54EA24E2BEFD00F4F3DA /* Card.swift */; };
 		2E6C54ED24E2C44900F4F3DA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54EC24E2C44900F4F3DA /* Request.swift */; };
 		2E6C54F024E2CAF700F4F3DA /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C54EF24E2CAF700F4F3DA /* GatheringView.storyboard */; };
-		2E6C54F524E2CCFB00F4F3DA /* GatheringViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54F424E2CCFB00F4F3DA /* GatheringViewControllerTableViewController.swift */; };
+		2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E410E1424E4125D00345160 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		2E410E1624E413B400345160 /* CollectionViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellController.swift; sourceTree = "<group>"; };
 		2E4D2CCD24E171F300BF7AA6 /* GatheringOfMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatheringOfMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		2E6C54EA24E2BEFD00F4F3DA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2E6C54EC24E2C44900F4F3DA /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2E6C54EF24E2CAF700F4F3DA /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
-		2E6C54F424E2CCFB00F4F3DA /* GatheringViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		2E4D2CCF24E171F300BF7AA6 /* GatheringOfMagic */ = {
 			isa = PBXGroup;
 			children = (
+				2E5C268624E3663600177B6F /* XIB */,
 				2E6C54F124E2CC4600F4F3DA /* Controller */,
 				2E6C54EE24E2C9C000F4F3DA /* View */,
 				2E6C54E924E2BEE700F4F3DA /* Model */,
@@ -134,6 +139,15 @@
 			path = GatheringOfMagicUITests;
 			sourceTree = "<group>";
 		};
+		2E5C268624E3663600177B6F /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				2E410E1424E4125D00345160 /* CollectionViewCell.xib */,
+				2E410E1624E413B400345160 /* CollectionViewCellController.swift */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
 		2E6C54E924E2BEE700F4F3DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +167,7 @@
 		2E6C54F124E2CC4600F4F3DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E6C54F424E2CCFB00F4F3DA /* GatheringViewControllerTableViewController.swift */,
+				2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +278,7 @@
 			files = (
 				2E4D2CDD24E171F500BF7AA6 /* LaunchScreen.storyboard in Resources */,
 				2E6C54F024E2CAF700F4F3DA /* GatheringView.storyboard in Resources */,
+				2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */,
 				2E4D2CDA24E171F500BF7AA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +307,8 @@
 				2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */,
 				2E6C54ED24E2C44900F4F3DA /* Request.swift in Sources */,
 				2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */,
-				2E6C54F524E2CCFB00F4F3DA /* GatheringViewControllerTableViewController.swift in Sources */,
+				2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */,
+				2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */,
 				2E6C54EB24E2BEFD00F4F3DA /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

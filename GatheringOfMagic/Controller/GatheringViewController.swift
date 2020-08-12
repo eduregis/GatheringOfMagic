@@ -12,6 +12,8 @@ class GatheringViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 3
     
+    private let placeholder = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"
+    
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
                                              bottom: 50.0,
@@ -28,6 +30,7 @@ class GatheringViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         let cardRequest = CardRequest()
         cardRequest.getCards { [weak self] result in
             switch result {
@@ -37,10 +40,10 @@ class GatheringViewController: UICollectionViewController {
                 self?.listOfCards = cards
             }
         }
+        
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -49,14 +52,14 @@ class GatheringViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .black
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
+        cell.configure(with: listOfCards[indexPath.row])
         return cell
     }
 }
 
 extension GatheringViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -64,17 +67,17 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: widthPerItem)
+
+        return CGSize(width: widthPerItem, height: 3*widthPerItem/2)
     }
-    
+
     //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
-    
+
     // 4
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
