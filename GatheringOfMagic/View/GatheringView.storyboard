@@ -216,6 +216,16 @@
                         <outlet property="cardPowerToughnessLabel" destination="J7l-fM-YAz" id="kjx-Pg-hg7"/>
                         <outlet property="cardRarityLabel" destination="Ofv-xH-oCF" id="SbQ-eV-qap"/>
                         <outlet property="cardSetLabel" destination="2Zg-vP-VNz" id="RSQ-2J-AMO"/>
+                        <outletCollection property="cardManaCostCollection" destination="fQr-TT-vFy" collectionClass="NSMutableArray" id="Q3M-Nl-ZoG"/>
+                        <outletCollection property="cardManaCostCollection" destination="ymm-wQ-bNU" collectionClass="NSMutableArray" id="w4p-uA-fBM"/>
+                        <outletCollection property="cardManaCostCollection" destination="Nek-7u-bck" collectionClass="NSMutableArray" id="0Gv-6j-Z8V"/>
+                        <outletCollection property="cardManaCostCollection" destination="vZg-DI-2ug" collectionClass="NSMutableArray" id="CDT-Lb-FRJ"/>
+                        <outletCollection property="cardManaCostCollection" destination="TrN-4z-408" collectionClass="NSMutableArray" id="eeH-ew-eP7"/>
+                        <outletCollection property="cardManaCostCollection" destination="eTl-w6-hjc" collectionClass="NSMutableArray" id="vUR-bs-mNV"/>
+                        <outletCollection property="cardManaCostCollection" destination="1Qa-QU-UIG" collectionClass="NSMutableArray" id="RT9-Nm-sbf"/>
+                        <outletCollection property="cardManaCostCollection" destination="Jkh-0O-PA0" collectionClass="NSMutableArray" id="nRd-RL-fkN"/>
+                        <outletCollection property="cardManaCostCollection" destination="JFf-8O-fh3" collectionClass="NSMutableArray" id="5wl-Tu-CLP"/>
+                        <outletCollection property="cardManaCostCollection" destination="BRx-gt-nIE" collectionClass="NSMutableArray" id="cah-ni-gtu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAv-d8-8XM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
