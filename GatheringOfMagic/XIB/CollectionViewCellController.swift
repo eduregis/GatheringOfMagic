@@ -13,10 +13,15 @@ class CollectionViewCell: UICollectionViewCell {
     static let nibName = "CollectionViewCell"
     static let identifier = "CardCell"
     
+    var card: Card?
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cardName: UILabel!
     
     func configure(with card: Card) {
+        
+        self.card = card
+        
         guard let imageUrlString = card.imageUrl else { return }
         
         guard let imageURL = URL(string: imageUrlString) else { return }

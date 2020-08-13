@@ -19,6 +19,8 @@ class GatheringViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
+    var selectedCard: Card?
+    
     var listOfCards = [Card](){
         didSet {
             // Essa função assíncrona recarrega a lista toda vez que a searchBar é acionada com um ENTER
@@ -27,7 +29,7 @@ class GatheringViewController: UICollectionViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
@@ -55,6 +57,21 @@ class GatheringViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
         cell.configure(with: listOfCards[indexPath.row])
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at:indexPath) as! CollectionViewCell
+        self.selectedCard = cell.card
+        performSegue(withIdentifier: "CardViewSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is CardViewController
+        {
+            let vc = segue.destination as? CardViewController
+            vc?.card = selectedCard
+        }
     }
 }
 
