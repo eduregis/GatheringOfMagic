@@ -12,7 +12,7 @@ class GatheringViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 3
     
-    private let placeholder = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"
+    private var timerCount: Int = 0
     
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
@@ -33,6 +33,13 @@ class GatheringViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        makeRequest()
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
+        }
+    }
+    
+    func makeRequest () {
         let cardRequest = CardRequest()
         cardRequest.getCards { [weak self] result in
             switch result {
@@ -42,7 +49,18 @@ class GatheringViewController: UICollectionViewController {
                 self?.listOfCards = cards
             }
         }
-        
+    }
+    
+    func makeRequest (name: String) {
+        let cardRequest = CardRequest(name: name)
+        cardRequest.getCards { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let cards):
+                self?.listOfCards = cards
+            }
+        }
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -73,9 +91,21 @@ class GatheringViewController: UICollectionViewController {
             vc?.card = selectedCard
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if (kind == UICollectionView.elementKindSectionHeader) {
+            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+
+             return headerView
+         }
+
+         return UICollectionReusableView()
+
+    }
 }
 
-extension GatheringViewController: UICollectionViewDelegateFlowLayout {
+extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -100,5 +130,33 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if(!(searchBar.text?.isEmpty)!){
+            //reload your data source if necessary
+            self.collectionView?.reloadData()
+        }
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timerCount = timerCount + 1
+        let actualTimerCount = timerCount
+        if(searchText.isEmpty){
+            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+                if self.timerCount == actualTimerCount {
+                    self.makeRequest()
+                    self.listOfCards = []
+                }
+            }
+        } else {
+            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+                if self.timerCount == actualTimerCount {
+                    self.makeRequest(name: searchText)
+                    self.listOfCards = []
+                }
+            }
+           //
+        }
     }
 }

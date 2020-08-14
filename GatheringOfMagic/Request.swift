@@ -23,6 +23,12 @@ struct CardRequest {
         self.resourceURL = resourceURL
     }
     
+    init (name: String) {
+        let resourceString = "\(basicApi)cards?name=\(name)"
+        guard let resourceURL = URL(string: resourceString) else {fatalError()}
+        self.resourceURL = resourceURL
+    }
+    
     func getCards (completion: @escaping(Result<[Card], CardError>) -> Void) {
 
     let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in
