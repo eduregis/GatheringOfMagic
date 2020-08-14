@@ -23,4 +23,6 @@ struct Card: Decodable {
     var artist: String
     var imageUrl: String?
     var text: String?
+    var flavor: String?
+    var loyalty: String?
 }

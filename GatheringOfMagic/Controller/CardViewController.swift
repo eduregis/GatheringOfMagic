@@ -17,6 +17,10 @@ class CardViewController: UIViewController {
     @IBOutlet weak var cardRarityLabel: UILabel!
     @IBOutlet weak var cardPowerToughnessLabel: UILabel!
     @IBOutlet weak var cardSetLabel: UILabel!
+    @IBOutlet weak var cardArtistLabel: UILabel!
+    @IBOutlet weak var cardTypesLabel: UILabel!
+    @IBOutlet weak var cardTextLabel: UILabel!
+    @IBOutlet weak var cardFlavorLabel: UILabel!
     @IBOutlet var cardManaCostCollection: [UIImageView]!
     
     override func viewDidLoad() {
@@ -28,12 +32,24 @@ class CardViewController: UIViewController {
         
         cardPowerToughnessLabel.text = "\(card?.power ?? "NA")/\(card?.toughness ?? "NA")"
         
+        cardSetLabel.text = card?.set
+        
+        cardArtistLabel.text = card?.artist
+        
+        cardTypesLabel.text = card?.type
+        
+        cardTextLabel.text = card?.text
+        cardTextLabel.numberOfLines = 0
+        
+        cardFlavorLabel.text = card?.flavor
+        cardFlavorLabel.numberOfLines = 0
+        
+        
         if (card?.manaCost) != nil {
             
             if var manaCosts = card?.manaCost?.components(separatedBy: "}") {
                 for i in 0..<manaCosts.count - 1 {
                     manaCosts[i] = "\(manaCosts[i])}"
-                    print(manaCosts[i])
                     switch manaCosts[i] {
                     case "{0}":
                         cardManaCostCollection[i].image = UIImage(named: "incolor-0")
