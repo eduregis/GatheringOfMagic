@@ -21,12 +21,20 @@ class GatheringViewController: UICollectionViewController {
     
     var selectedCard: Card?
     
+    
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     var listOfCards = [Card](){
         didSet {
             // Essa função assíncrona recarrega a lista toda vez que a searchBar é acionada com um ENTER
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
+//            if listOfCards.count == 0 {
+//                triggerIndicator(status: true)
+//            } else {
+//                triggerIndicator(status: false)
+//            }
         }
     }
 
@@ -34,8 +42,19 @@ class GatheringViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         makeRequest()
+        // triggerIndicator(status: true)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
+        }
+    }
+    
+    func triggerIndicator (status: Bool) {
+        if status {
+            indicator.isHidden = false
+            indicator.startAnimating()
+        } else {
+            indicator.isHidden = true
+            indicator.stopAnimating()
         }
     }
     

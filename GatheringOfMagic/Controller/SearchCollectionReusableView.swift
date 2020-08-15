@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeachCollectionReusableView: UICollectionReusableView {
+class SearchCollectionReusableView: UICollectionReusableView {
         
     @IBOutlet weak var searchBar: UISearchBar!
 }

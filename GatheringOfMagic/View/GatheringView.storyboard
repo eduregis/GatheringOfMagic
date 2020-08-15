@@ -22,6 +22,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="YWL-kC-ftD">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="CmI-bK-nT9">
                                 <rect key="frame" x="0.0" y="50" width="128" height="128"/>
@@ -32,7 +36,7 @@
                                 </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="Wxm-Qq-Cel" customClass="SeachCollectionReusableView" customModule="GatheringOfMagic" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="Wxm-Qq-Cel" customClass="SearchCollectionReusableView" customModule="GatheringOfMagic" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
@@ -56,6 +60,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="Q2h-zg-QnU"/>
                     <connections>
+                        <outlet property="indicator" destination="YWL-kC-ftD" id="J5z-Xd-9QH"/>
                         <segue destination="rOM-gK-9B9" kind="show" identifier="CardViewSegue" id="RKW-8e-Vrk"/>
                     </connections>
                 </collectionViewController>
