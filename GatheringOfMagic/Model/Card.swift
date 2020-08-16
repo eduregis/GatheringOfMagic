@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Cards: Decodable {
+struct Cards: Codable, Equatable  {
     var cards: [Card]
 }
 
-struct Card: Decodable {
+struct Card: Codable, Equatable  {
     var name: String
     var manaCost: String?
     var type: String
@@ -25,4 +25,5 @@ struct Card: Decodable {
     var text: String?
     var flavor: String?
     var loyalty: String?
+    var id: String
 }

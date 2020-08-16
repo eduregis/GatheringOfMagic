@@ -26,17 +26,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         guard let imageUrl = URL(string: imageUrlString) else { return }
         
-//        DispatchQueue.global().async {
-//
-//            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-//
-//            let image = UIImage(data: imageData)
-//            DispatchQueue.main.async {
-//                self.imageView.image = image
-//            }
-//        }
         imageView.load(url: imageUrl)
-        print(imageUrl)
         
         self.cardName.text = card.name
     }

@@ -1,14 +1,16 @@
 //
-//  GatheringViewControllerTableViewController.swift
+//  FavoritesViewController.swift
 //  GatheringOfMagic
 //
-//  Created by Eduardo Oliveira on 11/08/20.
+//  Created by Eduardo Oliveira on 15/08/20.
 //  Copyright © 2020 Eduardo Oliveira. All rights reserved.
 //
 
 import UIKit
 
-class GatheringViewController: UICollectionViewController {
+private let reuseIdentifier = "Cell"
+
+class FavoritesViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 3
     
@@ -21,32 +23,22 @@ class GatheringViewController: UICollectionViewController {
     
     var selectedCard: Card?
     
-    
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
-    
-    var listOfCards = [Card](){
+    var listOfFavoriteCards = [Card](){
         didSet {
-            // Essa função assíncrona recarrega a lista toda vez que a searchBar é acionada com um ENTER
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-//            if listOfCards.count == 0 {
-//                triggerIndicator(status: true)
-//            } else {
-//                triggerIndicator(status: false)
-//            }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        makeRequest()
-        triggerIndicator(status: false)
-        setupNavigationbarItems()
+        fetchFavoriteCards()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
+        setupNavigationbarItems()
     }
     
     private func setupNavigationbarItems () {
@@ -56,38 +48,8 @@ class GatheringViewController: UICollectionViewController {
         navigationItem.titleView = titleImageView
     }
     
-    func triggerIndicator (status: Bool) {
-        if status {
-            indicator.isHidden = false
-            indicator.startAnimating()
-        } else {
-            indicator.isHidden = true
-            indicator.stopAnimating()
-        }
-    }
-    
-    func makeRequest () {
-        let cardRequest = CardRequest()
-        cardRequest.getCards { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let cards):
-                self?.listOfCards = cards
-            }
-        }
-    }
-    
-    func makeRequest (name: String) {
-        let cardRequest = CardRequest(name: name)
-        cardRequest.getCards { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let cards):
-                self?.listOfCards = cards
-            }
-        }
+    func fetchFavoriteCards () {
+        // fetch from userDefaults
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -95,12 +57,12 @@ class GatheringViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listOfCards.count
+        return listOfFavoriteCards.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
-        cell.configure(with: listOfCards[indexPath.row])
+        cell.configure(with: listOfFavoriteCards[indexPath.row])
         return cell
     }
     
@@ -120,19 +82,18 @@ class GatheringViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         if (kind == UICollectionView.elementKindSectionHeader) {
             let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
-
-             return headerView
-         }
-
-         return UICollectionReusableView()
-
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
     }
 }
 
-extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -172,17 +133,17 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
         if(searchText.isEmpty){
             _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                 if self.timerCount == actualTimerCount {
-                    self.makeRequest()
-                    self.listOfCards = []
+                    
                 }
             }
         } else {
             _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                 if self.timerCount == actualTimerCount {
-                    self.makeRequest(name: searchText)
-                    self.listOfCards = []
+                    
                 }
             }
         }
     }
 }
+
+

@@ -58,7 +58,9 @@
                             <outlet property="delegate" destination="CC5-Op-WXU" id="vYo-Fe-KoT"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Q2h-zg-QnU"/>
+                    <navigationItem key="navigationItem" id="Q2h-zg-QnU">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="indicator" destination="YWL-kC-ftD" id="J5z-Xd-9QH"/>
                         <segue destination="rOM-gK-9B9" kind="show" identifier="CardViewSegue" id="RKW-8e-Vrk"/>
@@ -350,6 +352,7 @@
                     <connections>
                         <outlet property="cardArtistLabel" destination="dx5-wf-lDQ" id="Jl1-R0-2kf"/>
                         <outlet property="cardFlavorLabel" destination="Bf3-fO-aQZ" id="bYM-NW-lBM"/>
+                        <outlet property="cardImageView" destination="Wu6-yx-SvL" id="WHT-z1-PHl"/>
                         <outlet property="cardNameLabel" destination="zdX-fT-ie0" id="6Jz-gO-sn4"/>
                         <outlet property="cardPowerToughnessLabel" destination="Tvk-zb-yQE" id="kZe-xD-dSq"/>
                         <outlet property="cardRarityLabel" destination="lgG-xQ-YPh" id="LG8-jV-Mbz"/>

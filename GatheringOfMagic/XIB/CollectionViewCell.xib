@@ -14,13 +14,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-hP-1wu">
-                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                    <rect key="frame" x="18" y="0.0" width="92" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="lEE-hL-7pd"/>
+                        <constraint firstAttribute="width" constant="92" id="J8u-ZQ-hro"/>
+                        <constraint firstAttribute="height" constant="128" id="Ve6-tv-gV4"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hL-65-igu">
-                    <rect key="frame" x="49.666666666666664" y="151" width="28.666666666666664" height="13.333333333333343"/>
+                    <rect key="frame" x="49.666666666666664" y="138" width="28.666666666666664" height="13.333333333333343"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -28,11 +29,10 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="fB6-hP-1wu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BGy-uT-B43"/>
-                <constraint firstItem="fB6-hP-1wu" firstAttribute="centerX" secondItem="0hL-65-igu" secondAttribute="centerX" id="RBY-PA-Uz5"/>
-                <constraint firstItem="fB6-hP-1wu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="c0o-Ek-fGY"/>
-                <constraint firstItem="fB6-hP-1wu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="g2d-RJ-WIC"/>
-                <constraint firstItem="0hL-65-igu" firstAttribute="top" secondItem="fB6-hP-1wu" secondAttribute="bottom" constant="23" id="oC8-HR-I6t"/>
+                <constraint firstItem="fB6-hP-1wu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Dhw-ZB-cUh"/>
+                <constraint firstItem="fB6-hP-1wu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="HLp-1W-iqz"/>
+                <constraint firstItem="0hL-65-igu" firstAttribute="top" secondItem="fB6-hP-1wu" secondAttribute="bottom" constant="10" id="QrL-31-yZ5"/>
+                <constraint firstItem="0hL-65-igu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="zNH-0m-1t4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

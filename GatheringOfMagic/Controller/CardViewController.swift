@@ -12,6 +12,12 @@ class CardViewController: UIViewController {
     
     var card: Card?
     
+    var favoriteCards = Database.shared.loadData(from: .favoriteCards)
+    
+    var favoriteButton: UIButton?
+    var favoriteImage: UIImage?
+    var isFavorite: Bool = false
+    
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardRarityLabel: UILabel!
@@ -27,6 +33,12 @@ class CardViewController: UIViewController {
         super.viewDidLoad()
         
         cardNameLabel.text = card?.name
+        
+        guard let imageUrlString = card?.imageUrl else { return }
+        
+        guard let imageUrl = URL(string: imageUrlString) else { return }
+        
+        cardImageView.load(url: imageUrl)
         
         cardRarityLabel.text = card?.rarity
         
@@ -110,6 +122,35 @@ class CardViewController: UIViewController {
             }
         }
         
+        setupNavigationItemBar()
         
+    }
+    
+    func setupNavigationItemBar() {
+        favoriteButton = UIButton(type: .system)
+        favoriteImage = UIImage(named: "star-empty")
+        favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteButton?.widthAnchor.constraint(equalToConstant: 34).isActive = true
+        favoriteButton?.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        favoriteButton?.contentMode = .center
+        favoriteButton?.addTarget(self, action: #selector(isFavorited), for: UIControl.Event.touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton!)
+    }
+    
+    @objc func isFavorited() {
+        for card in favoriteCards {
+            print(card.name)
+            print(card.id)
+        }
+        print(favoriteCards.count)
+        if isFavorite {
+            favoriteImage = UIImage(named: "star-empty")
+        } else {
+            favoriteImage = UIImage(named: "star-fill")
+           // favoriteCards.append(card!)
+            //Database.shared.saveData(from: favoriteCards, to: .favoriteCards)
+        }
+        isFavorite = !isFavorite
+        favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
     }
 }
