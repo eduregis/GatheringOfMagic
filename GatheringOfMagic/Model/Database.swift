@@ -70,14 +70,19 @@ class Database {
         }
     }
     
-    @discardableResult func deleteData(from list: ListOfCards, at index: Int) -> Card {
+    func deleteCard(from list: ListOfCards, at card: Card){
+        var loadedArray = loadData(from: list)
+        if let index = loadedArray.firstIndex(of: card) {
+            loadedArray.remove(at: index)
+            saveData(from: loadedArray, to: list)
+        }
+    }
+    
+    func deleteAllCards(from list: ListOfCards) {
         
         var loadedArray = loadData(from: list)
-        let removedElement = loadedArray.remove(at: index)
+        loadedArray.removeAll()
         saveData(from: loadedArray, to: list)
-        
-        return removedElement
-        
     }
     
     func loadFavoriteCards(from type : ListOfCards) -> [Card] {

@@ -127,8 +127,16 @@ class CardViewController: UIViewController {
     }
     
     func setupNavigationItemBar() {
+        if favoriteCards.firstIndex(of: card!) != nil {
+            isFavorite = true
+        }
+        if isFavorite {
+            favoriteImage = UIImage(named: "star-fill")
+        } else {
+            favoriteImage = UIImage(named: "star-empty")
+        }
+        
         favoriteButton = UIButton(type: .system)
-        favoriteImage = UIImage(named: "star-empty")
         favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
         favoriteButton?.widthAnchor.constraint(equalToConstant: 34).isActive = true
         favoriteButton?.heightAnchor.constraint(equalToConstant: 34).isActive = true
@@ -138,19 +146,18 @@ class CardViewController: UIViewController {
     }
     
     @objc func isFavorited() {
-        for card in favoriteCards {
-            print(card.name)
-            print(card.id)
-        }
-        print(favoriteCards.count)
         if isFavorite {
             favoriteImage = UIImage(named: "star-empty")
+            //Database.shared.deleteAllCards(from: .favoriteCards)
+            Database.shared.deleteCard(from: .favoriteCards, at: card!)
         } else {
             favoriteImage = UIImage(named: "star-fill")
-           // favoriteCards.append(card!)
-            //Database.shared.saveData(from: favoriteCards, to: .favoriteCards)
+            favoriteCards.append(card!)
+            Database.shared.saveData(from: favoriteCards, to: .favoriteCards)
         }
+        favoriteCards = Database.shared.loadData(from: .favoriteCards)
         isFavorite = !isFavorite
+        
         favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
     }
 }

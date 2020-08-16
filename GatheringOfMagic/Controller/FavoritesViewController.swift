@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class FavoritesViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 3
@@ -33,23 +31,20 @@ class FavoritesViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Favorites"
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        fetchFavoriteCards()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
-        setupNavigationbarItems()
+        
     }
     
-    private func setupNavigationbarItems () {
-        let titleImageView = UIImageView(image: UIImage(imageLiteralResourceName: "GatheringOfMagic"))
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 92, height: 30)
-        titleImageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = titleImageView
+    override func viewDidAppear(_ animated: Bool) {
+        fetchFavoriteCards()
     }
     
     func fetchFavoriteCards () {
-        // fetch from userDefaults
+        listOfFavoriteCards = Database.shared.loadData(from: .favoriteCards)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

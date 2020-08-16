@@ -30,11 +30,6 @@ class GatheringViewController: UICollectionViewController {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-//            if listOfCards.count == 0 {
-//                triggerIndicator(status: true)
-//            } else {
-//                triggerIndicator(status: false)
-//            }
         }
     }
 
@@ -42,8 +37,8 @@ class GatheringViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         makeRequest()
-        triggerIndicator(status: false)
         setupNavigationbarItems()
+        triggerIndicator(status: false)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
