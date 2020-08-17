@@ -13,18 +13,39 @@ enum CardError: Error {
     case canNotProcessData
 }
 
-struct CardRequest {
+enum TypeOfRequest {
+    case cards
+    case sets
+}
+
+struct MTGRequest {
     let resourceURL: URL
     let basicApi = "https://api.magicthegathering.io/v1/"
     
-    init () {
-        let resourceString = "\(basicApi)cards"
+    init (typeOfRequest: TypeOfRequest) {
+        
+        let resourceString: String
+        switch typeOfRequest {
+        case .cards:
+            resourceString = "\(basicApi)cards"
+        case .sets:
+            resourceString = "\(basicApi)sets"
+        }
+        
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         self.resourceURL = resourceURL
     }
     
-    init (name: String) {
-        let resourceString = "\(basicApi)cards?name=\(name)"
+    init (typeOfRequest: TypeOfRequest, name: String) {
+        
+        let resourceString: String
+        switch typeOfRequest {
+        case .cards:
+            resourceString = "\(basicApi)cards?name=\(name)"
+        case .sets:
+            resourceString = "\(basicApi)sets/\(name)"
+        }
+        
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         self.resourceURL = resourceURL
     }
@@ -51,6 +72,32 @@ struct CardRequest {
     }
         dataTask.resume()
     }
+    
+    func getSets (completion: @escaping(Result<MTGSetDetails, CardError>) -> Void) {
+
+    let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in
+        // O data contém os dados que requemos, mais ainda não estao no formato que queremos.
+        print(self.resourceURL)
+        guard let jsonData = data else {
+            // Aqui utilizamos o Result caso não existam dados a serem pegos.
+            completion(.failure(.noDataAvailable))
+            return
+        }
+        do {
+            // Aqui codificamos o formato JSON para um Cards.
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(MTGSet.self, from: jsonData)
+            // Aqui vamos níveis abaixo do response para termos um array de cards
+            let set = response.set
+            completion(.success(set))
+        } catch {
+            completion(.failure(.canNotProcessData))
+        }
+    }
+        dataTask.resume()
+    }
 }
+
+
 
 

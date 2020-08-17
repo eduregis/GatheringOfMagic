@@ -42,6 +42,8 @@ class GatheringViewController: UICollectionViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
+        // caso vá usar dark mode
+        //overrideUserInterfaceStyle = .dark
     }
     
     private func setupNavigationbarItems () {
@@ -62,7 +64,7 @@ class GatheringViewController: UICollectionViewController {
     }
     
     func makeRequest () {
-        let cardRequest = CardRequest()
+        let cardRequest = MTGRequest(typeOfRequest: .cards)
         cardRequest.getCards { [weak self] result in
             switch result {
             case .failure(let error):
@@ -74,7 +76,7 @@ class GatheringViewController: UICollectionViewController {
     }
     
     func makeRequest (name: String) {
-        let cardRequest = CardRequest(name: name)
+        let cardRequest = MTGRequest(typeOfRequest: .cards, name: name)
         cardRequest.getCards { [weak self] result in
             switch result {
             case .failure(let error):

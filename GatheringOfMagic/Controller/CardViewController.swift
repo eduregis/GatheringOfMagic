@@ -22,7 +22,7 @@ class CardViewController: UIViewController {
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardRarityLabel: UILabel!
     @IBOutlet weak var cardPowerToughnessLabel: UILabel!
-    @IBOutlet weak var cardSetLabel: UILabel!
+    @IBOutlet weak var cardSetButton: UIButton!
     @IBOutlet weak var cardArtistLabel: UILabel!
     @IBOutlet weak var cardTypesLabel: UILabel!
     @IBOutlet weak var cardTextLabel: UILabel!
@@ -31,6 +31,8 @@ class CardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Card"
         
         cardNameLabel.text = card?.name
         
@@ -44,7 +46,7 @@ class CardViewController: UIViewController {
         
         cardPowerToughnessLabel.text = "\(card?.power ?? "NA")/\(card?.toughness ?? "NA")"
         
-        cardSetLabel.text = card?.set
+        cardSetButton.setTitle(card?.set, for: .normal)
         
         cardArtistLabel.text = card?.artist
         
@@ -159,5 +161,16 @@ class CardViewController: UIViewController {
         isFavorite = !isFavorite
         
         favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
+    }
+    
+    @IBAction func cardSetButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "SetViewSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SetViewController {
+            let vc = segue.destination as? SetViewController
+            vc?.setCode = card?.set
+        }
     }
 }
