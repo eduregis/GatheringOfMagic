@@ -21,14 +21,14 @@ class Database {
     //Singleton: Access by using Database.shared.<function-name>
     static let shared = Database()
     
-    private init(){
+    private init() {
         let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let favoriteCardsFileName = "favoriteCards.json"
         
         favoriteCards = documentsFolder.appendingPathComponent(favoriteCardsFileName)
         
         //Caso os arquivos não existam, eles são criados no init
-        if !(FileManager.default.fileExists(atPath: favoriteCards.path)){
+        if !(FileManager.default.fileExists(atPath: favoriteCards.path)) {
             saveData(from: emptyArray, to: .favoriteCards)
         }
         
@@ -53,7 +53,7 @@ class Database {
         return loadedArray
     }
     
-    func saveData(from array: [Card], to list: ListOfCards){
+    func saveData(from array: [Card], to list: ListOfCards) {
         
         var type: URL
         
@@ -70,7 +70,7 @@ class Database {
         }
     }
     
-    func deleteCard(from list: ListOfCards, at card: Card){
+    func deleteCard(from list: ListOfCards, at card: Card) {
         var loadedArray = loadData(from: list)
         if let index = loadedArray.firstIndex(of: card) {
             loadedArray.remove(at: index)
@@ -85,7 +85,7 @@ class Database {
         saveData(from: loadedArray, to: list)
     }
     
-    func loadFavoriteCards(from type : ListOfCards) -> [Card] {
+    func loadFavoriteCards(from type: ListOfCards) -> [Card] {
         let favoriteCards = loadData(from: type)
         return favoriteCards
     }

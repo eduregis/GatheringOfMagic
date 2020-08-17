@@ -64,8 +64,6 @@ class SetViewController: UITableViewController {
         default:
             cell.textLabel?.text = "Release date: \(set?.releaseDate ?? "-")"
         }
-        
-        
         return cell
     }
 }

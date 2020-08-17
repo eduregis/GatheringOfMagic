@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Cards: Codable, Equatable  {
+struct Cards: Codable, Equatable {
     var cards: [Card]
 }
 
-struct Card: Codable, Equatable  {
+struct Card: Codable, Equatable {
     var name: String
     var manaCost: String?
     var type: String

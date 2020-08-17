@@ -97,7 +97,3 @@ struct MTGRequest {
         dataTask.resume()
     }
 }
-
-
-
-

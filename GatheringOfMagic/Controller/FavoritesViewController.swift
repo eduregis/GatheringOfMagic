@@ -21,7 +21,7 @@ class FavoritesViewController: UICollectionViewController {
     
     var selectedCard: Card?
     
-    var listOfFavoriteCards = [Card](){
+    var listOfFavoriteCards = [Card]() {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -62,15 +62,13 @@ class FavoritesViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at:indexPath) as! CollectionViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         self.selectedCard = cell.card
         performSegue(withIdentifier: "CardViewSegue", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is CardViewController
-        {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is CardViewController {
             let vc = segue.destination as? CardViewController
             vc?.card = selectedCard
         }
@@ -78,8 +76,8 @@ class FavoritesViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if (kind == UICollectionView.elementKindSectionHeader) {
-            let headerView:UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerView: UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
             
             return headerView
         }
@@ -116,23 +114,23 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UISearchB
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if(!(searchBar.text?.isEmpty)!){
+        if !(searchBar.text?.isEmpty)! {
             //reload your data source if necessary
             self.collectionView?.reloadData()
         }
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        timerCount = timerCount + 1
+        timerCount += 1
         let actualTimerCount = timerCount
-        if(searchText.isEmpty){
-            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+        if searchText.isEmpty {
+            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
                 if self.timerCount == actualTimerCount {
                     
                 }
             }
         } else {
-            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
                 if self.timerCount == actualTimerCount {
                     
                 }
@@ -140,5 +138,3 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UISearchB
         }
     }
 }
-
-

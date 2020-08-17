@@ -58,74 +58,75 @@ class CardViewController: UIViewController {
         cardFlavorLabel.text = card?.flavor
         cardFlavorLabel.numberOfLines = 0
         
+        cardManaCost()
         
+        setupNavigationItemBar()
+    }
+    
+    func cardManaCost() {
         if (card?.manaCost) != nil {
-            
             if var manaCosts = card?.manaCost?.components(separatedBy: "}") {
-                for i in 0..<manaCosts.count - 1 {
-                    manaCosts[i] = "\(manaCosts[i])}"
-                    switch manaCosts[i] {
+                for index in 0..<manaCosts.count - 1 {
+                    manaCosts[index] = "\(manaCosts[index])}"
+                    switch manaCosts[index] {
                     case "{0}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-0")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-0")
                     case "{1}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-1")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-1")
                     case "{2}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-2")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-2")
                     case "{3}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-3")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-3")
                     case "{4}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-4")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-4")
                     case "{5}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-5")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-5")
                     case "{6}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-6")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-6")
                     case "{7}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-7")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-7")
                     case "{8}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-8")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-8")
                     case "{9}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-9")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-9")
                     case "{10}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-10")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-10")
                     case "{11}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-11")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-11")
                     case "{12}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-12")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-12")
                     case "{13}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-13")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-13")
                     case "{14}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-14")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-14")
                     case "{15}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-15")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-15")
                     case "{16}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-16")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-16")
                     case "{17}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-17")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-17")
                     case "{18}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-18")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-18")
                     case "{19}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-19")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-19")
                     case "{20}":
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-20")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-20")
                     case "{W}":
-                        cardManaCostCollection[i].image = UIImage(named: "white")
+                        cardManaCostCollection[index].image = UIImage(named: "white")
                     case "{U}":
-                        cardManaCostCollection[i].image = UIImage(named: "blue")
+                        cardManaCostCollection[index].image = UIImage(named: "blue")
                     case "{B}":
-                        cardManaCostCollection[i].image = UIImage(named: "black")
+                        cardManaCostCollection[index].image = UIImage(named: "black")
                     case "{R}":
-                        cardManaCostCollection[i].image = UIImage(named: "red")
+                        cardManaCostCollection[index].image = UIImage(named: "red")
                     case "{G}":
-                        cardManaCostCollection[i].image = UIImage(named: "green")
+                        cardManaCostCollection[index].image = UIImage(named: "green")
                     default:
-                        cardManaCostCollection[i].image = UIImage(named: "incolor-0")
+                        cardManaCostCollection[index].image = UIImage(named: "incolor-0")
                     }
                 }
             }
         }
-        
-        setupNavigationItemBar()
-        
     }
     
     func setupNavigationItemBar() {

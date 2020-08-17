@@ -1,5 +1,12 @@
 
 disabled_rules:
 - trailing_whitespace
+- force_cast
+- identifier_name
+- unused_optional_binding
 
-force_cast: warning
+line_length: 240
+
+cyclomatic_complexity: 40
+
+function_body_length: 65

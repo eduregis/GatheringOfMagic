@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MTGSets: Codable, Equatable  {
+struct MTGSets: Codable, Equatable {
     var sets: [MTGSet]
 }
 
@@ -16,7 +16,7 @@ struct MTGSet: Codable, Equatable {
     var set: MTGSetDetails
 }
 
-struct MTGSetDetails: Codable, Equatable  {
+struct MTGSetDetails: Codable, Equatable {
     var code: String?
     var name: String?
     var type: String
