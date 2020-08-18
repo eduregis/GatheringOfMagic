@@ -17,11 +17,11 @@
 		2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4753D624E56BDC00D7A8EA /* CardViewController.swift */; };
 		2E47907F24E6D2FD009A1D16 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E47907E24E6D2FD009A1D16 /* SearchCollectionReusableView.swift */; };
 		2E4A17A524EACC3F00AB7954 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A17A424EACC3F00AB7954 /* .swiftlint.yml */; };
+		2E4A17AA24EADE5900AB7954 /* CardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */; };
 		2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */; };
 		2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */; };
 		2E4D2CDA24E171F500BF7AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD924E171F500BF7AA6 /* Assets.xcassets */; };
 		2E4D2CDD24E171F500BF7AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E4D2CDB24E171F500BF7AA6 /* LaunchScreen.storyboard */; };
-		2E4D2CE824E171F500BF7AA6 /* GatheringOfMagicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CE724E171F500BF7AA6 /* GatheringOfMagicTests.swift */; };
 		2E4D2CF324E171F500BF7AA6 /* GatheringOfMagicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CF224E171F500BF7AA6 /* GatheringOfMagicUITests.swift */; };
 		2E504DA724EAC0CF00F2DBD7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E504DA624EAC0CF00F2DBD7 /* TabBarViewController.swift */; };
 		2E5C8B3C24E996C300F0CE22 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C8B3B24E996C300F0CE22 /* Database.swift */; };
@@ -29,6 +29,8 @@
 		2E6C54ED24E2C44900F4F3DA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54EC24E2C44900F4F3DA /* Request.swift */; };
 		2E6C54F024E2CAF700F4F3DA /* GatheringView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6C54EF24E2CAF700F4F3DA /* GatheringView.storyboard */; };
 		2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */; };
+		2EF2D0C124EC058D0088BF09 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */; };
+		2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 		2E4753D624E56BDC00D7A8EA /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2E47907E24E6D2FD009A1D16 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		2E4A17A424EACC3F00AB7954 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewControllerTests.swift; sourceTree = "<group>"; };
 		2E4D2CCD24E171F300BF7AA6 /* GatheringOfMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatheringOfMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		2E4D2CDC24E171F500BF7AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E4D2CDE24E171F500BF7AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4D2CE324E171F500BF7AA6 /* GatheringOfMagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatheringOfMagicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E4D2CE724E171F500BF7AA6 /* GatheringOfMagicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringOfMagicTests.swift; sourceTree = "<group>"; };
 		2E4D2CE924E171F500BF7AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E4D2CEE24E171F500BF7AA6 /* GatheringOfMagicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatheringOfMagicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4D2CF224E171F500BF7AA6 /* GatheringOfMagicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringOfMagicUITests.swift; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		2E6C54EC24E2C44900F4F3DA /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2E6C54EF24E2CAF700F4F3DA /* GatheringView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GatheringView.storyboard; sourceTree = "<group>"; };
 		2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringViewController.swift; sourceTree = "<group>"; };
+		2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
+		2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +157,9 @@
 		2E4D2CE624E171F500BF7AA6 /* GatheringOfMagicTests */ = {
 			isa = PBXGroup;
 			children = (
-				2E4D2CE724E171F500BF7AA6 /* GatheringOfMagicTests.swift */,
 				2E4D2CE924E171F500BF7AA6 /* Info.plist */,
+				2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */,
+				2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */,
 			);
 			path = GatheringOfMagicTests;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				2E3A6E8524E835B800853673 /* FavoritesViewController.swift */,
 				2E4660E624E9DD74009668F2 /* SetViewController.swift */,
 				2E504DA624EAC0CF00F2DBD7 /* TabBarViewController.swift */,
+				2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 					};
 					2E4D2CE224E171F500BF7AA6 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 2E4D2CCC24E171F300BF7AA6;
 					};
 					2E4D2CED24E171F500BF7AA6 = {
@@ -367,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */,
+				2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */,
 				2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */,
 				2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */,
 				2E504DA724EAC0CF00F2DBD7 /* TabBarViewController.swift in Sources */,
@@ -386,7 +394,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E4D2CE824E171F500BF7AA6 /* GatheringOfMagicTests.swift in Sources */,
+				2EF2D0C124EC058D0088BF09 /* DatabaseTests.swift in Sources */,
+				2E4A17AA24EADE5900AB7954 /* CardViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +587,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GatheringOfMagicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -588,6 +598,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eduardoliveira.GatheringOfMagicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GatheringOfMagicTests/GatheringOfMagicTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatheringOfMagic.app/GatheringOfMagic";
@@ -599,6 +611,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GatheringOfMagicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -609,6 +622,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eduardoliveira.GatheringOfMagicTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GatheringOfMagicTests/GatheringOfMagicTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatheringOfMagic.app/GatheringOfMagic";

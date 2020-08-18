@@ -15,10 +15,4 @@ class TabBarViewController: UITabBarController {
         
         // Do any additional setup after loading the view.
     }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-          self.tabBar.barTintColor = UIColor.red
-          self.tabBar.unselectedItemTintColor = UIColor.darkGray
-          self.tabBar.tintColor = UIColor.white
-    }
 }

@@ -10,5 +10,9 @@ import UIKit
 
 class SearchCollectionReusableView: UICollectionReusableView {
         
+    static let nibName = "SearchCollectionReusableView"
+    
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var filterButton: UIButton!
 }

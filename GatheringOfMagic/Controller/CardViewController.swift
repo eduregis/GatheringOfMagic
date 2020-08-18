@@ -130,7 +130,7 @@ class CardViewController: UIViewController {
     }
     
     func setupNavigationItemBar() {
-        if favoriteCards.firstIndex(of: card!) != nil {
+        if favoriteCards.firstIndex(of: card ?? Card()) != nil {
             isFavorite = true
         }
         if isFavorite {
@@ -155,7 +155,7 @@ class CardViewController: UIViewController {
             Database.shared.deleteCard(from: .favoriteCards, at: card!)
         } else {
             favoriteImage = UIImage(named: "star-fill")
-            favoriteCards.append(card!)
+            favoriteCards.append(card ?? Card())
             Database.shared.saveData(from: favoriteCards, to: .favoriteCards)
         }
         favoriteCards = Database.shared.loadData(from: .favoriteCards)

@@ -21,7 +21,7 @@ class Database {
     //Singleton: Access by using Database.shared.<function-name>
     static let shared = Database()
     
-    private init() {
+    init() {
         let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let favoriteCardsFileName = "favoriteCards.json"
         

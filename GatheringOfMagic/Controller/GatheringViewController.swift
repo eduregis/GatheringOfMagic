@@ -45,7 +45,7 @@ class GatheringViewController: UICollectionViewController {
         //overrideUserInterfaceStyle = .dark
     }
     
-    private func setupNavigationbarItems () {
+    func setupNavigationbarItems () {
         let titleImageView = UIImageView(image: UIImage(imageLiteralResourceName: "GatheringOfMagic"))
         titleImageView.frame = CGRect(x: 0, y: 0, width: 92, height: 30)
         titleImageView.contentMode = .scaleAspectFit

@@ -40,15 +40,36 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51K-4r-YUX">
-                                    <rect key="frame" x="0.0" y="3" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYD-6b-7N9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="51K-4r-YUX">
+                                    <rect key="frame" x="0.0" y="-3" width="360" height="56"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="CC5-Op-WXU" id="LE2-eY-6vA"/>
                                     </connections>
                                 </searchBar>
+                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMv-3T-8Jg">
+                                    <rect key="frame" x="373" y="14" width="21" height="22"/>
+                                    <state key="normal" image="slider.horizontal.3" catalog="system"/>
+                                    <connections>
+                                        <segue destination="99L-rN-tqG" kind="presentation" identifier="ModalFilterSegue" id="i2b-fD-MWR"/>
+                                    </connections>
+                                </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="gYD-6b-7N9" secondAttribute="trailing" id="01p-Pe-JDC"/>
+                                <constraint firstItem="mMv-3T-8Jg" firstAttribute="centerY" secondItem="gYD-6b-7N9" secondAttribute="centerY" id="Fmc-vz-dKd"/>
+                                <constraint firstItem="gYD-6b-7N9" firstAttribute="leading" secondItem="Wxm-Qq-Cel" secondAttribute="leading" id="JL5-8D-BOa"/>
+                                <constraint firstItem="51K-4r-YUX" firstAttribute="width" secondItem="gYD-6b-7N9" secondAttribute="width" multiplier="0.87" id="Pqt-eB-6L6"/>
+                                <constraint firstAttribute="bottom" secondItem="gYD-6b-7N9" secondAttribute="bottom" id="aHy-AA-MFa"/>
+                                <constraint firstItem="gYD-6b-7N9" firstAttribute="top" secondItem="Wxm-Qq-Cel" secondAttribute="top" id="frO-9t-9ZZ"/>
+                                <constraint firstItem="51K-4r-YUX" firstAttribute="centerY" secondItem="gYD-6b-7N9" secondAttribute="centerY" id="s54-Nb-z3k"/>
+                                <constraint firstItem="51K-4r-YUX" firstAttribute="leading" secondItem="gYD-6b-7N9" secondAttribute="leading" id="sLF-SY-8E7"/>
+                                <constraint firstItem="mMv-3T-8Jg" firstAttribute="trailing" secondItem="gYD-6b-7N9" secondAttribute="trailing" constant="-20" id="tat-RW-TBR"/>
+                            </constraints>
                             <connections>
                                 <outlet property="searchBar" destination="51K-4r-YUX" id="myf-Sr-USS"/>
                             </connections>
@@ -429,9 +450,70 @@
             </objects>
             <point key="canvasLocation" x="-59.420289855072468" y="-129.24107142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kBm-eh-NBv">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-hO-HIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="99L-rN-tqG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WmI-uD-BQj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hww-Kg-Qet" kind="relationship" relationship="rootViewController" id="S7s-MN-idy"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="850.72463768115949" y="659.59821428571422"/>
+        </scene>
+        <!--Filter Settings View Controller-->
+        <scene sceneID="xsJ-II-d4X">
+            <objects>
+                <tableViewController id="Hww-Kg-Qet" customClass="FilterSettingsViewController" customModule="GatheringOfMagic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lFK-eY-jre">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Filter by:" id="ST5-jE-5Gi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settings" rowHeight="97" id="mgS-XV-ZbX">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mgS-XV-ZbX" id="bf8-gO-Iw2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBX-wd-gLO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Hww-Kg-Qet" id="mCW-5M-xGO"/>
+                            <outlet property="delegate" destination="Hww-Kg-Qet" id="mbB-29-gsZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="NeY-2e-04W"/>
+                    <connections>
+                        <outlet property="filterByPicker" destination="CBX-wd-gLO" id="gPk-mU-uuW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qX9-wO-X1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786.9565217391305" y="659.59821428571422"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gathering-empty" width="25" height="25"/>
         <image name="gathering-fill" width="25" height="25"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
 </document>

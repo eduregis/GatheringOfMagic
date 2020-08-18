@@ -26,4 +26,13 @@ struct Card: Codable, Equatable {
     var flavor: String?
     var loyalty: String?
     var id: String
+    
+    init () {
+        name = ""
+        type = ""
+        rarity = ""
+        set = ""
+        artist = ""
+        id = ""
+    }
 }

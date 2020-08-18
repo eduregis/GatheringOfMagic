@@ -39,9 +39,10 @@ struct MTGRequest {
     init (typeOfRequest: TypeOfRequest, name: String) {
         
         let resourceString: String
+        let filter = UserDefaults.standard.string(forKey: "filter")
         switch typeOfRequest {
         case .cards:
-            resourceString = "\(basicApi)cards?name=\(name)"
+            resourceString = "\(basicApi)cards?\(filter ?? "name")=\(name)"
         case .sets:
             resourceString = "\(basicApi)sets/\(name)"
         }
