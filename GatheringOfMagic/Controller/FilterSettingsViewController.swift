@@ -10,6 +10,15 @@ import UIKit
 
 class FilterSettingsViewController: UITableViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        let actualFilterValue = UserDefaults.standard.string(forKey: "filter")
+        for index in 0..<filterByPickerData.count {
+            if filterByPickerData[index].lowercased() == actualFilterValue {
+                filterByPicker.selectRow(index, inComponent: 0, animated: true)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
@@ -17,10 +26,9 @@ class FilterSettingsViewController: UITableViewController {
         filterByPicker.dataSource = self
     }
     
-    let filterByPickerData = ["Name","Type","Text"]
+    let filterByPickerData = ["Name", "Type", "Text"]
     
     @IBOutlet weak var filterByPicker: UIPickerView!
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -47,6 +55,5 @@ extension FilterSettingsViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.set(filterByPickerData[row].lowercased(), forKey: "filter")
-        print(UserDefaults.standard.string(forKey: "filter") ?? "")
     }
 }
