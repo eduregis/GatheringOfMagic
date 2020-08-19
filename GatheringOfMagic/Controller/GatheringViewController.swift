@@ -175,8 +175,10 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
                 if self.timerCount == actualTimerCount {
                     self.makeRequest(name: searchText)
                     self.listOfCards = []
+                    
                 }
             }
+            
         }
     }
 }

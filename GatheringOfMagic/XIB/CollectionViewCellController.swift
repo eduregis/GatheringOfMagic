@@ -31,6 +31,11 @@ class CollectionViewCell: UICollectionViewCell {
         self.cardName.text = card.name
     }
     
+    override func prepareForReuse() {
+        imageView.image = nil
+        cardName.text = ""
+    }
+    
     override func layoutSubviews() {
         cardName.lineBreakMode = .byWordWrapping
         cardName.numberOfLines = 0

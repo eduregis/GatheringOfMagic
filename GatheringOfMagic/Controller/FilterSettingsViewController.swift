@@ -17,6 +17,11 @@ class FilterSettingsViewController: UITableViewController {
                 filterByPicker.selectRow(index, inComponent: 0, animated: true)
             }
         }
+        whiteSwitch.isOn = UserDefaults.standard.bool(forKey: "whiteSwitch")
+        blueSwitch.isOn = UserDefaults.standard.bool(forKey: "blueSwitch")
+        blackSwitch.isOn = UserDefaults.standard.bool(forKey: "blackSwitch")
+        redSwitch.isOn = UserDefaults.standard.bool(forKey: "redSwitch")
+        greenSwitch.isOn = UserDefaults.standard.bool(forKey: "greenSwitch")
     }
     
     override func viewDidLoad() {
@@ -30,14 +35,45 @@ class FilterSettingsViewController: UITableViewController {
     
     @IBOutlet weak var filterByPicker: UIPickerView!
     
+    @IBOutlet weak var whiteSwitch: UISwitch!
+    @IBOutlet weak var blueSwitch: UISwitch!
+    @IBOutlet weak var blackSwitch: UISwitch!
+    @IBOutlet weak var redSwitch: UISwitch!
+    @IBOutlet weak var greenSwitch: UISwitch!
+    
+    @IBAction func whiteSwitch(_ sender: Any) {
+        UserDefaults.standard.set(whiteSwitch.isOn, forKey: "whiteSwitch")
+    }
+    
+    @IBAction func blueSwitch(_ sender: Any) {
+        UserDefaults.standard.set(blueSwitch.isOn, forKey: "blueSwitch")
+    }
+    
+    @IBAction func blackSwitch(_ sender: Any) {
+        UserDefaults.standard.set(blackSwitch.isOn, forKey: "blackSwitch")
+    }
+    
+    @IBAction func redSwitch(_ sender: Any) {
+        UserDefaults.standard.set(redSwitch.isOn, forKey: "redSwitch")
+    }
+    
+    @IBAction func greenSwitch(_ sender: Any) {
+        UserDefaults.standard.set(greenSwitch.isOn, forKey: "greenSwitch")
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0: return 1
+        default: return 5
+        }
     }
+    
 }
 
 extension FilterSettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {

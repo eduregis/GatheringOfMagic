@@ -26,6 +26,7 @@ struct Card: Codable, Equatable {
     var flavor: String?
     var loyalty: String?
     var id: String
+    var colors: [String]
     
     init () {
         name = ""
@@ -34,5 +35,6 @@ struct Card: Codable, Equatable {
         set = ""
         artist = ""
         id = ""
+        colors = []
     }
 }
