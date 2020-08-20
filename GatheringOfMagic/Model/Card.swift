@@ -12,10 +12,20 @@ struct Deck: Codable, Equatable {
     var name: String?
     var main: DeckComponent
     var sideboard: DeckComponent?
+    
+    init () {
+        name = "New deck"
+        main = DeckComponent()
+        sideboard = DeckComponent()
+    }
 }
 
 struct DeckComponent: Codable, Equatable {
     var deckCards: [Card]
+    
+    init () {
+        deckCards = []
+    }
 }
 
 struct DeckCard: Codable, Equatable {

@@ -29,6 +29,12 @@ class DecksViewController: UICollectionViewController {
         }
     }
     
+    @IBAction func newDeck(_ sender: Any) {
+        let newDeck = Deck()
+        listOfDecks.append(newDeck)
+        Database.shared.saveData(from: listOfDecks, to: .deckList)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DecksCell")
@@ -51,13 +57,13 @@ class DecksViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return listOfDecks.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DecksCell", for: indexPath)
         // Configure the cell
-        
+        cell.backgroundColor = .black
         return cell
     }
 }
@@ -72,7 +78,7 @@ extension DecksViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: 2*widthPerItem)
+        return CGSize(width: widthPerItem, height: 3*widthPerItem/2)
     }
     
     //3
