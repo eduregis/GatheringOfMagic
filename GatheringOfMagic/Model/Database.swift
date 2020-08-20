@@ -12,6 +12,10 @@ enum ListOfCards {
     case favoriteCards
 }
 
+enum ListOfDecks {
+    case deckList
+}
+
 class Database {
     
     var favoriteCards: URL
@@ -35,9 +39,9 @@ class Database {
         if !(FileManager.default.fileExists(atPath: favoriteCards.path)) {
             saveData(from: emptyArray, to: .favoriteCards)
         }
-//        if !(FileManager.default.fileExists(atPath: decks.path)) {
-//            saveData(from: emptyDeckList, to: "decklist")
-//        }
+        if !(FileManager.default.fileExists(atPath: decks.path)) {
+            saveData(from: emptyDeckList, to: .deckList)
+        }
         
     }
     
@@ -60,6 +64,25 @@ class Database {
         return loadedArray
     }
     
+    func loadData(from list: ListOfDecks) -> [Deck] {
+        var type: URL
+        var loadedArray: [Deck] = []
+        
+        switch list {
+        case .deckList:
+            type = decks
+        }
+        
+        do {
+            let fileToBeRead = try Data(contentsOf: type)
+            loadedArray = try JSONDecoder().decode([Deck].self, from: fileToBeRead)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return loadedArray
+    }
+    
     func saveData(from array: [Card], to list: ListOfCards) {
         
         var type: URL
@@ -67,6 +90,23 @@ class Database {
         switch list {
         case .favoriteCards:
             type = favoriteCards
+            
+            do {
+                let jsonData = try JSONEncoder().encode(array)
+                try jsonData.write(to: type)
+            } catch {
+                print("Impossível escrever no arquivo.")
+            }
+        }
+    }
+    
+    func saveData(from array: [Deck], to list: ListOfDecks) {
+        
+        var type: URL
+        
+        switch list {
+        case .deckList:
+            type = decks
             
             do {
                 let jsonData = try JSONEncoder().encode(array)
@@ -95,5 +135,10 @@ class Database {
     func loadFavoriteCards(from type: ListOfCards) -> [Card] {
         let favoriteCards = loadData(from: type)
         return favoriteCards
+    }
+    
+    func loadDecks(from type: ListOfDecks) -> [Deck] {
+        let decks = loadData(from: type)
+        return decks
     }
 }
