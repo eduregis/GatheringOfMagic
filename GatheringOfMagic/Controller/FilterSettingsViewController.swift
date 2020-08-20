@@ -61,7 +61,6 @@ class FilterSettingsViewController: UITableViewController {
         UserDefaults.standard.set(greenSwitch.isOn, forKey: "greenSwitch")
     }
     
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2

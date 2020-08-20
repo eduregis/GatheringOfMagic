@@ -15,8 +15,10 @@ enum ListOfCards {
 class Database {
     
     var favoriteCards: URL
+    var decks: URL
     
     var emptyArray = [Card]()
+    var emptyDeckList = [Deck]()
     
     //Singleton: Access by using Database.shared.<function-name>
     static let shared = Database()
@@ -24,13 +26,18 @@ class Database {
     init() {
         let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let favoriteCardsFileName = "favoriteCards.json"
+        let decksFileName = "decks.json"
         
         favoriteCards = documentsFolder.appendingPathComponent(favoriteCardsFileName)
+        decks = documentsFolder.appendingPathComponent(decksFileName)
         
         //Caso os arquivos não existam, eles são criados no init
         if !(FileManager.default.fileExists(atPath: favoriteCards.path)) {
             saveData(from: emptyArray, to: .favoriteCards)
         }
+//        if !(FileManager.default.fileExists(atPath: decks.path)) {
+//            saveData(from: emptyDeckList, to: "decklist")
+//        }
         
     }
     

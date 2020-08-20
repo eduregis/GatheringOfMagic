@@ -126,13 +126,14 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout, UISearchB
         if searchText.isEmpty {
             _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
                 if self.timerCount == actualTimerCount {
-                    
+                    self.fetchFavoriteCards()
                 }
             }
         } else {
             _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
                 if self.timerCount == actualTimerCount {
-                    
+                    self.fetchFavoriteCards()
+                    self.listOfFavoriteCards = self.listOfFavoriteCards.filter { $0.name.contains(searchText) } 
                 }
             }
         }

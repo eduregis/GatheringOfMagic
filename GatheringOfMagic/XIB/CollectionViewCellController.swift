@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-
+    
     static let nibName = "CollectionViewCell"
     static let identifier = "CardCell"
     
@@ -50,14 +50,34 @@ class CollectionViewCell: UICollectionViewCell {
 
 extension UIImageView {
     func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
+        //        DispatchQueue.global().async { [weak self] in
+        //            if let data = try? Data(contentsOf: url) {
+        //                if let image = UIImage(data: data) {
+        //                    DispatchQueue.main.async {
+        //                        self?.image = image
+        //                    }
+        //                }
+        //            }
+        //        }
+        URLSession.shared.downloadTask(with: url) { [weak self] url, _, error in
+            guard
+                let cache = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first,
+                let url = url
+                else {
+                    return
             }
-        }
+            
+            do {
+                let file = cache.appendingPathComponent("\(UUID().uuidString).jpg")
+                try FileManager.default.moveItem(atPath: url.path,
+                                                 toPath: file.path)
+                DispatchQueue.main.async {
+                    self?.image = UIImage(contentsOfFile: file.path)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+        
     }
 }

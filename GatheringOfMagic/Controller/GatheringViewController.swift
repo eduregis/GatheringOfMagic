@@ -21,7 +21,6 @@ class GatheringViewController: UICollectionViewController {
     
     var selectedCard: Card?
     
-    
     var listOfCards = [Card]() {
         didSet {
             // Essa função assíncrona recarrega a lista toda vez que a searchBar é acionada com um ENTER
@@ -39,8 +38,6 @@ class GatheringViewController: UICollectionViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
-        // caso vá usar dark mode
-        //overrideUserInterfaceStyle = .dark
     }
     
     func setupNavigationbarItems () {
@@ -49,8 +46,6 @@ class GatheringViewController: UICollectionViewController {
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
     }
-    
-    
     
     func makeRequest () {
         let cardRequest = MTGRequest(typeOfRequest: .cards)

@@ -705,7 +705,7 @@
                             <outlet property="delegate" destination="Hww-Kg-Qet" id="mbB-29-gsZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NeY-2e-04W"/>
+                    <navigationItem key="navigationItem" title="Filter Settings" id="NeY-2e-04W"/>
                     <connections>
                         <outlet property="blackSwitch" destination="4vh-09-Plx" id="0Zx-kB-xvZ"/>
                         <outlet property="blueSwitch" destination="zYF-iH-L49" id="oFI-Is-kmi"/>

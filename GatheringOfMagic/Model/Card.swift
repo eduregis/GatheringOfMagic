@@ -8,7 +8,20 @@
 
 import Foundation
 
-struct
+struct Deck: Codable, Equatable {
+    var name: String?
+    var main: DeckComponent
+    var sideboard: DeckComponent?
+}
+
+struct DeckComponent: Codable, Equatable {
+    var deckCards: [Card]
+}
+
+struct DeckCard: Codable, Equatable {
+    var card: Card
+    var quantity: Int
+}
 
 struct Cards: Codable, Equatable {
     var cards: [Card]
