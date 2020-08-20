@@ -21,7 +21,6 @@ class GatheringViewController: UICollectionViewController {
     
     var selectedCard: Card?
     
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     var listOfCards = [Card]() {
         didSet {
@@ -37,7 +36,6 @@ class GatheringViewController: UICollectionViewController {
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         makeRequest()
         setupNavigationbarItems()
-        triggerIndicator(status: false)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
@@ -52,15 +50,7 @@ class GatheringViewController: UICollectionViewController {
         navigationItem.titleView = titleImageView
     }
     
-    func triggerIndicator (status: Bool) {
-        if status {
-            indicator.isHidden = false
-            indicator.startAnimating()
-        } else {
-            indicator.isHidden = true
-            indicator.stopAnimating()
-        }
-    }
+    
     
     func makeRequest () {
         let cardRequest = MTGRequest(typeOfRequest: .cards)

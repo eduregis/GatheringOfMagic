@@ -31,11 +31,9 @@
             <constraints>
                 <constraint firstItem="fB6-hP-1wu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7vF-EV-mEf"/>
                 <constraint firstItem="0hL-65-igu" firstAttribute="top" secondItem="fB6-hP-1wu" secondAttribute="bottom" constant="10" id="JA8-3o-4sV"/>
-                <constraint firstItem="0hL-65-igu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="UDy-rs-AC5"/>
+                <constraint firstItem="fB6-hP-1wu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nsd-Dl-JTI"/>
+                <constraint firstItem="0hL-65-igu" firstAttribute="centerX" secondItem="fB6-hP-1wu" secondAttribute="centerX" id="TfP-aG-MCN"/>
                 <constraint firstItem="0hL-65-igu" firstAttribute="width" secondItem="fB6-hP-1wu" secondAttribute="width" id="Zlm-61-76p"/>
-                <constraint firstItem="fB6-hP-1wu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="faL-ET-Ejt"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fB6-hP-1wu" secondAttribute="trailing" constant="18" id="ia8-1p-5Nq"/>
-                <constraint firstItem="0hL-65-igu" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-18" id="ntc-IV-XB7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -20,6 +20,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func configure(with card: Card) {
         
+        imageView.image = UIImage(named: "backside")
+        
         self.card = card
         
         guard let imageUrlString = card.imageUrl else { return }

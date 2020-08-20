@@ -61,11 +61,14 @@ struct MTGRequest {
         
         let resourceString: String
         let filter = UserDefaults.standard.string(forKey: "filter")
+        
+        let newName = name.replacingOccurrences(of: " ", with: "+")
+        
         switch typeOfRequest {
         case .cards:
-            resourceString = "\(basicApi)cards?\(filter ?? "name")=\(name)"
+            resourceString = "\(basicApi)cards?\(filter ?? "name")=\(newName)"
         case .sets:
-            resourceString = "\(basicApi)sets/\(name)"
+            resourceString = "\(basicApi)sets/\(newName)"
         }
         
         guard let resourceURL = URL(string: resourceString) else {fatalError()}

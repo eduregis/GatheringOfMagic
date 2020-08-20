@@ -8,6 +8,8 @@
 
 import Foundation
 
+struct
+
 struct Cards: Codable, Equatable {
     var cards: [Card]
 }
