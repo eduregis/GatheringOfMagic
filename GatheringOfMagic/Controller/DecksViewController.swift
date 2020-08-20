@@ -10,7 +10,7 @@ import UIKit
 
 class DecksViewController: UICollectionViewController {
     
-    private let itemsPerRow: CGFloat = 3
+    private let itemsPerRow: CGFloat = 2
     
     private var timerCount: Int = 0
     

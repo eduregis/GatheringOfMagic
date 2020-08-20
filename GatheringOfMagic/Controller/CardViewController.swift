@@ -55,7 +55,7 @@ class CardViewController: UIViewController {
         cardTextLabel.text = card?.text
         cardTextLabel.numberOfLines = 0
         
-        cardFlavorLabel.text = card?.flavor
+        cardFlavorLabel.text = card?.flavor ?? "-"
         cardFlavorLabel.numberOfLines = 0
         
         cardManaCost()
@@ -168,10 +168,20 @@ class CardViewController: UIViewController {
         performSegue(withIdentifier: "SetViewSegue", sender: self)
     }
     
+    
+    @IBAction func addToADeckAction(_ sender: Any) {
+        performSegue(withIdentifier: "AddToADeckViewSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SetViewController {
             let vc = segue.destination as? SetViewController
             vc?.setCode = card?.set
         }
+        else if segue.destination is AddToADeckViewController {
+            let vc = segue.destination as? AddToADeckViewController
+            vc?.card = card
+        }
+
     }
 }

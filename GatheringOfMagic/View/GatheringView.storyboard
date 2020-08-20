@@ -314,9 +314,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVw-XZ-091">
+                                                <rect key="frame" x="157.5" y="848" width="99" height="30"/>
+                                                <state key="normal" title="Add to a deck "/>
+                                                <connections>
+                                                    <action selector="addToADeckAction:" destination="rOM-gK-9B9" eventType="touchUpInside" id="q46-pR-fD3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="DVw-XZ-091" firstAttribute="centerX" secondItem="p9b-so-SuB" secondAttribute="centerX" id="1KT-IG-bHy"/>
                                             <constraint firstItem="Bf3-fO-aQZ" firstAttribute="leading" secondItem="iL6-81-thQ" secondAttribute="leading" id="3bi-Wq-9VG"/>
                                             <constraint firstItem="dap-Ll-PuA" firstAttribute="leading" secondItem="1d3-Xy-ohm" secondAttribute="leading" id="4mF-6M-i6n"/>
                                             <constraint firstItem="IZ4-yi-T4p" firstAttribute="top" secondItem="pzU-zq-E2O" secondAttribute="bottom" constant="7.5" id="55Y-kx-y7L"/>
@@ -329,6 +337,7 @@
                                             <constraint firstItem="dap-Ll-PuA" firstAttribute="width" secondItem="p9b-so-SuB" secondAttribute="width" multiplier="0.85" id="Kac-no-QYL"/>
                                             <constraint firstItem="iL6-81-thQ" firstAttribute="top" secondItem="dap-Ll-PuA" secondAttribute="bottom" constant="4.5" id="Kx3-0q-fej"/>
                                             <constraint firstAttribute="trailing" secondItem="Wu6-yx-SvL" secondAttribute="trailing" constant="22" id="NEN-c3-VqQ"/>
+                                            <constraint firstItem="DVw-XZ-091" firstAttribute="top" secondItem="Bf3-fO-aQZ" secondAttribute="bottom" constant="8" id="PwJ-7b-tVl"/>
                                             <constraint firstItem="ZHG-Gm-e5i" firstAttribute="top" secondItem="Wu6-yx-SvL" secondAttribute="bottom" constant="8" id="Pz1-jo-UeD"/>
                                             <constraint firstItem="xW7-uL-bSi" firstAttribute="top" secondItem="lAY-Rq-5wT" secondAttribute="bottom" constant="7.5" id="Qf0-zA-nWz"/>
                                             <constraint firstItem="xW7-uL-bSi" firstAttribute="leading" secondItem="lAY-Rq-5wT" secondAttribute="leading" id="Rw7-xB-7Yd"/>
@@ -390,6 +399,7 @@
                         <outletCollection property="cardManaCostCollection" destination="Cij-hq-HiY" collectionClass="NSMutableArray" id="Mgg-SV-UgM"/>
                         <outletCollection property="cardManaCostCollection" destination="oi1-f6-zAf" collectionClass="NSMutableArray" id="0CM-gy-gH4"/>
                         <segue destination="7NL-Wg-B25" kind="show" identifier="SetViewSegue" id="fVq-jb-ol2"/>
+                        <segue destination="hvU-WB-nVi" kind="presentation" identifier="AddToADeckViewSegue" id="gbB-Jh-0om"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAv-d8-8XM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -462,6 +472,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-hO-HIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="659.59821428571422"/>
+        </scene>
+        <!--Add to a deck-->
+        <scene sceneID="UhC-PN-LRA">
+            <objects>
+                <tableViewController id="jG7-2a-bnd" customClass="AddToADeckViewController" customModule="GatheringOfMagic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="L6O-ek-364">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="deckCell" id="h67-sW-jNZ">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h67-sW-jNZ" id="l7d-Q1-XAP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jG7-2a-bnd" id="yIr-MV-OTF"/>
+                            <outlet property="delegate" destination="jG7-2a-bnd" id="j7r-EK-l5h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add to a deck" id="YB1-99-8bL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bD-mb-MXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1788" y="1438"/>
         </scene>
         <!--Settings-->
         <scene sceneID="xsJ-II-d4X">
@@ -717,7 +756,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qX9-wO-X1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786.9565217391305" y="659.59821428571422"/>
+            <point key="canvasLocation" x="851" y="1439"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yyc-Tb-NBz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hvU-WB-nVi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Gs-iu-PPv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jG7-2a-bnd" kind="relationship" relationship="rootViewController" id="5xG-Ng-B2P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgN-9R-hLL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.8550724637682" y="659.59821428571422"/>
         </scene>
     </scenes>
     <resources>
