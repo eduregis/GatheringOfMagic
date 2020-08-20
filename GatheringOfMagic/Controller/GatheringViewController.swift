@@ -19,6 +19,8 @@ class GatheringViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
+    var deck: Deck?
+    
     var selectedCard: Card?
     
     var listOfCards = [Card]() {
@@ -41,10 +43,14 @@ class GatheringViewController: UICollectionViewController {
     }
     
     func setupNavigationbarItems () {
-        let titleImageView = UIImageView(image: UIImage(imageLiteralResourceName: "GatheringOfMagic"))
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 92, height: 30)
-        titleImageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = titleImageView
+        if deck != nil {
+            self.title = deck?.name
+        } else {
+            let titleImageView = UIImageView(image: UIImage(imageLiteralResourceName: "GatheringOfMagic"))
+            titleImageView.frame = CGRect(x: 0, y: 0, width: 92, height: 30)
+            titleImageView.contentMode = .scaleAspectFit
+            navigationItem.titleView = titleImageView
+        }
     }
     
     func makeRequest () {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E07DF7324EEF03700E23F14 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07DF7224EEF03700E23F14 /* DeckViewController.swift */; };
 		2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A6E8524E835B800853673 /* FavoritesViewController.swift */; };
 		2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E410E1424E4125D00345160 /* CollectionViewCell.xib */; };
 		2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E410E1624E413B400345160 /* CollectionViewCellController.swift */; };
@@ -31,7 +32,6 @@
 		2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */; };
 		2EB3738C24EEA7F10012FBEF /* DecksView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB3738B24EEA7F10012FBEF /* DecksView.storyboard */; };
 		2EB3738E24EEA92B0012FBEF /* DecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */; };
-		2EB3739224EEBB8C0012FBEF /* AddToADeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3739124EEBB8C0012FBEF /* AddToADeckViewController.swift */; };
 		2EF2D0C124EC058D0088BF09 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */; };
 		2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E07DF7224EEF03700E23F14 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
 		2E3A6E8524E835B800853673 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2E410E1424E4125D00345160 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		2E410E1624E413B400345160 /* CollectionViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellController.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		2E6C54F424E2CCFB00F4F3DA /* GatheringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringViewController.swift; sourceTree = "<group>"; };
 		2EB3738B24EEA7F10012FBEF /* DecksView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DecksView.storyboard; sourceTree = "<group>"; };
 		2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksViewController.swift; sourceTree = "<group>"; };
-		2EB3739124EEBB8C0012FBEF /* AddToADeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToADeckViewController.swift; sourceTree = "<group>"; };
 		2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,7 +220,7 @@
 				2E504DA624EAC0CF00F2DBD7 /* TabBarViewController.swift */,
 				2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */,
 				2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */,
-				2EB3739124EEBB8C0012FBEF /* AddToADeckViewController.swift */,
+				2E07DF7224EEF03700E23F14 /* DeckViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -392,10 +392,10 @@
 				2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */,
 				2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */,
 				2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */,
+				2E07DF7324EEF03700E23F14 /* DeckViewController.swift in Sources */,
 				2E47907F24E6D2FD009A1D16 /* SearchCollectionReusableView.swift in Sources */,
 				2E4660E924E9EB6C009668F2 /* Set.swift in Sources */,
 				2EB3738E24EEA92B0012FBEF /* DecksViewController.swift in Sources */,
-				2EB3739224EEBB8C0012FBEF /* AddToADeckViewController.swift in Sources */,
 				2E5C8B3C24E996C300F0CE22 /* Database.swift in Sources */,
 				2E4660E724E9DD74009668F2 /* SetViewController.swift in Sources */,
 				2E6C54EB24E2BEFD00F4F3DA /* Card.swift in Sources */,

@@ -132,6 +132,13 @@ class Database {
         saveData(from: loadedArray, to: list)
     }
     
+    func deleteAllDecks(from list: ListOfDecks) {
+        
+        var loadedArray = loadData(from: list)
+        loadedArray.removeAll()
+        saveData(from: loadedArray, to: list)
+    }
+    
     func loadFavoriteCards(from type: ListOfCards) -> [Card] {
         let favoriteCards = loadData(from: type)
         return favoriteCards

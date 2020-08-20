@@ -21,7 +21,7 @@ struct Deck: Codable, Equatable {
 }
 
 struct DeckComponent: Codable, Equatable {
-    var deckCards: [Card]
+    var deckCards: [DeckCard]
     
     init () {
         deckCards = []
@@ -31,6 +31,11 @@ struct DeckComponent: Codable, Equatable {
 struct DeckCard: Codable, Equatable {
     var card: Card
     var quantity: Int
+    
+    init(card: Card, quantity: Int) {
+        self.card = card
+        self.quantity = quantity
+    }
 }
 
 struct Cards: Codable, Equatable {

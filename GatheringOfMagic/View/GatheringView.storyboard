@@ -399,7 +399,6 @@
                         <outletCollection property="cardManaCostCollection" destination="Cij-hq-HiY" collectionClass="NSMutableArray" id="Mgg-SV-UgM"/>
                         <outletCollection property="cardManaCostCollection" destination="oi1-f6-zAf" collectionClass="NSMutableArray" id="0CM-gy-gH4"/>
                         <segue destination="7NL-Wg-B25" kind="show" identifier="SetViewSegue" id="fVq-jb-ol2"/>
-                        <segue destination="hvU-WB-nVi" kind="presentation" identifier="AddToADeckViewSegue" id="gbB-Jh-0om"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAv-d8-8XM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -472,35 +471,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u7-hO-HIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="659.59821428571422"/>
-        </scene>
-        <!--Add to a deck-->
-        <scene sceneID="UhC-PN-LRA">
-            <objects>
-                <tableViewController id="jG7-2a-bnd" customClass="AddToADeckViewController" customModule="GatheringOfMagic" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="L6O-ek-364">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="deckCell" id="h67-sW-jNZ">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h67-sW-jNZ" id="l7d-Q1-XAP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="jG7-2a-bnd" id="yIr-MV-OTF"/>
-                            <outlet property="delegate" destination="jG7-2a-bnd" id="j7r-EK-l5h"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Add to a deck" id="YB1-99-8bL"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6bD-mb-MXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1788" y="1438"/>
         </scene>
         <!--Settings-->
         <scene sceneID="xsJ-II-d4X">
@@ -757,24 +727,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qX9-wO-X1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="851" y="1439"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Yyc-Tb-NBz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hvU-WB-nVi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Gs-iu-PPv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jG7-2a-bnd" kind="relationship" relationship="rootViewController" id="5xG-Ng-B2P"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BgN-9R-hLL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1789.8550724637682" y="659.59821428571422"/>
         </scene>
     </scenes>
     <resources>

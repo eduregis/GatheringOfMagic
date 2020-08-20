@@ -168,7 +168,6 @@ class CardViewController: UIViewController {
         performSegue(withIdentifier: "SetViewSegue", sender: self)
     }
     
-    
     @IBAction func addToADeckAction(_ sender: Any) {
         performSegue(withIdentifier: "AddToADeckViewSegue", sender: self)
     }
@@ -178,10 +177,5 @@ class CardViewController: UIViewController {
             let vc = segue.destination as? SetViewController
             vc?.setCode = card?.set
         }
-        else if segue.destination is AddToADeckViewController {
-            let vc = segue.destination as? AddToADeckViewController
-            vc?.card = card
-        }
-
     }
 }
