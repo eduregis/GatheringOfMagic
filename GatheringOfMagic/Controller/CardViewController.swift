@@ -12,11 +12,15 @@ class CardViewController: UIViewController {
     
     var card: Card?
     
+    var deck: Deck?
+    
     var favoriteCards = Database.shared.loadData(from: .favoriteCards)
     
     var favoriteButton: UIButton?
     var favoriteImage: UIImage?
     var isFavorite: Bool = false
+    
+    var addToADeckButton: UIButton?
     
     @IBOutlet weak var cardNameLabel: UILabel!
     @IBOutlet weak var cardImageView: UIImageView!
@@ -130,22 +134,34 @@ class CardViewController: UIViewController {
     }
     
     func setupNavigationItemBar() {
-        if favoriteCards.firstIndex(of: card ?? Card()) != nil {
-            isFavorite = true
-        }
-        if isFavorite {
-            favoriteImage = UIImage(named: "star-fill")
+        if deck == nil {
+            if favoriteCards.firstIndex(of: card ?? Card()) != nil {
+                isFavorite = true
+            }
+            if isFavorite {
+                favoriteImage = UIImage(named: "star-fill")
+            } else {
+                favoriteImage = UIImage(named: "star-empty")
+            }
+            
+            favoriteButton = UIButton(type: .system)
+            favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
+            favoriteButton?.widthAnchor.constraint(equalToConstant: 34).isActive = true
+            favoriteButton?.heightAnchor.constraint(equalToConstant: 34).isActive = true
+            favoriteButton?.contentMode = .center
+            favoriteButton?.addTarget(self, action: #selector(isFavorited), for: UIControl.Event.touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton!)
         } else {
-            favoriteImage = UIImage(named: "star-empty")
+            addToADeckButton = UIButton(type: .system)
+            addToADeckButton?.setTitle("Add", for: .normal)
+            addToADeckButton?.contentMode = .center
+            addToADeckButton?.addTarget(self, action: #selector(addToADeck), for: UIControl.Event.touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addToADeckButton!)
         }
-        
-        favoriteButton = UIButton(type: .system)
-        favoriteButton?.setImage(favoriteImage? .withRenderingMode(.alwaysOriginal), for: .normal)
-        favoriteButton?.widthAnchor.constraint(equalToConstant: 34).isActive = true
-        favoriteButton?.heightAnchor.constraint(equalToConstant: 34).isActive = true
-        favoriteButton?.contentMode = .center
-        favoriteButton?.addTarget(self, action: #selector(isFavorited), for: UIControl.Event.touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton!)
+    }
+    
+    @objc func addToADeck () {
+        performSegue(withIdentifier: "AddToADeckViewSegue", sender: self)
     }
     
     @objc func isFavorited() {
@@ -168,14 +184,15 @@ class CardViewController: UIViewController {
         performSegue(withIdentifier: "SetViewSegue", sender: self)
     }
     
-    @IBAction func addToADeckAction(_ sender: Any) {
-        performSegue(withIdentifier: "AddToADeckViewSegue", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SetViewController {
             let vc = segue.destination as? SetViewController
             vc?.setCode = card?.set
+        }
+        if segue.destination is AddToADeckViewController {
+            let vc = segue.destination as? AddToADeckViewController
+            vc?.deck = deck
+            vc?.card = card
         }
     }
 }

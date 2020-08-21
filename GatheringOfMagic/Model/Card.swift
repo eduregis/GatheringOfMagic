@@ -11,7 +11,7 @@ import Foundation
 struct Deck: Codable, Equatable {
     var name: String?
     var main: DeckComponent
-    var sideboard: DeckComponent?
+    var sideboard: DeckComponent
     
     init () {
         name = "New deck"

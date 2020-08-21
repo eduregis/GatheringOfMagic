@@ -33,6 +33,8 @@ class CollectionViewCell: UICollectionViewCell {
         self.cardName.text = card.name
     }
     
+    
+    
     override func prepareForReuse() {
         imageView.image = nil
         cardName.text = ""
@@ -50,15 +52,6 @@ class CollectionViewCell: UICollectionViewCell {
 
 extension UIImageView {
     func load(url: URL) {
-        //        DispatchQueue.global().async { [weak self] in
-        //            if let data = try? Data(contentsOf: url) {
-        //                if let image = UIImage(data: data) {
-        //                    DispatchQueue.main.async {
-        //                        self?.image = image
-        //                    }
-        //                }
-        //            }
-        //        }
         URLSession.shared.downloadTask(with: url) { [weak self] url, _, error in
             guard
                 let cache = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first,

@@ -31,7 +31,7 @@ class GatheringViewController: UICollectionViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
@@ -101,24 +101,28 @@ class GatheringViewController: UICollectionViewController {
         if segue.destination is CardViewController {
             let vc = segue.destination as? CardViewController
             vc?.card = selectedCard
+            if deck != nil {
+                vc?.deck = deck
+            }
         }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
+        
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView: UICollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath)
-
-             return headerView
-         }
-
-         return UICollectionReusableView()
-
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+        
     }
 }
 
 extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -126,17 +130,17 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
-
+        
         return CGSize(width: widthPerItem, height: 2*widthPerItem)
     }
-
+    
     //3
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
-
+    
     // 4
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -150,7 +154,7 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
             self.collectionView?.reloadData()
         }
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timerCount += 1
         let actualTimerCount = timerCount

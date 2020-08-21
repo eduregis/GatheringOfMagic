@@ -125,6 +125,14 @@ class Database {
         }
     }
     
+    func deleteDeck(from list: ListOfDecks, at deck: Deck) {
+        var loadedArray = loadData(from: list)
+        if let index = loadedArray.firstIndex(of: deck) {
+            loadedArray.remove(at: index)
+            saveData(from: loadedArray, to: list)
+        }
+    }
+    
     func deleteAllCards(from list: ListOfCards) {
         
         var loadedArray = loadData(from: list)
