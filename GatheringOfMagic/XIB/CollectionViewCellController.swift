@@ -15,10 +15,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     var card: Card?
     
+    
+    var isDeckCard: Bool?
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cardName: UILabel!
     
-    func configure(with card: Card) {
+    func configure(with card: Card, isDeckCard: Bool) {
         
         imageView.image = UIImage(named: "backside")
         
@@ -32,8 +35,6 @@ class CollectionViewCell: UICollectionViewCell {
         
         self.cardName.text = card.name
     }
-    
-    
     
     override func prepareForReuse() {
         imageView.image = nil

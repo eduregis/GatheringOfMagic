@@ -20,6 +20,7 @@ class GatheringViewController: UICollectionViewController {
                                              right: 20.0)
     
     var deck: Deck?
+    var deckComponent: String?
     
     var selectedCard: Card?
     
@@ -87,8 +88,74 @@ class GatheringViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
-        cell.configure(with: listOfCards[indexPath.row])
+        
+        if deckComponent != nil {
+            cell.configure(with: listOfCards[indexPath.row], isDeckCard:
+                true)
+            
+            var quantity: Int?
+            
+            let copyLabel = UILabel(frame: CGRect(x: cell.contentView.frame.width/2 - 20, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+            switch deckComponent {
+            case "Mainboard":
+                let deckCard = deck?.main.deckCards.filter { $0.card == listOfCards[indexPath.row] }
+                if deckCard?.count == 0 {
+                    quantity = 0
+                } else {
+                    quantity = deckCard?[0].quantity
+                }
+                copyLabel.text = "\(quantity ?? 0)"
+            case "Sideboard":
+                let deckCard = deck?.sideboard.deckCards.filter { $0.card == listOfCards[indexPath.row] }
+                if deckCard?.count == 0 {
+                    quantity = 0
+                } else {
+                    quantity = deckCard?[0].quantity
+                }
+                copyLabel.text = "\(quantity ?? 0)"
+            default:
+                break
+            }
+            
+            cell.contentView.subviews.forEach {
+                $0.removeFromSuperview()
+            }
+            
+            let addButton = UIButton(frame: CGRect(x: cell.contentView.frame.width/2 + 5, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+            let addImage = UIImage(named: "chevron-right")
+            addButton.setImage(addImage, for: .normal)
+            let addTapGesture = DeckEditTapGestureRecognizer(target: self,
+                                                        action: #selector(addCard(sender:)))
+            addTapGesture.index = indexPath.row
+            addButton.addGestureRecognizer(addTapGesture)
+            cell.contentView.addSubview(addButton)
+            
+            let subtractButton = UIButton(frame: CGRect(x: cell.contentView.frame.width/2 - 55, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+            let subtractImage = UIImage(named: "chevron-left")
+            subtractButton.setImage(subtractImage, for: .normal)
+            let subtractTapGesture = DeckEditTapGestureRecognizer(target: self,
+                                                                   action: #selector(subtractCard(sender:)))
+                       subtractTapGesture.index = indexPath.row
+            cell.contentView.addSubview(subtractButton)
+            
+            cell.contentView.addSubview(copyLabel)
+        } else {
+            cell.configure(with: listOfCards[indexPath.row], isDeckCard: false)
+        }
+        
         return cell
+    }
+    
+    @objc func segueCard () {
+        print("ativa segue")
+    }
+    
+    @objc func addCard (sender: DeckEditTapGestureRecognizer) {
+        print(sender.index ?? "aff")
+    }
+    
+    @objc func subtractCard (sender: DeckEditTapGestureRecognizer) {
+        print(sender.index ?? "aff")
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -101,11 +168,7 @@ class GatheringViewController: UICollectionViewController {
         if segue.destination is CardViewController {
             let vc = segue.destination as? CardViewController
             vc?.card = selectedCard
-            if deck != nil {
-                vc?.deck = deck
-            }
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -173,7 +236,10 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
                     
                 }
             }
-            
         }
     }
+}
+
+class DeckEditTapGestureRecognizer: UITapGestureRecognizer {
+    var index: Int?
 }

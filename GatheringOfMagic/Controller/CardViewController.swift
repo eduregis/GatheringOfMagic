@@ -12,8 +12,6 @@ class CardViewController: UIViewController {
     
     var card: Card?
     
-    var deck: Deck?
-    
     var favoriteCards = Database.shared.loadData(from: .favoriteCards)
     
     var favoriteButton: UIButton?
@@ -134,7 +132,6 @@ class CardViewController: UIViewController {
     }
     
     func setupNavigationItemBar() {
-        if deck == nil {
             if favoriteCards.firstIndex(of: card ?? Card()) != nil {
                 isFavorite = true
             }
@@ -151,13 +148,7 @@ class CardViewController: UIViewController {
             favoriteButton?.contentMode = .center
             favoriteButton?.addTarget(self, action: #selector(isFavorited), for: UIControl.Event.touchUpInside)
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton!)
-        } else {
-            addToADeckButton = UIButton(type: .system)
-            addToADeckButton?.setTitle("Add", for: .normal)
-            addToADeckButton?.contentMode = .center
-            addToADeckButton?.addTarget(self, action: #selector(addToADeck), for: UIControl.Event.touchUpInside)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addToADeckButton!)
-        }
+
     }
     
     @objc func addToADeck () {
@@ -188,11 +179,6 @@ class CardViewController: UIViewController {
         if segue.destination is SetViewController {
             let vc = segue.destination as? SetViewController
             vc?.setCode = card?.set
-        }
-        if segue.destination is AddToADeckViewController {
-            let vc = segue.destination as? AddToADeckViewController
-            vc?.deck = deck
-            vc?.card = card
         }
     }
 }

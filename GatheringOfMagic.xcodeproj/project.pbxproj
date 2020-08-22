@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E07DF7324EEF03700E23F14 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07DF7224EEF03700E23F14 /* DeckViewController.swift */; };
-		2E08B72124EFF3E6002DA04B /* AddToADeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08B72024EFF3E6002DA04B /* AddToADeckViewController.swift */; };
-		2E2AA0B324F0400D000E0EF0 /* CardViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AA0B224F0400D000E0EF0 /* CardViewControllerDelegate.swift */; };
 		2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A6E8524E835B800853673 /* FavoritesViewController.swift */; };
 		2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E410E1424E4125D00345160 /* CollectionViewCell.xib */; };
 		2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E410E1624E413B400345160 /* CollectionViewCellController.swift */; };
@@ -57,8 +55,6 @@
 
 /* Begin PBXFileReference section */
 		2E07DF7224EEF03700E23F14 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
-		2E08B72024EFF3E6002DA04B /* AddToADeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToADeckViewController.swift; sourceTree = "<group>"; };
-		2E2AA0B224F0400D000E0EF0 /* CardViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewControllerDelegate.swift; sourceTree = "<group>"; };
 		2E3A6E8524E835B800853673 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2E410E1424E4125D00345160 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		2E410E1624E413B400345160 /* CollectionViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellController.swift; sourceTree = "<group>"; };
@@ -121,7 +117,6 @@
 		2E2AA0B124F03FDB000E0EF0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2E2AA0B224F0400D000E0EF0 /* CardViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -234,7 +229,6 @@
 				2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */,
 				2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */,
 				2E07DF7224EEF03700E23F14 /* DeckViewController.swift */,
-				2E08B72024EFF3E6002DA04B /* AddToADeckViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,7 +397,6 @@
 				2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */,
 				2E504DA724EAC0CF00F2DBD7 /* TabBarViewController.swift in Sources */,
 				2E6C54ED24E2C44900F4F3DA /* Request.swift in Sources */,
-				2E2AA0B324F0400D000E0EF0 /* CardViewControllerDelegate.swift in Sources */,
 				2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */,
 				2E6C54F524E2CCFB00F4F3DA /* GatheringViewController.swift in Sources */,
 				2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */,
@@ -412,7 +405,6 @@
 				2E4660E924E9EB6C009668F2 /* Set.swift in Sources */,
 				2EB3738E24EEA92B0012FBEF /* DecksViewController.swift in Sources */,
 				2E5C8B3C24E996C300F0CE22 /* Database.swift in Sources */,
-				2E08B72124EFF3E6002DA04B /* AddToADeckViewController.swift in Sources */,
 				2E4660E724E9DD74009668F2 /* SetViewController.swift in Sources */,
 				2E6C54EB24E2BEFD00F4F3DA /* Card.swift in Sources */,
 			);

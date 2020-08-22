@@ -57,14 +57,14 @@ class FavoritesViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
-        cell.configure(with: listOfFavoriteCards[indexPath.row])
+        cell.configure(with: listOfFavoriteCards[indexPath.row], isDeckCard: false)
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         self.selectedCard = cell.card
-        performSegue(withIdentifier: "CardViewSegue", sender: self)
+        //performSegue(withIdentifier: "CardViewSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

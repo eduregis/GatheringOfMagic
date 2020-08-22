@@ -65,6 +65,7 @@ class DeckViewController: UICollectionViewController {
         if segue.destination is GatheringViewController {
             let vc = segue.destination as? GatheringViewController
             vc?.deck = deck
+            vc?.deckComponent = "Mainboard"
         }
     }
 }
