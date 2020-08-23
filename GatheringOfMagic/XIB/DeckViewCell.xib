@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DeckViewCell" customModule="GatheringOfMagic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="128" height="192"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deck-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="lv3-KM-h5L">
+                    <rect key="frame" x="18" y="0.0" width="92" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="aEZ-Ag-Zdh"/>
+                        <constraint firstAttribute="width" constant="92" id="sZf-AH-dfX"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-9i-ARs">
+                    <rect key="frame" x="43" y="136" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz4-Mt-19T">
+                    <rect key="frame" x="18" y="160" width="36" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9V-0W-0uk">
+                    <rect key="frame" x="74" y="160" width="36" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="qz4-Mt-19T" firstAttribute="top" secondItem="lv3-KM-h5L" secondAttribute="bottom" constant="32" id="Ggs-IX-HbJ"/>
+                <constraint firstItem="w9V-0W-0uk" firstAttribute="top" secondItem="lv3-KM-h5L" secondAttribute="bottom" constant="32" id="Gy3-Wf-Ok3"/>
+                <constraint firstItem="w9V-0W-0uk" firstAttribute="trailing" secondItem="lv3-KM-h5L" secondAttribute="trailing" id="IBp-v0-20C"/>
+                <constraint firstItem="qz4-Mt-19T" firstAttribute="leading" secondItem="lv3-KM-h5L" secondAttribute="leading" id="NFA-ym-H02"/>
+                <constraint firstItem="lv3-KM-h5L" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="QyO-kl-szg"/>
+                <constraint firstItem="VpO-9i-ARs" firstAttribute="top" secondItem="lv3-KM-h5L" secondAttribute="bottom" constant="8" id="gtY-oR-WaK"/>
+                <constraint firstItem="VpO-9i-ARs" firstAttribute="centerX" secondItem="lv3-KM-h5L" secondAttribute="centerX" id="nVf-eG-SSM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="lv3-KM-h5L" secondAttribute="top" constant="44" id="vf7-Xl-Kjg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="deckName" destination="VpO-9i-ARs" id="Yzl-Ek-Vr3"/>
+                <outlet property="mainboardCapacity" destination="qz4-Mt-19T" id="edK-9S-Y8Z"/>
+                <outlet property="sideboardCapacity" destination="w9V-0W-0uk" id="zxO-ce-2Of"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="-46.875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="deck-placeholder" width="92" height="128"/>
+    </resources>
+</document>

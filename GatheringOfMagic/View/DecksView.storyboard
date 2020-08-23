@@ -64,7 +64,7 @@
         <scene sceneID="vxo-e0-aAc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OCa-Jz-ccj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Decks" image="doc.text" catalog="system" id="vGR-33-Rvn"/>
+                    <tabBarItem key="tabBarItem" title="Decks" image="deck-empty" selectedImage="deck-fill" id="vGR-33-Rvn"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uNt-dT-1Gi">
@@ -841,7 +841,8 @@
     <resources>
         <image name="black" width="100" height="100"/>
         <image name="blue" width="100" height="100"/>
-        <image name="doc.text" catalog="system" width="115" height="128"/>
+        <image name="deck-empty" width="25" height="25"/>
+        <image name="deck-fill" width="25" height="25"/>
         <image name="green" width="100" height="100"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="red" width="100" height="100"/>

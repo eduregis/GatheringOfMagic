@@ -38,6 +38,7 @@ class DecksViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.register(DeckViewCell.xibForCollection(), forCellWithReuseIdentifier: DeckViewCell.identifier)
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DecksCell")
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
@@ -61,8 +62,8 @@ class DecksViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DecksCell", for: indexPath)
-        cell.backgroundColor = .black
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeckViewCell.identifier, for: indexPath) as? DeckViewCell else { fatalError("Wrong identifier") }
+        cell.configure(with: listOfDecks[indexPath.row])
         
         return cell
     }

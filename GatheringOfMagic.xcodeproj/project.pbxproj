@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E04651F24F2010900E3426E /* CustomTapGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04651E24F2010900E3426E /* CustomTapGestures.swift */; };
 		2E07DF7324EEF03700E23F14 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07DF7224EEF03700E23F14 /* DeckViewController.swift */; };
+		2E34214724F31EF60000BB00 /* DeckViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E34214624F31EF60000BB00 /* DeckViewCell.xib */; };
+		2E34214924F3211F0000BB00 /* DeckViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34214824F3211F0000BB00 /* DeckViewCellController.swift */; };
 		2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A6E8524E835B800853673 /* FavoritesViewController.swift */; };
 		2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E410E1424E4125D00345160 /* CollectionViewCell.xib */; };
 		2E410E1724E413B400345160 /* CollectionViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E410E1624E413B400345160 /* CollectionViewCellController.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		2E04651E24F2010900E3426E /* CustomTapGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGestures.swift; sourceTree = "<group>"; };
 		2E07DF7224EEF03700E23F14 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
+		2E34214624F31EF60000BB00 /* DeckViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckViewCell.xib; sourceTree = "<group>"; };
+		2E34214824F3211F0000BB00 /* DeckViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewCellController.swift; sourceTree = "<group>"; };
 		2E3A6E8524E835B800853673 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2E410E1424E4125D00345160 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		2E410E1624E413B400345160 /* CollectionViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellController.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			children = (
 				2E410E1424E4125D00345160 /* CollectionViewCell.xib */,
 				2E410E1624E413B400345160 /* CollectionViewCellController.swift */,
+				2E34214624F31EF60000BB00 /* DeckViewCell.xib */,
+				2E34214824F3211F0000BB00 /* DeckViewCellController.swift */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			files = (
 				2E4D2CDD24E171F500BF7AA6 /* LaunchScreen.storyboard in Resources */,
 				2EB3738C24EEA7F10012FBEF /* DecksView.storyboard in Resources */,
+				2E34214724F31EF60000BB00 /* DeckViewCell.xib in Resources */,
 				2E6C54F024E2CAF700F4F3DA /* GatheringView.storyboard in Resources */,
 				2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */,
 				2E4A17A524EACC3F00AB7954 /* .swiftlint.yml in Resources */,
@@ -411,6 +418,7 @@
 				2E5C8B3C24E996C300F0CE22 /* Database.swift in Sources */,
 				2E4660E724E9DD74009668F2 /* SetViewController.swift in Sources */,
 				2E6C54EB24E2BEFD00F4F3DA /* Card.swift in Sources */,
+				2E34214924F3211F0000BB00 /* DeckViewCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
