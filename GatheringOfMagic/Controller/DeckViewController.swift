@@ -12,7 +12,13 @@ private let reuseIdentifier = "Cell"
 
 class DeckViewController: UICollectionViewController {
 
-    var deck: Deck?
+    var deck: Deck? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     private let itemsPerRow: CGFloat = 3
     
@@ -43,6 +49,10 @@ class DeckViewController: UICollectionViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         fetchDecks()
+        let index = listOfDecks.firstIndex {$0.index == deck?.index }
+        if let index = index {
+            deck = listOfDecks[index]
+        }
     }
     
     func fetchDecks () {
