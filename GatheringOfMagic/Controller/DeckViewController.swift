@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class DeckViewController: UICollectionViewController {
-
+    
     var deck: Deck? {
         didSet {
             DispatchQueue.main.async {
@@ -29,6 +29,10 @@ class DeckViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
+    var mainOrSide: String?
+    
+    var selectedCard: Card?
+    
     var listOfDecks = [Deck]() {
         didSet {
             DispatchQueue.main.async {
@@ -41,10 +45,25 @@ class DeckViewController: UICollectionViewController {
         super.viewDidLoad()
         self.title = deck?.name
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+        collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
+        mainOrSide = "Mainboard"
+        defineCapacity()
+    }
+    
+    func defineCapacity() {
+        //        if let mainOrSide = mainOrSide {
+        //            var count = 0
+        //            if mainOrSide == "Mainboard" {
+        //                deck?.main.deckCards.forEach { count += $0.quantity }
+        //                capacity.text = "\(count)/60"
+        //            } else if mainOrSide == "Sideboard" {
+        //                deck?.sideboard.deckCards.forEach { count += $0.quantity }
+        //                capacity.text = "\(count)/15"
+        //            }
+        //        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,37 +79,123 @@ class DeckViewController: UICollectionViewController {
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        
-        return 0
+        return (deck?.main.deckCards.count)!
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
+        cell.configure(with: deck?.main.deckCards[indexPath.row].card ?? Card())
+        
+        var quantity: Int?
+        
+        let copyLabel = UILabel(frame: CGRect(x: cell.contentView.frame.width/2 - 20, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+        
+        switch mainOrSide {
+        case "Mainboard":
+            quantity = deck?.main.deckCards[indexPath.row].quantity ?? 0
+        case "Sideboard":
+            quantity = deck?.sideboard.deckCards[indexPath.row].quantity ?? 0
+        default:
+            quantity = 0
+        }
+        
+        copyLabel.text = "\(quantity ?? 0)"
+        
+        cell.contentView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
+        let addButton = UIButton(frame: CGRect(x: cell.contentView.frame.width/2 + 5, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+        let addImage = UIImage(named: "chevron-right")
+        addButton.setImage(addImage, for: .normal)
+        let addTapGesture = DeckEditTapGestureRecognizer(target: self,
+                                                         action: #selector(addCard(sender:)))
+        addTapGesture.index = indexPath.row
+        addTapGesture.actualQuantity = quantity
+        addButton.addGestureRecognizer(addTapGesture)
+        cell.contentView.addSubview(addButton)
+        
+        let subtractButton = UIButton(frame: CGRect(x: cell.contentView.frame.width/2 - 55, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+        let subtractImage = UIImage(named: "chevron-left")
+        subtractButton.setImage(subtractImage, for: .normal)
+        let subtractTapGesture = DeckEditTapGestureRecognizer(target: self,
+                                                              action: #selector(subtractCard(sender:)))
+        subtractTapGesture.index = indexPath.row
+        subtractTapGesture.actualQuantity = quantity
+        subtractButton.addGestureRecognizer(subtractTapGesture)
+        cell.contentView.addSubview(subtractButton)
+        
+        cell.contentView.addSubview(copyLabel)
+        
         return cell
     }
-
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableView", for: indexPath)
-            // do any programmatic customization, if any, here
-            return view
+    
+    @objc func addCard (sender: DeckEditTapGestureRecognizer) {
+        if let index = sender.index {
+            if let actualQuantity = sender.actualQuantity {
+                switch actualQuantity {
+                case 4:
+                    if (deck?.main.deckCards[index].card.type.contains("Basic Land"))! {
+                        
+                        deck?.main.deckCards[index].quantity = actualQuantity + 1
+                    }
+                default:
+                    deck?.main.deckCards[index].quantity = actualQuantity + 1
+                }
+            }
         }
-        fatalError("Unexpected kind")
     }
+    
+    @objc func subtractCard (sender: DeckEditTapGestureRecognizer) {
+        if let index = sender.index {
+            if let actualQuantity = sender.actualQuantity {
+                switch actualQuantity {
+                case 1:
+                    deck?.main.deckCards.remove(at: index)
+                default:
+                    deck?.main.deckCards[index].quantity = actualQuantity - 1
+                }
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        self.selectedCard = cell.card
+        performSegue(withIdentifier: "CardViewSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is GatheringViewController {
             let vc = segue.destination as? GatheringViewController
             vc?.deck = deck
             vc?.deckComponent = "Mainboard"
+        }
+        if segue.destination is CardViewController {
+            let vc = segue.destination as? CardViewController
+            vc?.card = selectedCard
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableView", for: indexPath)
+            return view
+        }
+        fatalError("Unexpected kind")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let oldDeckIndex = listOfDecks.firstIndex { $0.index == deck?.index }
+        if let oldDeckIndex = oldDeckIndex {
+            if let deck = deck {
+                listOfDecks[oldDeckIndex] = deck
+                Database.shared.saveData(from: listOfDecks, to: .deckList)
+            }
         }
     }
 }
@@ -105,7 +210,7 @@ extension DeckViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: 3*widthPerItem/2)
+        return CGSize(width: widthPerItem, height: 2*widthPerItem)
     }
     
     //3

@@ -80,7 +80,7 @@ class GatheringViewController: UICollectionViewController {
     
     func setupNavigationbarItems () {
         if deck != nil {
-            self.title = deck?.name
+            self.title = deckComponent
         } else {
             let titleImageView = UIImageView(image: UIImage(imageLiteralResourceName: "GatheringOfMagic"))
             titleImageView.frame = CGRect(x: 0, y: 0, width: 92, height: 30)
@@ -125,12 +125,12 @@ class GatheringViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
         
         if deckComponent != nil {
-            cell.configure(with: listOfCards[indexPath.row], isDeckCard:
-                true)
+            cell.configure(with: listOfCards[indexPath.row])
             
             var quantity: Int?
             
             let copyLabel = UILabel(frame: CGRect(x: cell.contentView.frame.width/2 - 20, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
+            
             switch deckComponent {
             case "Mainboard":
                 let deckCard = deck?.main.deckCards.filter { $0.card == listOfCards[indexPath.row] }
@@ -173,43 +173,58 @@ class GatheringViewController: UICollectionViewController {
                                                                   action: #selector(subtractCard(sender:)))
             subtractTapGesture.index = indexPath.row
             subtractTapGesture.actualQuantity = quantity
+            subtractButton.addGestureRecognizer(subtractTapGesture)
             cell.contentView.addSubview(subtractButton)
             
             cell.contentView.addSubview(copyLabel)
         } else {
-            cell.configure(with: listOfCards[indexPath.row], isDeckCard: false)
+            cell.configure(with: listOfCards[indexPath.row])
         }
         
         return cell
     }
     
-    @objc func segueCard () {
-        print("ativa segue")
-    }
-    
     @objc func addCard (sender: DeckEditTapGestureRecognizer) {
-        
         if let index = sender.index {
             if let actualQuantity = sender.actualQuantity {
                 switch actualQuantity {
                 case 0:
                     let deckCard = DeckCard(card: listOfCards[index], quantity: 1)
                     deck?.main.deckCards.append(deckCard)
-                case 4: break
+                case 4:
+                    if listOfCards[index].type.contains("Basic Land") {
+                        let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
+                        if let deckCardIndex = deckCardIndex {
+                            deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                        }
+                    }
                 default:
                     let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
                     if let deckCardIndex = deckCardIndex {
                         deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
                     }
                 }
-                
             }
-            
         }
     }
     
     @objc func subtractCard (sender: DeckEditTapGestureRecognizer) {
-        print(sender.index ?? "aff")
+        if let index = sender.index {
+            if let actualQuantity = sender.actualQuantity {
+                switch actualQuantity {
+                case 1:
+                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index]  }
+                    if let deckCardIndex = deckCardIndex {
+                        deck?.main.deckCards.remove(at: deckCardIndex)
+                    }
+                default:
+                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
+                    if let deckCardIndex = deckCardIndex {
+                        deck?.main.deckCards[deckCardIndex].quantity = actualQuantity - 1
+                    }
+                }
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -292,9 +307,4 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
             }
         }
     }
-}
-
-class DeckEditTapGestureRecognizer: UITapGestureRecognizer {
-    var index: Int?
-    var actualQuantity: Int?
 }

@@ -108,15 +108,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0xG-oa-ub3">
-                                    <rect key="frame" x="122.5" y="9.5" width="169" height="32"/>
-                                    <segments>
-                                        <segment title="Mainboard"/>
-                                        <segment title="Sideboard"/>
-                                    </segments>
-                                </segmentedControl>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJn-2e-hDr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWa-vV-uis">
-                                    <rect key="frame" x="388" y="14" width="18" height="22"/>
+                                    <rect key="frame" x="386" y="14" width="18" height="22"/>
                                     <state key="normal" image="plus" catalog="system"/>
                                     <connections>
                                         <segue destination="BK4-Vh-p2g" kind="show" identifier="AddCardsViewSegue" id="96C-Hd-5BK"/>
@@ -124,10 +121,12 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="uWa-vV-uis" firstAttribute="centerY" secondItem="6W4-0b-uhG" secondAttribute="centerY" id="Km3-ZA-8CB"/>
-                                <constraint firstItem="0xG-oa-ub3" firstAttribute="centerX" secondItem="6W4-0b-uhG" secondAttribute="centerX" id="jWq-h1-uHd"/>
-                                <constraint firstAttribute="trailing" secondItem="uWa-vV-uis" secondAttribute="trailing" constant="8" id="jlT-HH-89c"/>
-                                <constraint firstItem="0xG-oa-ub3" firstAttribute="centerY" secondItem="6W4-0b-uhG" secondAttribute="centerY" id="qtN-hO-bEl"/>
+                                <constraint firstItem="uWa-vV-uis" firstAttribute="trailing" secondItem="LJn-2e-hDr" secondAttribute="trailing" constant="-10" id="EZK-2P-xpD"/>
+                                <constraint firstItem="LJn-2e-hDr" firstAttribute="height" secondItem="6W4-0b-uhG" secondAttribute="height" id="KbN-1E-LQD"/>
+                                <constraint firstItem="LJn-2e-hDr" firstAttribute="centerY" secondItem="6W4-0b-uhG" secondAttribute="centerY" id="NUq-VF-R7A"/>
+                                <constraint firstItem="LJn-2e-hDr" firstAttribute="width" secondItem="6W4-0b-uhG" secondAttribute="width" id="m87-nb-J5a"/>
+                                <constraint firstItem="LJn-2e-hDr" firstAttribute="centerX" secondItem="6W4-0b-uhG" secondAttribute="centerX" id="nyn-UX-fqT"/>
+                                <constraint firstItem="uWa-vV-uis" firstAttribute="centerY" secondItem="LJn-2e-hDr" secondAttribute="centerY" id="rI3-qX-UjD"/>
                             </constraints>
                         </collectionReusableView>
                         <connections>
@@ -136,6 +135,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="MYm-L3-Duw"/>
+                    <connections>
+                        <segue destination="u3T-td-8OK" kind="show" identifier="CardViewSegue" id="UMP-E4-UEa"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s27-s9-ccC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -833,6 +835,9 @@
             <point key="canvasLocation" x="2928.985507246377" y="929.46428571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UMP-E4-UEa"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="black" width="100" height="100"/>
         <image name="blue" width="100" height="100"/>

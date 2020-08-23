@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E04651F24F2010900E3426E /* CustomTapGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E04651E24F2010900E3426E /* CustomTapGestures.swift */; };
 		2E07DF7324EEF03700E23F14 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07DF7224EEF03700E23F14 /* DeckViewController.swift */; };
 		2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A6E8524E835B800853673 /* FavoritesViewController.swift */; };
 		2E410E1524E4125D00345160 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E410E1424E4125D00345160 /* CollectionViewCell.xib */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E04651E24F2010900E3426E /* CustomTapGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTapGestures.swift; sourceTree = "<group>"; };
 		2E07DF7224EEF03700E23F14 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
 		2E3A6E8524E835B800853673 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2E410E1424E4125D00345160 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -114,11 +116,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E2AA0B124F03FDB000E0EF0 /* Protocols */ = {
+		2E2AA0B124F03FDB000E0EF0 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				2E04651E24F2010900E3426E /* CustomTapGestures.swift */,
 			);
-			path = Protocols;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		2E3A6E8024E81AF400853673 /* API Connect */ = {
@@ -153,7 +156,7 @@
 		2E4D2CCF24E171F300BF7AA6 /* GatheringOfMagic */ = {
 			isa = PBXGroup;
 			children = (
-				2E2AA0B124F03FDB000E0EF0 /* Protocols */,
+				2E2AA0B124F03FDB000E0EF0 /* Custom */,
 				2E3A6E8024E81AF400853673 /* API Connect */,
 				2E5C268624E3663600177B6F /* XIB */,
 				2E6C54F124E2CC4600F4F3DA /* Controller */,
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */,
+				2E04651F24F2010900E3426E /* CustomTapGestures.swift in Sources */,
 				2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */,
 				2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */,
 				2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */,
