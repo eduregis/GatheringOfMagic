@@ -23,15 +23,30 @@ class DeckViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
+    var listOfDecks = [Deck]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = deck?.name
-        
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchDecks()
+    }
+    
+    func fetchDecks () {
+        listOfDecks = Database.shared.loadData(from: .deckList)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

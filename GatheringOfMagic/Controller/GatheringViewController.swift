@@ -19,7 +19,22 @@ class GatheringViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
-    var deck: Deck?
+    var deck: Deck? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    var listOfDecks = [Deck]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     var deckComponent: String?
     
     var selectedCard: Card?
@@ -40,6 +55,26 @@ class GatheringViewController: UICollectionViewController {
         setupNavigationbarItems()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchDecks()
+    }
+    
+    func fetchDecks () {
+        listOfDecks = Database.shared.loadData(from: .deckList)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if deckComponent != nil {
+            let oldDeckIndex = listOfDecks.firstIndex { $0.index == deck?.index }
+            if let oldDeckIndex = oldDeckIndex {
+                if let deck = deck {
+                    listOfDecks[oldDeckIndex] = deck
+                    Database.shared.saveData(from: listOfDecks, to: .deckList)
+                }
+            }
         }
     }
     
@@ -125,8 +160,9 @@ class GatheringViewController: UICollectionViewController {
             let addImage = UIImage(named: "chevron-right")
             addButton.setImage(addImage, for: .normal)
             let addTapGesture = DeckEditTapGestureRecognizer(target: self,
-                                                        action: #selector(addCard(sender:)))
+                                                             action: #selector(addCard(sender:)))
             addTapGesture.index = indexPath.row
+            addTapGesture.actualQuantity = quantity
             addButton.addGestureRecognizer(addTapGesture)
             cell.contentView.addSubview(addButton)
             
@@ -134,8 +170,9 @@ class GatheringViewController: UICollectionViewController {
             let subtractImage = UIImage(named: "chevron-left")
             subtractButton.setImage(subtractImage, for: .normal)
             let subtractTapGesture = DeckEditTapGestureRecognizer(target: self,
-                                                                   action: #selector(subtractCard(sender:)))
-                       subtractTapGesture.index = indexPath.row
+                                                                  action: #selector(subtractCard(sender:)))
+            subtractTapGesture.index = indexPath.row
+            subtractTapGesture.actualQuantity = quantity
             cell.contentView.addSubview(subtractButton)
             
             cell.contentView.addSubview(copyLabel)
@@ -151,7 +188,24 @@ class GatheringViewController: UICollectionViewController {
     }
     
     @objc func addCard (sender: DeckEditTapGestureRecognizer) {
-        print(sender.index ?? "aff")
+        
+        if let index = sender.index {
+            if let actualQuantity = sender.actualQuantity {
+                switch actualQuantity {
+                case 0:
+                    let deckCard = DeckCard(card: listOfCards[index], quantity: 1)
+                    deck?.main.deckCards.append(deckCard)
+                case 4: break
+                default:
+                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
+                    if let deckCardIndex = deckCardIndex {
+                        deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                    }
+                }
+                
+            }
+            
+        }
     }
     
     @objc func subtractCard (sender: DeckEditTapGestureRecognizer) {
@@ -242,4 +296,5 @@ extension GatheringViewController: UICollectionViewDelegateFlowLayout, UISearchB
 
 class DeckEditTapGestureRecognizer: UITapGestureRecognizer {
     var index: Int?
+    var actualQuantity: Int?
 }

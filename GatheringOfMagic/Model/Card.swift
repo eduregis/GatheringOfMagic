@@ -8,12 +8,22 @@
 
 import Foundation
 
+class Count {
+    static var indexCount = 0
+}
+
 struct Deck: Codable, Equatable {
+    
+    var index: Int
     var name: String?
     var main: DeckComponent
     var sideboard: DeckComponent
     
     init () {
+        //UserDefaults.standard.set(0, forKey: "indexCount")
+        index = UserDefaults.standard.integer(forKey: "indexCount")
+        UserDefaults.standard.set(index + 1, forKey: "indexCount")
+        Count.indexCount += 1
         name = "New deck"
         main = DeckComponent()
         sideboard = DeckComponent()
