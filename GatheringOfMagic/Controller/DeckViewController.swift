@@ -55,7 +55,8 @@ class DeckViewController: UICollectionViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
-        mainOrSide = "Mainboard"
+        UserDefaults.standard.set("Sideboard", forKey: "mainOrSide")
+        mainOrSide = UserDefaults.standard.string(forKey: "mainOrSide")
     }
     
     override func viewDidAppear(_ animated: Bool) {

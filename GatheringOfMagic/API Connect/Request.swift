@@ -102,7 +102,7 @@ struct MTGRequest {
         
         let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in
             // O data contém os dados que requemos, mais ainda não estao no formato que queremos.
-            print(self.resourceURL)
+            //print(self.resourceURL)
             guard let jsonData = data else {
                 // Aqui utilizamos o Result caso não existam dados a serem pegos.
                 completion(.failure(.noDataAvailable))
