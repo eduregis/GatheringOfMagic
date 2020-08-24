@@ -190,18 +190,42 @@ class GatheringViewController: UICollectionViewController {
                 switch actualQuantity {
                 case 0:
                     let deckCard = DeckCard(card: listOfCards[index], quantity: 1)
-                    deck?.main.deckCards.append(deckCard)
+                    switch deckComponent {
+                    case "Mainboard": deck?.main.deckCards.append(deckCard)
+                    case "Sideboard": deck?.sideboard.deckCards.append(deckCard)
+                    default: break
+                    }
+                    
                 case 4:
                     if listOfCards[index].type.contains("Basic Land") {
+                        switch deckComponent {
+                        case "Mainboard":
+                            let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
+                            if let deckCardIndex = deckCardIndex {
+                                deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                            }
+                        case "Sideboard":
+                            let deckCardIndex = deck?.sideboard.deckCards.firstIndex { $0.card == listOfCards[index] }
+                            if let deckCardIndex = deckCardIndex {
+                                deck?.sideboard.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                            }
+                        default: break
+                        }
+                        
+                    }
+                default:
+                    switch deckComponent {
+                    case "Mainboard":
                         let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
                         if let deckCardIndex = deckCardIndex {
                             deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
                         }
-                    }
-                default:
-                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
-                    if let deckCardIndex = deckCardIndex {
-                        deck?.main.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                    case "Sideboard":
+                            let deckCardIndex = deck?.sideboard.deckCards.firstIndex { $0.card == listOfCards[index] }
+                            if let deckCardIndex = deckCardIndex {
+                                deck?.sideboard.deckCards[deckCardIndex].quantity = actualQuantity + 1
+                        }
+                    default: break
                     }
                 }
             }
@@ -213,15 +237,35 @@ class GatheringViewController: UICollectionViewController {
             if let actualQuantity = sender.actualQuantity {
                 switch actualQuantity {
                 case 1:
-                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index]  }
-                    if let deckCardIndex = deckCardIndex {
-                        deck?.main.deckCards.remove(at: deckCardIndex)
+                    switch deckComponent {
+                    case "Mainboard":
+                        let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index]  }
+                        if let deckCardIndex = deckCardIndex {
+                            deck?.main.deckCards.remove(at: deckCardIndex)
+                        }
+                    case "Sideboard":
+                        let deckCardIndex = deck?.sideboard.deckCards.firstIndex { $0.card == listOfCards[index]  }
+                        if let deckCardIndex = deckCardIndex {
+                            deck?.sideboard.deckCards.remove(at: deckCardIndex)
+                        }
+                    default: break
                     }
+                    
                 default:
-                    let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
-                    if let deckCardIndex = deckCardIndex {
-                        deck?.main.deckCards[deckCardIndex].quantity = actualQuantity - 1
+                    switch deckComponent {
+                    case "Mainboard":
+                        let deckCardIndex = deck?.main.deckCards.firstIndex { $0.card == listOfCards[index] }
+                        if let deckCardIndex = deckCardIndex {
+                            deck?.main.deckCards[deckCardIndex].quantity = actualQuantity - 1
+                        }
+                    case "Sideboard":
+                        let deckCardIndex = deck?.sideboard.deckCards.firstIndex { $0.card == listOfCards[index] }
+                        if let deckCardIndex = deckCardIndex {
+                            deck?.sideboard.deckCards[deckCardIndex].quantity = actualQuantity - 1
+                        }
+                    default: break
                     }
+                    
                 }
             }
         }

@@ -125,6 +125,9 @@
                                         <segment title="Mainboard"/>
                                         <segment title="Sideboard"/>
                                     </segments>
+                                    <connections>
+                                        <action selector="segmentedControl:" destination="6W4-0b-uhG" eventType="valueChanged" id="esz-UA-eC7"/>
+                                    </connections>
                                 </segmentedControl>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-u2-vyf">
                                     <rect key="frame" x="10" y="14.5" width="42" height="21"/>

@@ -29,7 +29,13 @@ class DeckViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
-    var mainOrSide: String?
+    var mainOrSide: String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     var selectedCard: Card?
     
@@ -50,20 +56,6 @@ class DeckViewController: UICollectionViewController {
             layout.sectionHeadersPinToVisibleBounds = true
         }
         mainOrSide = "Mainboard"
-        defineCapacity()
-    }
-    
-    func defineCapacity() {
-        //        if let mainOrSide = mainOrSide {
-        //            var count = 0
-        //            if mainOrSide == "Mainboard" {
-        //                deck?.main.deckCards.forEach { count += $0.quantity }
-        //                capacity.text = "\(count)/60"
-        //            } else if mainOrSide == "Sideboard" {
-        //                deck?.sideboard.deckCards.forEach { count += $0.quantity }
-        //                capacity.text = "\(count)/15"
-        //            }
-        //        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,25 +75,33 @@ class DeckViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (deck?.main.deckCards.count)!
+        switch mainOrSide {
+        case "Mainboard":
+            return (deck?.main.deckCards.count)!
+        case "Sideboard":
+            return (deck?.sideboard.deckCards.count)!
+        default:
+            return 0
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { fatalError("Wrong identifier") }
-        cell.configure(with: deck?.main.deckCards[indexPath.row].card ?? Card())
         
         var quantity: Int?
-        
-        let copyLabel = UILabel(frame: CGRect(x: cell.contentView.frame.width/2 - 20, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
-        
         switch mainOrSide {
         case "Mainboard":
             quantity = deck?.main.deckCards[indexPath.row].quantity ?? 0
+            cell.configure(with: deck?.main.deckCards[indexPath.row].card ?? Card())
         case "Sideboard":
             quantity = deck?.sideboard.deckCards[indexPath.row].quantity ?? 0
+            cell.configure(with: deck?.sideboard.deckCards[indexPath.row].card ?? Card())
         default:
             quantity = 0
         }
+        
+        let copyLabel = UILabel(frame: CGRect(x: cell.contentView.frame.width/2 - 20, y: cell.imageView.frame.midY + 105, width: 20, height: 20))
         
         copyLabel.text = "\(quantity ?? 0)"
         
@@ -173,7 +173,7 @@ class DeckViewController: UICollectionViewController {
         if segue.destination is GatheringViewController {
             let vc = segue.destination as? GatheringViewController
             vc?.deck = deck
-            vc?.deckComponent = "Mainboard"
+            vc?.deckComponent = mainOrSide
         }
         if segue.destination is CardViewController {
             let vc = segue.destination as? CardViewController
@@ -185,9 +185,18 @@ class DeckViewController: UICollectionViewController {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView: DeckSegmentedCollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as! DeckSegmentedCollectionReusableView
-            var count = 0
-            deck?.main.deckCards.forEach { count += $0.quantity }
-            headerView.capacity.text = "\(count)/60"
+            
+            if let mainOrSide = mainOrSide {
+                var count = 0
+                if mainOrSide == "Mainboard" {
+                    deck?.main.deckCards.forEach { count += $0.quantity }
+                    headerView.capacity.text = "\(count)/60"
+                } else if mainOrSide == "Sideboard" {
+                    deck?.sideboard.deckCards.forEach { count += $0.quantity }
+                    headerView.capacity.text = "\(count)/15"
+                }
+            }
+            
             return headerView
         }
         
