@@ -104,7 +104,7 @@
                                 </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionReusableView" id="6W4-0b-uhG">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="6W4-0b-uhG" customClass="DeckSegmentedCollectionReusableView" customModule="GatheringOfMagic" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
@@ -119,15 +119,36 @@
                                         <segue destination="BK4-Vh-p2g" kind="show" identifier="AddCardsViewSegue" id="96C-Hd-5BK"/>
                                     </connections>
                                 </button>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0MI-cn-bJO">
+                                    <rect key="frame" x="122.5" y="9.5" width="169" height="32"/>
+                                    <segments>
+                                        <segment title="Mainboard"/>
+                                        <segment title="Sideboard"/>
+                                    </segments>
+                                </segmentedControl>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt0-u2-vyf">
+                                    <rect key="frame" x="10" y="14.5" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="Wt0-u2-vyf" firstAttribute="centerY" secondItem="LJn-2e-hDr" secondAttribute="centerY" id="ApV-be-FFH"/>
                                 <constraint firstItem="uWa-vV-uis" firstAttribute="trailing" secondItem="LJn-2e-hDr" secondAttribute="trailing" constant="-10" id="EZK-2P-xpD"/>
                                 <constraint firstItem="LJn-2e-hDr" firstAttribute="height" secondItem="6W4-0b-uhG" secondAttribute="height" id="KbN-1E-LQD"/>
                                 <constraint firstItem="LJn-2e-hDr" firstAttribute="centerY" secondItem="6W4-0b-uhG" secondAttribute="centerY" id="NUq-VF-R7A"/>
+                                <constraint firstItem="Wt0-u2-vyf" firstAttribute="leading" secondItem="LJn-2e-hDr" secondAttribute="leading" constant="10" id="OjQ-0F-GeZ"/>
+                                <constraint firstItem="0MI-cn-bJO" firstAttribute="centerX" secondItem="LJn-2e-hDr" secondAttribute="centerX" id="RZ0-CC-3Fl"/>
+                                <constraint firstItem="0MI-cn-bJO" firstAttribute="centerY" secondItem="LJn-2e-hDr" secondAttribute="centerY" id="jOS-sV-vTo"/>
                                 <constraint firstItem="LJn-2e-hDr" firstAttribute="width" secondItem="6W4-0b-uhG" secondAttribute="width" id="m87-nb-J5a"/>
                                 <constraint firstItem="LJn-2e-hDr" firstAttribute="centerX" secondItem="6W4-0b-uhG" secondAttribute="centerX" id="nyn-UX-fqT"/>
                                 <constraint firstItem="uWa-vV-uis" firstAttribute="centerY" secondItem="LJn-2e-hDr" secondAttribute="centerY" id="rI3-qX-UjD"/>
                             </constraints>
+                            <connections>
+                                <outlet property="capacity" destination="Wt0-u2-vyf" id="FdS-Xm-Z4d"/>
+                                <outlet property="segmentedControl" destination="0MI-cn-bJO" id="cdx-k4-Xvv"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="ue0-WZ-fec" id="JuQ-dv-Wbb"/>

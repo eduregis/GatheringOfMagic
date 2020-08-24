@@ -37,6 +37,7 @@
 		2EB3738E24EEA92B0012FBEF /* DecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */; };
 		2EF2D0C124EC058D0088BF09 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */; };
 		2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */; };
+		2EF580BC24F34AAF001128BD /* DeckSegmentedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF580BB24F34AAF001128BD /* DeckSegmentedCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksViewController.swift; sourceTree = "<group>"; };
 		2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewController.swift; sourceTree = "<group>"; };
+		2EF580BB24F34AAF001128BD /* DeckSegmentedCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckSegmentedCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				2EF2D0C224EC2D3C0088BF09 /* FilterSettingsViewController.swift */,
 				2EB3738D24EEA92B0012FBEF /* DecksViewController.swift */,
 				2E07DF7224EEF03700E23F14 /* DeckViewController.swift */,
+				2EF580BB24F34AAF001128BD /* DeckSegmentedCollectionReusableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			files = (
 				2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */,
 				2E04651F24F2010900E3426E /* CustomTapGestures.swift in Sources */,
+				2EF580BC24F34AAF001128BD /* DeckSegmentedCollectionReusableView.swift in Sources */,
 				2EF2D0C324EC2D3C0088BF09 /* FilterSettingsViewController.swift in Sources */,
 				2E3A6E8624E835B800853673 /* FavoritesViewController.swift in Sources */,
 				2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */,

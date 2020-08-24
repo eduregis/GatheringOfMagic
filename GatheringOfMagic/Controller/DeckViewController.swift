@@ -182,11 +182,17 @@ class DeckViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         if kind == UICollectionView.elementKindSectionHeader {
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionReusableView", for: indexPath)
-            return view
+            let headerView: DeckSegmentedCollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as! DeckSegmentedCollectionReusableView
+            var count = 0
+            deck?.main.deckCards.forEach { count += $0.quantity }
+            headerView.capacity.text = "\(count)/60"
+            return headerView
         }
-        fatalError("Unexpected kind")
+        
+        return UICollectionReusableView()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
