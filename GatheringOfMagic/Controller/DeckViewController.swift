@@ -29,23 +29,19 @@ class DeckViewController: UICollectionViewController {
                                              bottom: 50.0,
                                              right: 20.0)
     
+    weak var header: DeckSegmentedCollectionReusableView?
+    
     var mainOrSide: String? {
         didSet {
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+               self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
             }
         }
     }
     
     var selectedCard: Card?
     
-    var listOfDecks = [Deck]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    var listOfDecks = [Deck]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +51,21 @@ class DeckViewController: UICollectionViewController {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionHeadersPinToVisibleBounds = true
         }
-        UserDefaults.standard.set("Sideboard", forKey: "mainOrSide")
-        mainOrSide = UserDefaults.standard.string(forKey: "mainOrSide")
+        
+        initValues()
+    }
+    
+    func initValues () {
+        mainOrSide = "Mainboard"
+    }
+    
+    @objc func changeValue () {
+        if mainOrSide == "Mainboard" {
+            mainOrSide = "Sideboard"
+        } else {
+            mainOrSide = "Mainboard"
+        }
+        self.collectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -138,15 +147,30 @@ class DeckViewController: UICollectionViewController {
     @objc func addCard (sender: DeckEditTapGestureRecognizer) {
         if let index = sender.index {
             if let actualQuantity = sender.actualQuantity {
-                switch actualQuantity {
-                case 4:
-                    if (deck?.main.deckCards[index].card.type.contains("Basic Land"))! {
-                        
+                switch mainOrSide {
+                case "Mainboard":
+                    switch actualQuantity {
+                    case 4:
+                        if (deck?.main.deckCards[index].card.type.contains("Basic Land"))! {
+                            
+                            deck?.main.deckCards[index].quantity = actualQuantity + 1
+                        }
+                    default:
                         deck?.main.deckCards[index].quantity = actualQuantity + 1
                     }
-                default:
-                    deck?.main.deckCards[index].quantity = actualQuantity + 1
+                case "Sideboard":
+                    switch actualQuantity {
+                    case 4:
+                        if (deck?.sideboard.deckCards[index].card.type.contains("Basic Land"))! {
+                            
+                            deck?.sideboard.deckCards[index].quantity = actualQuantity + 1
+                        }
+                    default:
+                        deck?.sideboard.deckCards[index].quantity = actualQuantity + 1
+                    }
+                default: break
                 }
+                
             }
         }
     }
@@ -154,12 +178,24 @@ class DeckViewController: UICollectionViewController {
     @objc func subtractCard (sender: DeckEditTapGestureRecognizer) {
         if let index = sender.index {
             if let actualQuantity = sender.actualQuantity {
-                switch actualQuantity {
-                case 1:
-                    deck?.main.deckCards.remove(at: index)
-                default:
-                    deck?.main.deckCards[index].quantity = actualQuantity - 1
+                switch mainOrSide {
+                case "Mainboard":
+                    switch actualQuantity {
+                    case 1:
+                        deck?.main.deckCards.remove(at: index)
+                    default:
+                        deck?.main.deckCards[index].quantity = actualQuantity - 1
+                    }
+                case "Sideboard":
+                    switch actualQuantity {
+                    case 1:
+                        deck?.sideboard.deckCards.remove(at: index)
+                    default:
+                        deck?.sideboard.deckCards[index].quantity = actualQuantity - 1
+                    }
+                default: break
                 }
+                
             }
         }
     }
@@ -183,24 +219,21 @@ class DeckViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView: DeckSegmentedCollectionReusableView =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as! DeckSegmentedCollectionReusableView
-            
+            header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as? DeckSegmentedCollectionReusableView
+            header?.segmentedControl.addTarget(self, action: #selector(changeValue), for: .valueChanged)
             if let mainOrSide = mainOrSide {
                 var count = 0
                 if mainOrSide == "Mainboard" {
                     deck?.main.deckCards.forEach { count += $0.quantity }
-                    headerView.capacity.text = "\(count)/60"
+                    header?.capacity.text = "\(count)/60"
                 } else if mainOrSide == "Sideboard" {
                     deck?.sideboard.deckCards.forEach { count += $0.quantity }
-                    headerView.capacity.text = "\(count)/15"
+                    header?.capacity.text = "\(count)/15"
                 }
             }
-            
-            return headerView
+            return header!
         }
-        
         return UICollectionReusableView()
         
     }

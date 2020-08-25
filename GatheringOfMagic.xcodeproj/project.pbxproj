@@ -21,7 +21,7 @@
 		2E4753D724E56BDC00D7A8EA /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4753D624E56BDC00D7A8EA /* CardViewController.swift */; };
 		2E47907F24E6D2FD009A1D16 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E47907E24E6D2FD009A1D16 /* SearchCollectionReusableView.swift */; };
 		2E4A17A524EACC3F00AB7954 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A17A424EACC3F00AB7954 /* .swiftlint.yml */; };
-		2E4A17AA24EADE5900AB7954 /* CardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */; };
+		2E4A17AA24EADE5900AB7954 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A17A924EADE5900AB7954 /* ViewControllerTests.swift */; };
 		2E4D2CD124E171F300BF7AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */; };
 		2E4D2CD324E171F300BF7AA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */; };
 		2E4D2CDA24E171F500BF7AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E4D2CD924E171F500BF7AA6 /* Assets.xcassets */; };
@@ -72,7 +72,7 @@
 		2E4753D624E56BDC00D7A8EA /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		2E47907E24E6D2FD009A1D16 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		2E4A17A424EACC3F00AB7954 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewControllerTests.swift; sourceTree = "<group>"; };
+		2E4A17A924EADE5900AB7954 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		2E4D2CCD24E171F300BF7AA6 /* GatheringOfMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatheringOfMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4D2CD024E171F300BF7AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E4D2CD224E171F300BF7AA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4D2CE924E171F500BF7AA6 /* Info.plist */,
-				2E4A17A924EADE5900AB7954 /* CardViewControllerTests.swift */,
+				2E4A17A924EADE5900AB7954 /* ViewControllerTests.swift */,
 				2EF2D0C024EC058D0088BF09 /* DatabaseTests.swift */,
 			);
 			path = GatheringOfMagicTests;
@@ -431,7 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF2D0C124EC058D0088BF09 /* DatabaseTests.swift in Sources */,
-				2E4A17AA24EADE5900AB7954 /* CardViewControllerTests.swift in Sources */,
+				2E4A17AA24EADE5900AB7954 /* ViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
