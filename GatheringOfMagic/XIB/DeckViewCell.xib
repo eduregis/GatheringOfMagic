@@ -21,23 +21,63 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-9i-ARs">
-                    <rect key="frame" x="43" y="136" width="42" height="21"/>
+                    <rect key="frame" x="43" y="136" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz4-Mt-19T">
-                    <rect key="frame" x="18" y="160" width="36" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="18" y="160" width="26.5" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9V-0W-0uk">
-                    <rect key="frame" x="74" y="160" width="36" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="83.5" y="160" width="26.5" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Zd0-Ti-4lP">
+                    <rect key="frame" x="3.5" y="108" width="121" height="20"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-cS-YDK">
+                            <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="JIO-ss-2mH"/>
+                                <constraint firstAttribute="height" constant="20" id="ntd-1o-Hdy"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sAp-aF-19t">
+                            <rect key="frame" x="25" y="0.0" width="21" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="MsU-nb-Ygy"/>
+                                <constraint firstAttribute="width" constant="21" id="Vps-89-jeH"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-JW-bRe">
+                            <rect key="frame" x="50" y="0.0" width="21" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="85E-ec-Fn5"/>
+                                <constraint firstAttribute="height" constant="20" id="Tdk-cE-XC1"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eLG-bR-cvh">
+                            <rect key="frame" x="75" y="0.0" width="21" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="21" id="XOd-0k-Jzt"/>
+                                <constraint firstAttribute="height" constant="20" id="yYP-Zq-HFY"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s46-5s-kPd">
+                            <rect key="frame" x="100" y="0.0" width="21" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="M0M-92-yFJ"/>
+                                <constraint firstAttribute="width" constant="21" id="WqT-9f-phM"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
@@ -56,8 +96,14 @@
                 <outlet property="deckName" destination="VpO-9i-ARs" id="Yzl-Ek-Vr3"/>
                 <outlet property="mainboardCapacity" destination="qz4-Mt-19T" id="edK-9S-Y8Z"/>
                 <outlet property="sideboardCapacity" destination="w9V-0W-0uk" id="zxO-ce-2Of"/>
+                <outlet property="stackOfColors" destination="Zd0-Ti-4lP" id="3Da-dr-7Bl"/>
+                <outletCollection property="deckManaCostCollection" destination="dEV-cS-YDK" collectionClass="NSMutableArray" id="bUK-hW-lcg"/>
+                <outletCollection property="deckManaCostCollection" destination="sAp-aF-19t" collectionClass="NSMutableArray" id="JFQ-RW-kCX"/>
+                <outletCollection property="deckManaCostCollection" destination="ibL-JW-bRe" collectionClass="NSMutableArray" id="19f-3Q-1nq"/>
+                <outletCollection property="deckManaCostCollection" destination="eLG-bR-cvh" collectionClass="NSMutableArray" id="ccD-Fx-g2j"/>
+                <outletCollection property="deckManaCostCollection" destination="s46-5s-kPd" collectionClass="NSMutableArray" id="ktt-r6-0xH"/>
             </connections>
-            <point key="canvasLocation" x="132.60869565217394" y="-46.875"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-46.875"/>
         </view>
     </objects>
     <resources>
