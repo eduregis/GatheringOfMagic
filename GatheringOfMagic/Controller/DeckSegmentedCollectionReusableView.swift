@@ -16,14 +16,4 @@ class DeckSegmentedCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var capacity: UILabel!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-//    @IBAction func segmentedControl(_ sender: Any) {
-//        switch segmentedControl.selectedSegmentIndex {
-//        case 0:
-//        UserDefaults.standard.set("Mainboard", forKey: "mainOrSide")
-//        case 1:
-//        UserDefaults.standard.set("Sideboard", forKey: "mainOrSide")
-//        default: break
-//        }
-//    }
 }

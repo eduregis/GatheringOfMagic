@@ -158,6 +158,7 @@
                     <navigationItem key="navigationItem" id="MYm-L3-Duw"/>
                     <connections>
                         <segue destination="u3T-td-8OK" kind="show" identifier="CardViewSegue" id="UMP-E4-UEa"/>
+                        <segue destination="Rqn-UU-oho" kind="show" identifier="EditDeckViewSegue" id="1PR-ZX-tNz"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s27-s9-ccC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -837,6 +838,79 @@
             </objects>
             <point key="canvasLocation" x="2929" y="1726"/>
         </scene>
+        <!--Edit Deck View Controller-->
+        <scene sceneID="FHS-YI-cBD">
+            <objects>
+                <tableViewController id="Rqn-UU-oho" customClass="EditDeckViewController" customModule="GatheringOfMagic" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8rX-1d-M6X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Name:" id="0xH-B7-vVD">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J5s-lT-6em">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J5s-lT-6em" id="dDr-MU-IMI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z3l-Ns-wft">
+                                                    <rect key="frame" x="20.5" y="5" width="373" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="z3l-Ns-wft" firstAttribute="centerY" secondItem="dDr-MU-IMI" secondAttribute="centerY" id="35f-vq-WgQ"/>
+                                                <constraint firstItem="z3l-Ns-wft" firstAttribute="height" secondItem="dDr-MU-IMI" secondAttribute="height" multiplier="0.781609" id="BUf-vS-VuR"/>
+                                                <constraint firstItem="z3l-Ns-wft" firstAttribute="width" secondItem="dDr-MU-IMI" secondAttribute="width" multiplier="0.9" id="xey-Q4-sUH"/>
+                                                <constraint firstItem="z3l-Ns-wft" firstAttribute="centerX" secondItem="dDr-MU-IMI" secondAttribute="centerX" id="zhC-oR-V1N"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Delete deck:" id="nP4-pk-1Sr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eay-fp-jTe">
+                                        <rect key="frame" x="0.0" y="127.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eay-fp-jTe" id="Jwn-fk-EoS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-tk-kNK">
+                                                    <rect key="frame" x="21" y="7" width="45" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Delete">
+                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteDeck:" destination="Rqn-UU-oho" eventType="touchUpInside" id="Xi6-fT-Yda"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Rqn-UU-oho" id="3Fq-Sq-6dE"/>
+                            <outlet property="delegate" destination="Rqn-UU-oho" id="mj4-7F-uDj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="A13-hr-NRD"/>
+                    <connections>
+                        <outlet property="nameField" destination="z3l-Ns-wft" id="XPc-Bb-UbR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyf-hL-GDb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2005.7971014492755" y="949.55357142857133"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="sdG-4P-Jpv">
             <objects>
@@ -853,7 +927,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0o-Ce-7mJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928.985507246377" y="929.46428571428567"/>
+            <point key="canvasLocation" x="2929" y="950"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

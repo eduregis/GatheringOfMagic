@@ -29,6 +29,12 @@ class FilterSettingsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         filterByPicker.delegate = self
         filterByPicker.dataSource = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissmModal))
+    }
+    
+    @objc func dismissmModal () {
+        dismiss(animated: true, completion: nil)
     }
     
     let filterByPickerData = ["Name", "Type", "Text"]

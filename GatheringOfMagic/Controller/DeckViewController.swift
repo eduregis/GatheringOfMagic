@@ -45,7 +45,7 @@ class DeckViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = deck?.name
+        //self.title = deck?.name
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(CollectionViewCell.xibForCollection(), forCellWithReuseIdentifier: CollectionViewCell.identifier)
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -53,6 +53,11 @@ class DeckViewController: UICollectionViewController {
         }
         
         initValues()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goToEditDeck))
+    }
+    
+    @objc func goToEditDeck () {
+        performSegue(withIdentifier: "EditDeckViewSegue", sender: self)
     }
     
     func initValues () {
@@ -74,6 +79,7 @@ class DeckViewController: UICollectionViewController {
         if let index = index {
             deck = listOfDecks[index]
         }
+        self.title = deck?.name
     }
     
     func fetchDecks () {
@@ -211,8 +217,10 @@ class DeckViewController: UICollectionViewController {
             let vc = segue.destination as? GatheringViewController
             vc?.deck = deck
             vc?.deckComponent = mainOrSide
-        }
-        if segue.destination is CardViewController {
+        } else if segue.destination is EditDeckViewController {
+            let vc = segue.destination as? EditDeckViewController
+            vc?.deck = deck
+        } else if segue.destination is CardViewController {
             let vc = segue.destination as? CardViewController
             vc?.card = selectedCard
         }
