@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2E9AD928F06E9900F3D9D3 /* CD_CardDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9AD528F06E9900F3D9D3 /* CD_CardDetail+CoreDataClass.swift */; };
+		2E2E9ADA28F06E9900F3D9D3 /* CD_CardDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9AD628F06E9900F3D9D3 /* CD_CardDetail+CoreDataProperties.swift */; };
+		2E2E9ADB28F06E9900F3D9D3 /* CD_Deck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9AD728F06E9900F3D9D3 /* CD_Deck+CoreDataClass.swift */; };
+		2E2E9ADC28F06E9900F3D9D3 /* CD_Deck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9AD828F06E9900F3D9D3 /* CD_Deck+CoreDataProperties.swift */; };
+		2E2E9ADE28F06EEF00F3D9D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */; };
 		2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40FE4328EDBAEC0050F4E0 /* AppDelegate.swift */; };
 		2E40FE4D28EDBAED0050F4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E40FE4C28EDBAED0050F4E0 /* Assets.xcassets */; };
 		2E40FE5028EDBAED0050F4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E40FE4E28EDBAED0050F4E0 /* LaunchScreen.storyboard */; };
@@ -66,6 +71,11 @@
 /* Begin PBXFileReference section */
 		03D9BA5E60969F70E9D40378 /* Pods-GatheringOfMagic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagic.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagic/Pods-GatheringOfMagic.debug.xcconfig"; sourceTree = "<group>"; };
 		06BB293EC85E1C3340B3E380 /* Pods_GatheringOfMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatheringOfMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2E9AD528F06E9900F3D9D3 /* CD_CardDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_CardDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E2E9AD628F06E9900F3D9D3 /* CD_CardDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_CardDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E2E9AD728F06E9900F3D9D3 /* CD_Deck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E2E9AD828F06E9900F3D9D3 /* CD_Deck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2E40FE4028EDBAEC0050F4E0 /* GatheringOfMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatheringOfMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E40FE4328EDBAEC0050F4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E40FE4C28EDBAED0050F4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -357,8 +367,13 @@
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2E2E9AD528F06E9900F3D9D3 /* CD_CardDetail+CoreDataClass.swift */,
+				2E2E9AD628F06E9900F3D9D3 /* CD_CardDetail+CoreDataProperties.swift */,
+				2E2E9AD728F06E9900F3D9D3 /* CD_Deck+CoreDataClass.swift */,
+				2E2E9AD828F06E9900F3D9D3 /* CD_Deck+CoreDataProperties.swift */,
 				2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */,
 				2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */,
+				2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -629,15 +644,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E40FE8128EDBC870050F4E0 /* SplashScreenPresenter.swift in Sources */,
+				2E2E9ADE28F06EEF00F3D9D3 /* DataManager.swift in Sources */,
 				2E40FE9828EDBE990050F4E0 /* Cards.swift in Sources */,
 				2E40FE8628EDBD240050F4E0 /* BaseRouter.swift in Sources */,
 				2E40FEB328EE52530050F4E0 /* CardDetailScreenViewController.swift in Sources */,
 				2E40FE8F28EDBE040050F4E0 /* CardDAO.swift in Sources */,
+				2E2E9ADC28F06E9900F3D9D3 /* CD_Deck+CoreDataProperties.swift in Sources */,
 				2E40FE9B28EDE8CB0050F4E0 /* CardListScreenRouter.swift in Sources */,
 				2E40FEB128EE51D10050F4E0 /* CardDetailScreenRouter.swift in Sources */,
 				2E40FEB528EE53640050F4E0 /* CardDetailScreenPresenter.swift in Sources */,
 				2E40FE7A28EDBBFA0050F4E0 /* ConnectonObject.swift in Sources */,
+				2E2E9AD928F06E9900F3D9D3 /* CD_CardDetail+CoreDataClass.swift in Sources */,
 				2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */,
+				2E2E9ADB28F06E9900F3D9D3 /* CD_Deck+CoreDataClass.swift in Sources */,
 				2E40FE9F28EDEB3C0050F4E0 /* CardListScreenPresenter.swift in Sources */,
 				2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */,
 				2E40FE9528EDBE720050F4E0 /* ErrorObject.swift in Sources */,
@@ -652,6 +671,7 @@
 				2E40FEAE28EE3E7E0050F4E0 /* UIColorWithHex.swift in Sources */,
 				2E40FEA928EE1BB40050F4E0 /* ReusableCells.swift in Sources */,
 				2E40FE7D28EDBC370050F4E0 /* SplashScreenRouter.swift in Sources */,
+				2E2E9ADA28F06E9900F3D9D3 /* CD_CardDetail+CoreDataProperties.swift in Sources */,
 				2E40FEB928EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

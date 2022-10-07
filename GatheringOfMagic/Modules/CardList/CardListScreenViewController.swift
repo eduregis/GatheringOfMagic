@@ -13,7 +13,7 @@ protocol CardListCollectionViewCellDelegate {
 }
 
 class CardListScreenViewController: BaseViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cardListCollectionView: UICollectionView!
@@ -65,6 +65,7 @@ class CardListScreenViewController: BaseViewController {
     }
     
     func reloadData() {
+        presenter.updateFavorites()
         cardListCollectionView.reloadData()
     }
     
@@ -101,7 +102,8 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
         let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
         cell.fill(
             name: presenter.currentCards?[indexPath.row].name,
-            imageURL: presenter.currentCards?[indexPath.row].imageUrl
+            imageURL: presenter.currentCards?[indexPath.row].imageUrl,
+            isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row])
         )
         return cell
     }

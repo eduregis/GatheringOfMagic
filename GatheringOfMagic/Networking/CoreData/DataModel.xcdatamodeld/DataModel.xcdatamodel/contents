@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CD_CardDetail" representedClassName="CD_CardDetail" syncable="YES" codeGenerationType="class">
+    <entity name="CD_CardDetail" representedClassName="CD_CardDetail" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String"/>
         <attribute name="cmc" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
@@ -13,7 +13,7 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="deck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Deck" inverseName="cards" inverseEntity="CD_Deck"/>
     </entity>
-    <entity name="CD_Deck" representedClassName="CD_Deck" syncable="YES" codeGenerationType="class">
+    <entity name="CD_Deck" representedClassName="CD_Deck" syncable="YES">
         <attribute name="coverId" optional="YES" attributeType="String"/>
         <attribute name="format" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>

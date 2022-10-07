@@ -58,19 +58,8 @@ import CoreData
             print("The app was first opened on \(firstOpen)")
         } else {
             print("First Open!")
-            
-            let managedContext = self.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "CD_Deck", in: managedContext)!
-            let favorites = NSManagedObject(entity: entity, insertInto: managedContext)
-            
-            favorites.setValue("Favorites", forKey: "name")
-            favorites.setValue("favorites", forKey: "format")
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("erro ao salvar: \(error)")
-            }
+            _ = DataManager.shared.createDeck(name: "Favorites", coverId: "", format: "favorites")
+            DataManager.shared.save()
             
             UserDefaults.standard.set(Date(), forKey: "FirstOpen")
         }

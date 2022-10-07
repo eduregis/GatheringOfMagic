@@ -61,42 +61,64 @@ class CardDetailScreenPresenter {
     
     func favoriteCard() {
         if let card = currentCard, card.id != nil  {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             
-            let managedContext = appDelegate.persistentContainer.viewContext
+            guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
             
-            let cardEntity = NSEntityDescription.entity(forEntityName: "CD_CardDetail", in: managedContext)!
-            let cd_CardDetail = NSManagedObject(entity: cardEntity, insertInto: managedContext)
+            var cards = [CD_CardDetail]()
             
-            let coreDataMethods = CoreDataMethods()
+            var cardDetail = DataManager.shared.createCard(
+                artist: card.artist ?? "",
+                cmc: Int32(card.cmc ?? 0),
+                id: card.id ?? "",
+                imageUrl: card.imageUrl ?? "",
+                manaCost: card.manaCost ?? "",
+                name: card.name ?? "",
+                power: card.power ?? "",
+                rarity: card.rarity ?? "",
+                toughness: card.toughness ?? "",
+                type: card.type ?? "",
+                deck: deck)
             
-            let favoritesResult = coreDataMethods.fetchRecordsForEntity(
-                "CD_Deck",
-                inManagedObjectContext: managedContext,
-                predicates: ["name LIKE %@" : "Favorites"]
-            ).first
+            cards.append(cardDetail)
             
-            cd_CardDetail.setValue(card.artist, forKey: "artist")
-            cd_CardDetail.setValue(card.cmc, forKey: "cmc")
-            cd_CardDetail.setValue(card.id, forKey: "id")
-            cd_CardDetail.setValue(card.imageUrl, forKey: "imageUrl")
-            cd_CardDetail.setValue(card.manaCost, forKey: "manaCost")
-            cd_CardDetail.setValue(card.name, forKey: "name")
-            cd_CardDetail.setValue(card.power, forKey: "power")
-            cd_CardDetail.setValue(card.rarity, forKey: "rarity")
-            cd_CardDetail.setValue(card.toughness, forKey: "toughness")
-            cd_CardDetail.setValue(card.type, forKey: "type")
+            DataManager.shared.save()
             
-            guard let favoriteCards = favoritesResult else { return }
-            
-            let cards = favoriteCards.mutableSetValue(forKey: "cards")
-            cards.add(cd_CardDetail)
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("erro ao salvar: \(error)")
-            }
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//            
+//            let managedContext = appDelegate.persistentContainer.viewContext
+//            
+//            let cardEntity = NSEntityDescription.entity(forEntityName: "CD_CardDetail", in: managedContext)!
+//            let cd_CardDetail = NSManagedObject(entity: cardEntity, insertInto: managedContext)
+//            
+//            let coreDataMethods = CoreDataMethods()
+//            
+//            let favoritesResult = coreDataMethods.fetchRecordsForEntity(
+//                "CD_Deck",
+//                inManagedObjectContext: managedContext,
+//                predicates: ["name LIKE %@" : "Favorites"]
+//            ).first
+//            
+//            cd_CardDetail.setValue(card.artist, forKey: "artist")
+//            cd_CardDetail.setValue(card.cmc, forKey: "cmc")
+//            cd_CardDetail.setValue(card.id, forKey: "id")
+//            cd_CardDetail.setValue(card.imageUrl, forKey: "imageUrl")
+//            cd_CardDetail.setValue(card.manaCost, forKey: "manaCost")
+//            cd_CardDetail.setValue(card.name, forKey: "name")
+//            cd_CardDetail.setValue(card.power, forKey: "power")
+//            cd_CardDetail.setValue(card.rarity, forKey: "rarity")
+//            cd_CardDetail.setValue(card.toughness, forKey: "toughness")
+//            cd_CardDetail.setValue(card.type, forKey: "type")
+//            
+//            guard let favoriteCards = favoritesResult else { return }
+//            
+//            let cards = favoriteCards.mutableSetValue(forKey: "cards")
+//            cards.add(cd_CardDetail)
+//            
+//            do {
+//                try managedContext.save()
+//            } catch let error as NSError {
+//                print("erro ao salvar: \(error)")
+//            }
         }
         
         

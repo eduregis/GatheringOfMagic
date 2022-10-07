@@ -17,6 +17,7 @@ class CardListScreenPresenter {
     let router: CardListScreenRouter
     
     var currentCards: [Card]?
+    var favoriteCards: [CD_CardDetail]?
     
     init(delegate: CardListScreenPresenterDelegate, router: CardListScreenRouter) {
         self.delegate = delegate
@@ -27,37 +28,7 @@ class CardListScreenPresenter {
     }
     
     func willAppear() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let coreDataMethods = CoreDataMethods()
-        
-        let deckResult = coreDataMethods.fetchRecordsForEntity(
-            "CD_Deck",
-            inManagedObjectContext: managedContext,
-            predicates: ["name LIKE %@" : "Favorites"]
-        ).first
-        
-        let cardResults = coreDataMethods.fetchRecordsForEntity(
-            "CD_CardDetail",
-            inManagedObjectContext: managedContext,
-            predicates: [:]
-        )
-        
-        guard let favoriteList = deckResult else { return }
-
-        print("-------DECKS-------")
-        print(favoriteList.value(forKey: "name"))
-        print(favoriteList.value(forKey: "format"))
-        let cards = favoriteList.value(forKey: "cards") as? [NSManagedObject]
-        
-        print(cards?.count)
-        
-        
-//        print("-------CARDS-------")
-//        for card in cardResults {
-//            print(card.value(forKey: "name"), " , ", card.value(forKey: "power"))
-//        }
-        
+        updateFavorites()
     }
     
     func didAppear() {
@@ -65,6 +36,12 @@ class CardListScreenPresenter {
     
     func navigateToCardDetail(cardId: String) {
         router.navigateToCardDetail(cardId: cardId)
+    }
+    
+    func updateFavorites() {
+        if let favorites = DataManager.shared.getDeckByName(name: "Favorites") {
+            favoriteCards = DataManager.shared.getCards(deck: favorites)
+        }
     }
     
     func loadCards(name: String, completion: @escaping () -> Void) {
@@ -89,5 +66,15 @@ class CardListScreenPresenter {
                     completion()
                 }
             }
+    }
+    
+    func isFavorited(card: Card?) -> Bool {
+        guard let card = card else { return false }
+        guard let favoriteCards = favoriteCards else { return false }
+        
+        for favoriteCard in favoriteCards {
+            if (card.id == favoriteCard.id) { return true }
+        }
+        return false
     }
 }
