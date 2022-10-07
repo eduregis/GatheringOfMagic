@@ -26,6 +26,7 @@ class CardListCollectionViewCell: UICollectionViewCell {
         cardName.text = name
         if let imageURL = imageURL {
             cardImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "backCard.png"))
+            cardImage.layer.cornerRadius = 10
             indicator.stopAnimating()
         }
         

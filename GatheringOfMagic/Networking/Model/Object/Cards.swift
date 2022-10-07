@@ -14,7 +14,7 @@ class Cards: Codable {
 class Card: Codable {
     var name: String?
     var cmc: Int?
-    var colors: [String]?
+    var manaCost: String?
     var type: String?
     var rarity: String?
     var imageUrl: String?
@@ -22,7 +22,7 @@ class Card: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case name, cmc, colors, type, rarity, imageUrl, id
+        case name, cmc, manaCost, type, rarity, imageUrl, id
     }
 }
 
@@ -33,7 +33,7 @@ class CardResponse: Codable {
 class CardDetail: Codable {
     var name: String?
     var cmc: Int?
-    var colors: [String]?
+    var manaCost: String?
     var type: String?
     var rarity: String?
     var artist: String?
@@ -44,6 +44,6 @@ class CardDetail: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case name, cmc, colors, type, rarity, artist, power, toughness, imageUrl, id
+        case name, cmc, manaCost, type, rarity, artist, power, toughness, imageUrl, id
     }
 }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,18 +26,91 @@
                         <constraint firstAttribute="width" secondItem="FDd-mC-rhJ" secondAttribute="height" multiplier="66:89" id="s4I-Pu-0Fg"/>
                     </constraints>
                 </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Yxn-Zw-qMM">
+                    <rect key="frame" x="31" y="568.5" width="352" height="65.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="681-z4-ytR">
+                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="65.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">
+                                <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Favoritar">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="JosefinSans-Thin_Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-7S-jL6">
+                            <rect key="frame" x="122.5" y="0.0" width="107" height="65.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">
+                                <imageReference key="image" image="square.stack.3d.down.right" catalog="system" symbolScale="large"/>
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Criar">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="JosefinSans-Thin_Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <attributedString key="attributedSubtitle">
+                                    <fragment content="deck">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="JosefinSans-Thin"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-q5-33R">
+                            <rect key="frame" x="244.5" y="0.0" width="107.5" height="65.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">
+                                <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Adicionar">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="JosefinSans-Thin_Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <attributedString key="attributedSubtitle">
+                                    <fragment content="a deck">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="JosefinSans-Thin"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65.5" id="YYg-ri-9YH"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="yyk-ta-wPY"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Yxn-Zw-qMM" firstAttribute="leading" secondItem="FDd-mC-rhJ" secondAttribute="leading" id="8xP-US-jOz"/>
                 <constraint firstItem="FDd-mC-rhJ" firstAttribute="width" secondItem="uyd-lb-QE4" secondAttribute="width" multiplier="0.85" id="Fhu-fQ-fAe"/>
+                <constraint firstItem="Yxn-Zw-qMM" firstAttribute="top" secondItem="FDd-mC-rhJ" secondAttribute="bottom" constant="20" id="Lz1-Ge-5cK"/>
                 <constraint firstItem="FDd-mC-rhJ" firstAttribute="top" secondItem="yyk-ta-wPY" secondAttribute="top" constant="30" id="dUy-Hc-ToU"/>
                 <constraint firstItem="FDd-mC-rhJ" firstAttribute="centerX" secondItem="yyk-ta-wPY" secondAttribute="centerX" id="ePe-04-FOF"/>
+                <constraint firstItem="Yxn-Zw-qMM" firstAttribute="trailing" secondItem="FDd-mC-rhJ" secondAttribute="trailing" id="hpC-E8-5QN"/>
             </constraints>
-            <point key="canvasLocation" x="143" y="116"/>
+            <point key="canvasLocation" x="142.02898550724638" y="115.84821428571428"/>
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.stack.3d.down.right" catalog="system" width="124" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

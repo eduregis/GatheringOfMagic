@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol CardDetailScreenPresenterDelegate: BasePresenterDelegate {
 }
@@ -38,7 +39,6 @@ class CardDetailScreenPresenter {
     }
     
     func loadCard(completion: @escaping () -> Void) {
-        
         delegate?.showLoader()
         
         guard let cardId = cardId else { return }
@@ -46,9 +46,7 @@ class CardDetailScreenPresenter {
         VehicleDAO.getCardById(
             cardId: cardId,
             success: { card in
-                
                 self.currentCard = card
-                
                 self.delegate?.hideLoader()
                 completion()
                 
