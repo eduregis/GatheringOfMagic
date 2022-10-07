@@ -43,22 +43,6 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.willAppear()
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CD_CardDetail")
-        
-        var managedList: [NSManagedObject] = []
-        
-        do {
-            managedList = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("erro ao ler: \(error)")
-        }
-        
-        for favoritedCard in managedList {
-            print(favoritedCard.value(forKey: "name"))
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

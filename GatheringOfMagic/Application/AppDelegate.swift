@@ -17,6 +17,7 @@ import CoreData
     static var windowView: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        isFirstOpen()
         createContext()
         return true
     }
@@ -38,18 +39,41 @@ import CoreData
             return container
         }()
         
-        // MARK: - Core Data Saving support
-        
-        func saveContext () {
-            let context = persistentContainer.viewContext
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
+    // MARK: - Core Data Saving support
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func isFirstOpen() {
+        if let firstOpen = UserDefaults.standard.object(forKey: "FirstOpen") as? Date {
+            print("The app was first opened on \(firstOpen)")
+        } else {
+            print("First Open!")
+            
+            let managedContext = self.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "CD_Deck", in: managedContext)!
+            let favorites = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+            favorites.setValue("Favorites", forKey: "name")
+            favorites.setValue("favorites", forKey: "format")
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("erro ao salvar: \(error)")
+            }
+            
+            UserDefaults.standard.set(Date(), forKey: "FirstOpen")
+        }
+    }
 }
 
