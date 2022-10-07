@@ -114,7 +114,7 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  25
         let collectionViewSize = collectionView.frame.size.width - padding
-        return CGSize(width: collectionViewSize/2, height: 187)
+        return CGSize(width: collectionViewSize/3, height: 187)
     }
 }
 

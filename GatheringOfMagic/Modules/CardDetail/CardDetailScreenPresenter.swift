@@ -5,7 +5,7 @@
 //  Created by Eduardo Oliveira on 05/10/22.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 protocol CardDetailScreenPresenterDelegate: BasePresenterDelegate {
@@ -57,5 +57,35 @@ class CardDetailScreenPresenter {
                     completion()
                 }
             }
+    }
+    
+    func favoriteCard() {
+        
+        if let card = currentCard, card.id != nil  {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "CD_CardDetail", in: managedContext)!
+            let cd_CardDetail = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+            cd_CardDetail.setValue(card.artist, forKey: "artist")
+            cd_CardDetail.setValue(card.cmc, forKey: "cmc")
+            cd_CardDetail.setValue(card.id, forKey: "id")
+            cd_CardDetail.setValue(card.imageUrl, forKey: "imageUrl")
+            cd_CardDetail.setValue(card.manaCost, forKey: "manaCost")
+            cd_CardDetail.setValue(card.name, forKey: "name")
+            cd_CardDetail.setValue(card.power, forKey: "power")
+            cd_CardDetail.setValue(card.rarity, forKey: "rarity")
+            cd_CardDetail.setValue(card.toughness, forKey: "toughness")
+            cd_CardDetail.setValue(card.type, forKey: "type")
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("erro ao salvar: \(error)")
+            }
+        }
+        
+        
     }
 }

@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class CardDetailScreenViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var createDeckButton: UIButton!
+    @IBOutlet weak var addToDeckButton: UIButton!
     
     // MARK: - Properties
     var isBlocked = false
@@ -39,6 +43,22 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.willAppear()
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CD_CardDetail")
+        
+        var managedList: [NSManagedObject] = []
+        
+        do {
+            managedList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("erro ao ler: \(error)")
+        }
+        
+        for favoritedCard in managedList {
+            print(favoritedCard.value(forKey: "name"))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +86,18 @@ class CardDetailScreenViewController: BaseViewController {
     func navigateToCardList() {
         self.presenter.router.backToList()
     }
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        presenter.favoriteCard()
+    }
+    
+    @IBAction func createDeckAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func addToDeckAction(_ sender: Any) {
+    }
+    
 }
 
 // MARK: - CardDetailScreenPresenterDelegate
