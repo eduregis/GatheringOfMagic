@@ -15,7 +15,7 @@ class DeckListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var deckName: UILabel!
     
-    var currentDeck: CD_Deck?
+    @IBOutlet var collectionOfManaCostIcons: Array<UIImageView>?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,14 +23,30 @@ class DeckListCollectionViewCell: UICollectionViewCell {
         indicator.hidesWhenStopped = true
     }
     
-    func fill(name: String?, imageURL: String?, isFavorited: Bool = false) {
-        deckName.text = name
-        if let imageURL = imageURL {
+    func fill(deck: CD_Deck?, isFavorited: Bool = false) {
+        guard let currentDeck = deck else { return }
+        deckName.text = currentDeck.name
+        setManaIcons(cards: DataManager.shared.getCards(deck: currentDeck))
+        if let imageURL = currentDeck.coverId {
             deckImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "placeholderDeck.png"))
             deckImage.backgroundColor = .systemGray
             deckImage.layer.cornerRadius = 10
             indicator.stopAnimating()
         }
+    }
+    
+    func setManaIcons(cards: [CD_CardDetail]) {
+        var manaColors: [String] = []
+        if cards.contains(where: {$0.manaCost!.contains("B")}) { manaColors.append("mana_B") }
+        if cards.contains(where: {$0.manaCost!.contains("G")}) { manaColors.append("mana_G") }
+        if cards.contains(where: {$0.manaCost!.contains("R")}) { manaColors.append("mana_R") }
+        if cards.contains(where: {$0.manaCost!.contains("U")}) { manaColors.append("mana_U") }
+        if cards.contains(where: {$0.manaCost!.contains("W")}) { manaColors.append("mana_W") }
         
+        guard let manaCostIcons = collectionOfManaCostIcons else { return }
+        
+        for (manaCostIcon, manaColor) in zip(manaCostIcons, manaColors) {
+            manaCostIcon.image = UIImage(named: manaColor)
+        }
     }
 }

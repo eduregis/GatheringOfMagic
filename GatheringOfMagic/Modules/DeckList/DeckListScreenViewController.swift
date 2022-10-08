@@ -86,10 +86,7 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = DeckListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
-        cell.fill(
-            name: presenter.decks?[indexPath.row].name,
-            imageURL: presenter.decks?[indexPath.row].coverId
-        )
+        cell.fill(deck: presenter.decks?[indexPath.row])
         return cell
     }
     

@@ -112,7 +112,7 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     @IBAction func createDeckAction(_ sender: Any) {
-        
+        presenter.createDeck()
     }
     
     @IBAction func addToDeckAction(_ sender: Any) {
