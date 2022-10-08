@@ -11,11 +11,11 @@ import UIKit
 
 class CardDetailScreenRouter: BaseRouter {
     
-    static func makeModule(cardId: String) -> UIViewController {
+    static func makeModule(cardId: String, isFavorited: Bool) -> UIViewController {
         
         let viewController = CardDetailScreenViewController()
         let router = CardDetailScreenRouter(viewController: viewController)
-        let presenter = CardDetailScreenPresenter(cardId: cardId, delegate: viewController, router: router)
+        let presenter = CardDetailScreenPresenter(cardId: cardId, isFavorited: isFavorited, delegate: viewController, router: router)
         viewController.presenter = presenter
         
         return viewController

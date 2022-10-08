@@ -32,7 +32,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Yxn-Zw-qMM">
                     <rect key="frame" x="31" y="568.5" width="352" height="65.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="681-z4-ytR">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="681-z4-ytR">
                             <rect key="frame" x="0.0" y="0.0" width="107.5" height="65.5"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">
@@ -50,7 +50,7 @@
                                 <action selector="favoriteAction:" destination="-1" eventType="touchUpInside" id="UHY-wb-loG"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-7S-jL6">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-7S-jL6">
                             <rect key="frame" x="122.5" y="0.0" width="107" height="65.5"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">
@@ -75,7 +75,7 @@
                                 <action selector="createDeckAction:" destination="-1" eventType="touchUpInside" id="fbn-gf-d45"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-q5-33R">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-q5-33R">
                             <rect key="frame" x="244.5" y="0.0" width="107.5" height="65.5"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" imagePlacement="top" imagePadding="5" titleAlignment="automatic">

@@ -19,7 +19,7 @@ class CardListScreenRouter: BaseRouter {
         return viewController
     }
     
-    func navigateToCardDetail(cardId: String) {
-        self.present(CardDetailScreenRouter.makeModule(cardId: cardId), animated: true)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
+        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: isFavorited), animated: true)
     }
 }

@@ -48,6 +48,14 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
+        
+        guard let isFavorited = presenter.isFavorited else { return }
+        if (isFavorited) {
+            setUnfavoriteButton()
+        } else {
+            setFavoriteButton()
+        }
+        
     }
     
     // MARK: - Methods
@@ -65,6 +73,32 @@ class CardDetailScreenViewController: BaseViewController {
         self.view.addSubview(blurEffectView)
         self.view.sendSubviewToBack(blurEffectView)
     }
+    
+    func setFavoriteButton() {
+//        favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+//        favoriteButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 12.0)
+//        favoriteButton.setTitle("Favoritar", for: .normal)
+        
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = "Favoritar"
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+    }
+    
+    func setUnfavoriteButton() {
+//        favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//        favoriteButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 12.0)
+//        favoriteButton.setTitle("Desfavoritar", for: .normal)
+        
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = "Desfavoritar"
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }
+    }
 
     // MARK: - Actions
     func navigateToCardList() {
@@ -72,7 +106,14 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     @IBAction func favoriteAction(_ sender: Any) {
-        presenter.favoriteCard()
+        guard let isFavorited = presenter.isFavorited else { return }
+        if (isFavorited) {
+            setFavoriteButton()
+            
+        } else {
+//            presenter.favoriteCard()
+            setUnfavoriteButton()
+        }
     }
     
     @IBAction func createDeckAction(_ sender: Any) {
