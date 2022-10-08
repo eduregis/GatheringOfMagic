@@ -13,11 +13,14 @@ class FavoriteListScreenRouter: BaseRouter {
         let viewController = FavoriteListScreenViewController()
         let router = FavoriteListScreenRouter(viewController: viewController)
         let presenter = FavoriteListScreenPresenter(delegate: viewController, router: router)
+        let navigation = UINavigationController(rootViewController: viewController)
+        navigation.isNavigationBarHidden = false
         viewController.presenter = presenter
-        return viewController
+        
+        return navigation
     }
     
-    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: isFavorited, completion: completion), animated: true)
+    func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
+        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: true, completion: completion), animated: true)
     }
 }

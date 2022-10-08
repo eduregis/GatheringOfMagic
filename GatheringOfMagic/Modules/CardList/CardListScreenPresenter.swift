@@ -68,13 +68,13 @@ class CardListScreenPresenter {
                     self.delegate?.hideLoader()
                     completion()
                 }
-            }) { error in
-                self.delegate?.hideLoader()
-                self.delegate?.showMessage("erro, localized")
-                DispatchQueue.main.async {
-                    completion()
-                }
+        }) { error in
+            self.delegate?.hideLoader()
+            self.delegate?.showMessage("erro, localized")
+            DispatchQueue.main.async {
+                completion()
             }
+        }
     }
     
     func isFavorited(card: Card?) -> Bool {

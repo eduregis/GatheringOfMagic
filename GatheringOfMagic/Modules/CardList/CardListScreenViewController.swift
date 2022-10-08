@@ -33,12 +33,25 @@ class CardListScreenViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.didLoad()
         configureUI()
         loadCards(name: "")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.willAppear()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.didAppear()
+        self.reloadData()
+    }
+    
+    // MARK: - Methods
     private func configureUI() {
         prepareCollection()
         prepareSearchBar()
@@ -66,18 +79,6 @@ class CardListScreenViewController: BaseViewController {
         presenter.updateFavorites()
         cardListCollectionView.reloadData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter.willAppear()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presenter.didAppear()
-    }
-    
-    // MARK: - Methods
 
     // MARK: - Actions    
     func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {

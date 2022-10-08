@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListScreenViewController" customModule="GatheringOfMagic" customModuleProvider="target">
             <connections>
+                <outlet property="favoriteListCollectionView" destination="eaj-o7-jeW" id="0km-Ob-P9q"/>
                 <outlet property="view" destination="vJP-ka-FTZ" id="QX4-xg-DAu"/>
             </connections>
         </placeholder>
@@ -17,8 +18,26 @@
         <view contentMode="scaleToFill" id="vJP-ka-FTZ">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-o7-jeW">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FfQ-64-rNQ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="Eaq-L3-HGz"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Eaq-L3-HGz" firstAttribute="trailing" secondItem="eaj-o7-jeW" secondAttribute="trailing" id="0j9-8E-5IX"/>
+                <constraint firstItem="eaj-o7-jeW" firstAttribute="leading" secondItem="Eaq-L3-HGz" secondAttribute="leading" id="8gr-hl-FcR"/>
+                <constraint firstItem="Eaq-L3-HGz" firstAttribute="bottom" secondItem="eaj-o7-jeW" secondAttribute="bottom" id="Bb8-Hr-4h6"/>
+                <constraint firstItem="eaj-o7-jeW" firstAttribute="top" secondItem="Eaq-L3-HGz" secondAttribute="top" id="EmO-yB-sww"/>
+            </constraints>
             <point key="canvasLocation" x="188" y="80"/>
         </view>
     </objects>

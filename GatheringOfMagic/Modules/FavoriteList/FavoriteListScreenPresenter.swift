@@ -15,6 +15,8 @@ class FavoriteListScreenPresenter {
     weak var delegate: FavoriteListScreenPresenterDelegate?
     let router: FavoriteListScreenRouter
     
+    var favoriteCards: [CD_CardDetail]?
+    
     init(delegate: FavoriteListScreenPresenterDelegate, router: FavoriteListScreenRouter) {
         
         self.delegate = delegate
@@ -27,6 +29,23 @@ class FavoriteListScreenPresenter {
     }
     
     func didAppear() {
+    }
+    
+    func updateFavorites() {
+        if let favorites = DataManager.shared.getDeckByName(name: "Favorites") {
+            self.favoriteCards = DataManager.shared.getCards(deck: favorites)
+        }
+    }
+    
+    func loadFavoriteCards(completion: @escaping () -> Void) {
+        
+        delegate?.showLoader()
+        
+        DispatchQueue.main.async {
+            self.updateFavorites()
+            self.delegate?.hideLoader()
+            completion()
+        }
     }
     
     func navigateToCardList() {
