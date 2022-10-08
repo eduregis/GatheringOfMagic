@@ -8,8 +8,6 @@
 import UIKit
 
 protocol CardListCollectionViewCellDelegate {
-    func navigateToAddVehicle()
-    func showOptions(vehicleID: String, currentCard: Card)
 }
 
 class CardListScreenViewController: BaseViewController {
@@ -67,10 +65,6 @@ class CardListScreenViewController: BaseViewController {
     func reloadData() {
         presenter.updateFavorites()
         cardListCollectionView.reloadData()
-    }
-    
-    func testCompletion() {
-        print("AAAAAAAAA")
     }
     
     override func viewWillAppear(_ animated: Bool) {

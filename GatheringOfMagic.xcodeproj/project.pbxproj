@@ -45,6 +45,10 @@
 		2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F002F28F1112F00B4B765 /* CD_Deck+CoreDataClass.swift */; };
 		2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003028F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift */; };
 		2E4F003728F12AF200B4B765 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003628F12AF200B4B765 /* TabBarRouter.swift */; };
+		2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */; };
+		2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */; };
+		2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */; };
+		2E4F004028F12F4900B4B765 /* FavoriteListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
@@ -114,6 +118,10 @@
 		2E4F002F28F1112F00B4B765 /* CD_Deck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		2E4F003028F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		2E4F003628F12AF200B4B765 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenRouter.swift; sourceTree = "<group>"; };
+		2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenViewController.swift; sourceTree = "<group>"; };
+		2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenPresenter.swift; sourceTree = "<group>"; };
+		2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListScreenViewController.xib; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 		2E40FE7428EDBB290050F4E0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F003828F12CCA00B4B765 /* FavoriteList */,
 				2E4F003528F12A9F00B4B765 /* TabBar */,
 				2E40FEAF28EE49930050F4E0 /* CardDetail */,
 				2E40FE9928EDE82C0050F4E0 /* CardList */,
@@ -375,6 +384,17 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2E4F003828F12CCA00B4B765 /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */,
+				2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */,
+				2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */,
+				2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */,
+			);
+			path = FavoriteList;
+			sourceTree = "<group>";
+		};
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +545,7 @@
 				2E40FEA128EDECE00050F4E0 /* CardListScreenViewController.xib in Resources */,
 				2E40FE8328EDBCCC0050F4E0 /* SplashScreenViewController.xib in Resources */,
 				2E40FEB728EE548D0050F4E0 /* CardDetailScreenViewController.xib in Resources */,
+				2E4F004028F12F4900B4B765 /* FavoriteListScreenViewController.xib in Resources */,
 				2E40FE5028EDBAED0050F4E0 /* LaunchScreen.storyboard in Resources */,
 				2E40FE4D28EDBAED0050F4E0 /* Assets.xcassets in Resources */,
 			);
@@ -666,9 +687,11 @@
 				2E40FEB528EE53640050F4E0 /* CardDetailScreenPresenter.swift in Sources */,
 				2E40FE7A28EDBBFA0050F4E0 /* ConnectonObject.swift in Sources */,
 				2E4F003228F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift in Sources */,
+				2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */,
 				2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */,
 				2E40FE9F28EDEB3C0050F4E0 /* CardListScreenPresenter.swift in Sources */,
 				2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */,
+				2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */,
 				2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */,
 				2E4F003728F12AF200B4B765 /* TabBarRouter.swift in Sources */,
 				2E40FE9528EDBE720050F4E0 /* ErrorObject.swift in Sources */,
@@ -676,6 +699,7 @@
 				2E40FE9D28EDEAA30050F4E0 /* CardListScreenViewController.swift in Sources */,
 				2E40FE8A28EDBD910050F4E0 /* BasePresenterDelegate.swift in Sources */,
 				2E40FE8C28EDBDC80050F4E0 /* APIConfig.swift in Sources */,
+				2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */,
 				2E40FEA628EE10A70050F4E0 /* CardListCollectionViewCell.swift in Sources */,
 				2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */,
 				2E40FE7F28EDBC590050F4E0 /* SplashScreenViewController.swift in Sources */,
