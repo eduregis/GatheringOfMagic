@@ -10,12 +10,10 @@ import UIKit
 class CardListScreenRouter: BaseRouter {
     
     static func makeModule() -> UIViewController {
-        
         let viewController = CardListScreenViewController()
         let router = CardListScreenRouter(viewController: viewController)
         let presenter = CardListScreenPresenter(delegate: viewController, router: router)
         viewController.presenter = presenter
-        
         return viewController
     }
     
