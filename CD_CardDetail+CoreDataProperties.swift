@@ -26,6 +26,7 @@ extension CD_CardDetail {
     @NSManaged public var rarity: String?
     @NSManaged public var toughness: String?
     @NSManaged public var type: String?
+    @NSManaged public var quantity: Int16
     @NSManaged public var deck: CD_Deck?
 
 }

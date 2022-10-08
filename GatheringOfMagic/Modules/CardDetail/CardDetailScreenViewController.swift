@@ -55,7 +55,10 @@ class CardDetailScreenViewController: BaseViewController {
         } else {
             setFavoriteButton()
         }
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.completionHandler!()
     }
     
     // MARK: - Methods
@@ -75,10 +78,6 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     func setFavoriteButton() {
-//        favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-//        favoriteButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 12.0)
-//        favoriteButton.setTitle("Favoritar", for: .normal)
-        
         if let attrFont = UIFont(name: "Helvetica", size: 12) {
             let title = "Favoritar"
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
@@ -88,10 +87,6 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     func setUnfavoriteButton() {
-//        favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//        favoriteButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 12.0)
-//        favoriteButton.setTitle("Desfavoritar", for: .normal)
-        
         if let attrFont = UIFont(name: "Helvetica", size: 12) {
             let title = "Desfavoritar"
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])

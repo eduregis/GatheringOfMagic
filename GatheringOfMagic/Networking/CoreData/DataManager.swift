@@ -47,6 +47,7 @@ class DataManager {
         card.manaCost = manaCost
         card.name = name
         card.power = power
+        card.quantity = 1
         card.rarity = rarity
         card.toughness = toughness
         card.type = type

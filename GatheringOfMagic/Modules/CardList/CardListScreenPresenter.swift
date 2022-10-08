@@ -35,15 +35,16 @@ class CardListScreenPresenter {
         let decks = DataManager.shared.getDecks()
         for deck in decks {
             let cards = DataManager.shared.getCards(deck: deck)
+            print(deck.name ?? "")
             for card in cards {
-                print(deck.name ?? "", ": ", card.name ?? "")
+                print("  ", deck.name ?? "", ": ", card.name ?? "")
             }
         }
         
     }
     
-    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
-        router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
+        router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
     }
     
     func updateFavorites() {

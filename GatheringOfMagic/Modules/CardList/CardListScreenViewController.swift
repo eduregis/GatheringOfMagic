@@ -69,6 +69,10 @@ class CardListScreenViewController: BaseViewController {
         cardListCollectionView.reloadData()
     }
     
+    func testCompletion() {
+        print("AAAAAAAAA")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.willAppear()
@@ -82,8 +86,8 @@ class CardListScreenViewController: BaseViewController {
     // MARK: - Methods
 
     // MARK: - Actions    
-    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
+        self.presenter.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
     }
 }
 
@@ -110,7 +114,7 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let card = presenter.currentCards?[indexPath.row] else { return }
-        navigateToCardDetail(cardId: card.id ?? "", isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row]))
+        navigateToCardDetail(cardId: card.id ?? "", isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row]), completion: self.reloadData)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
