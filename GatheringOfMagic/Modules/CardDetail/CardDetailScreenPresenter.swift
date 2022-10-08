@@ -67,7 +67,6 @@ class CardDetailScreenPresenter {
         if let card = currentCard, card.id != nil  {
             
             guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
-        
             var cards = DataManager.shared.getCards(deck: deck)
             
             let cardDetail = DataManager.shared.createCard(
@@ -87,7 +86,20 @@ class CardDetailScreenPresenter {
             
             DataManager.shared.save()
         }
-        
-        
+        isFavorited = true
+    }
+    
+    func unfavoriteCard() {
+        if let card = currentCard, card.id != nil  {
+            
+            guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
+            let cards = DataManager.shared.getCards(deck: deck)
+            
+            let cardToUnfavorite = cards.filter { $0.id == card.id }.first
+            guard let cardToUnfavorite = cardToUnfavorite else { return }
+            
+            DataManager.shared.deleteCard(card: cardToUnfavorite)
+        }
+        isFavorited = false
     }
 }

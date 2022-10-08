@@ -32,6 +32,14 @@ class CardListScreenPresenter {
     }
     
     func didAppear() {
+        let decks = DataManager.shared.getDecks()
+        for deck in decks {
+            let cards = DataManager.shared.getCards(deck: deck)
+            for card in cards {
+                print(deck.name ?? "", ": ", card.name ?? "")
+            }
+        }
+        
     }
     
     func navigateToCardDetail(cardId: String, isFavorited: Bool) {

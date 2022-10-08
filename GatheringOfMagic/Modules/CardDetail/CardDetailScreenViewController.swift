@@ -108,10 +108,10 @@ class CardDetailScreenViewController: BaseViewController {
     @IBAction func favoriteAction(_ sender: Any) {
         guard let isFavorited = presenter.isFavorited else { return }
         if (isFavorited) {
+            presenter.unfavoriteCard()
             setFavoriteButton()
-            
         } else {
-//            presenter.favoriteCard()
+            presenter.favoriteCard()
             setUnfavoriteButton()
         }
     }
