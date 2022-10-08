@@ -8,12 +8,10 @@
 import UIKit
 
 protocol CardListCollectionViewCellDelegate {
-    func navigateToAddVehicle()
-    func showOptions(vehicleID: String, currentCard: Card)
 }
 
 class CardListScreenViewController: BaseViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cardListCollectionView: UICollectionView!
@@ -65,6 +63,7 @@ class CardListScreenViewController: BaseViewController {
     }
     
     func reloadData() {
+        presenter.updateFavorites()
         cardListCollectionView.reloadData()
     }
     
@@ -81,8 +80,8 @@ class CardListScreenViewController: BaseViewController {
     // MARK: - Methods
 
     // MARK: - Actions    
-    func navigateToCardDetail(cardId: String) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
+        self.presenter.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
     }
 }
 
@@ -101,20 +100,21 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
         let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
         cell.fill(
             name: presenter.currentCards?[indexPath.row].name,
-            imageURL: presenter.currentCards?[indexPath.row].imageUrl
+            imageURL: presenter.currentCards?[indexPath.row].imageUrl,
+            isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row])
         )
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let card = presenter.currentCards?[indexPath.row] else { return }
-        navigateToCardDetail(cardId: card.id ?? "")
+        navigateToCardDetail(cardId: card.id ?? "", isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row]), completion: self.reloadData)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  25
         let collectionViewSize = collectionView.frame.size.width - padding
-        return CGSize(width: collectionViewSize/2, height: 187)
+        return CGSize(width: collectionViewSize/3, height: 187)
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2E9ADE28F06EEF00F3D9D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */; };
 		2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40FE4328EDBAEC0050F4E0 /* AppDelegate.swift */; };
 		2E40FE4D28EDBAED0050F4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E40FE4C28EDBAED0050F4E0 /* Assets.xcassets */; };
 		2E40FE5028EDBAED0050F4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E40FE4E28EDBAED0050F4E0 /* LaunchScreen.storyboard */; };
@@ -39,6 +40,17 @@
 		2E40FEB528EE53640050F4E0 /* CardDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40FEB428EE53640050F4E0 /* CardDetailScreenPresenter.swift */; };
 		2E40FEB728EE548D0050F4E0 /* CardDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E40FEB628EE548D0050F4E0 /* CardDetailScreenViewController.xib */; };
 		2E40FEB928EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E40FEB828EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift */; };
+		2E4F003128F1112F00B4B765 /* CD_CardDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F002D28F1112F00B4B765 /* CD_CardDetail+CoreDataClass.swift */; };
+		2E4F003228F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F002E28F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift */; };
+		2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F002F28F1112F00B4B765 /* CD_Deck+CoreDataClass.swift */; };
+		2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003028F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift */; };
+		2E4F003728F12AF200B4B765 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003628F12AF200B4B765 /* TabBarRouter.swift */; };
+		2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */; };
+		2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */; };
+		2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */; };
+		2E4F004028F12F4900B4B765 /* FavoriteListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */; };
+		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
+		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
 		B628CB333058BEFD45625D89 /* Pods_GatheringOfMagic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BB293EC85E1C3340B3E380 /* Pods_GatheringOfMagic.framework */; };
 		DD8C1E6CBADE0EB3312C2AD1 /* Pods_GatheringOfMagic_GatheringOfMagicUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499E1977DFF88E24CF87E88 /* Pods_GatheringOfMagic_GatheringOfMagicUITests.framework */; };
@@ -64,6 +76,7 @@
 /* Begin PBXFileReference section */
 		03D9BA5E60969F70E9D40378 /* Pods-GatheringOfMagic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagic.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagic/Pods-GatheringOfMagic.debug.xcconfig"; sourceTree = "<group>"; };
 		06BB293EC85E1C3340B3E380 /* Pods_GatheringOfMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatheringOfMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2E40FE4028EDBAEC0050F4E0 /* GatheringOfMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatheringOfMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E40FE4328EDBAEC0050F4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E40FE4C28EDBAED0050F4E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +113,17 @@
 		2E40FEB428EE53640050F4E0 /* CardDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreenPresenter.swift; sourceTree = "<group>"; };
 		2E40FEB628EE548D0050F4E0 /* CardDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardDetailScreenViewController.xib; sourceTree = "<group>"; };
 		2E40FEB828EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringURL_From_HTTP_To_HTTPS.swift; sourceTree = "<group>"; };
+		2E4F002D28F1112F00B4B765 /* CD_CardDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_CardDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		2E4F002E28F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_CardDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		2E4F002F28F1112F00B4B765 /* CD_Deck+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		2E4F003028F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CD_Deck+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		2E4F003628F12AF200B4B765 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenRouter.swift; sourceTree = "<group>"; };
+		2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenViewController.swift; sourceTree = "<group>"; };
+		2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListScreenPresenter.swift; sourceTree = "<group>"; };
+		2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteListScreenViewController.xib; sourceTree = "<group>"; };
+		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		74803D35D02C0640656EF3A2 /* Pods-GatheringOfMagic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagic.release.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagic/Pods-GatheringOfMagic.release.xcconfig"; sourceTree = "<group>"; };
 		848AF0CBE064793936A3C5D5 /* Pods-GatheringOfMagicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.release.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +226,8 @@
 		2E40FE7428EDBB290050F4E0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F003828F12CCA00B4B765 /* FavoriteList */,
+				2E4F003528F12A9F00B4B765 /* TabBar */,
 				2E40FEAF28EE49930050F4E0 /* CardDetail */,
 				2E40FE9928EDE82C0050F4E0 /* CardList */,
 				2E40FE7B28EDBC1A0050F4E0 /* Splash */,
@@ -212,6 +238,7 @@
 		2E40FE7528EDBB330050F4E0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				2EF8F0D028EFB0AB00E2BBD3 /* CoreData */,
 				2E40FE8D28EDBDDD0050F4E0 /* DAO */,
 				2E40FE9028EDBE1E0050F4E0 /* Request */,
 				2E40FE9328EDBE560050F4E0 /* Model */,
@@ -347,6 +374,39 @@
 				2E40FEB628EE548D0050F4E0 /* CardDetailScreenViewController.xib */,
 			);
 			path = CardDetail;
+			sourceTree = "<group>";
+		};
+		2E4F003528F12A9F00B4B765 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F003628F12AF200B4B765 /* TabBarRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		2E4F003828F12CCA00B4B765 /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F003928F12CF700B4B765 /* FavoriteListScreenRouter.swift */,
+				2E4F003B28F12D3B00B4B765 /* FavoriteListScreenViewController.swift */,
+				2E4F003D28F12E9200B4B765 /* FavoriteListScreenPresenter.swift */,
+				2E4F003F28F12F4900B4B765 /* FavoriteListScreenViewController.xib */,
+			);
+			path = FavoriteList;
+			sourceTree = "<group>";
+		};
+		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F002D28F1112F00B4B765 /* CD_CardDetail+CoreDataClass.swift */,
+				2E4F002E28F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift */,
+				2E4F002F28F1112F00B4B765 /* CD_Deck+CoreDataClass.swift */,
+				2E4F003028F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift */,
+				2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */,
+				2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */,
+				2E2E9ADD28F06EEF00F3D9D3 /* DataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		500EBD92879CBCCFBED185CA /* Pods */ = {
@@ -485,6 +545,7 @@
 				2E40FEA128EDECE00050F4E0 /* CardListScreenViewController.xib in Resources */,
 				2E40FE8328EDBCCC0050F4E0 /* SplashScreenViewController.xib in Resources */,
 				2E40FEB728EE548D0050F4E0 /* CardDetailScreenViewController.xib in Resources */,
+				2E4F004028F12F4900B4B765 /* FavoriteListScreenViewController.xib in Resources */,
 				2E40FE5028EDBAED0050F4E0 /* LaunchScreen.storyboard in Resources */,
 				2E40FE4D28EDBAED0050F4E0 /* Assets.xcassets in Resources */,
 			);
@@ -615,24 +676,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E40FE8128EDBC870050F4E0 /* SplashScreenPresenter.swift in Sources */,
+				2E2E9ADE28F06EEF00F3D9D3 /* DataManager.swift in Sources */,
 				2E40FE9828EDBE990050F4E0 /* Cards.swift in Sources */,
 				2E40FE8628EDBD240050F4E0 /* BaseRouter.swift in Sources */,
 				2E40FEB328EE52530050F4E0 /* CardDetailScreenViewController.swift in Sources */,
+				2E4F003128F1112F00B4B765 /* CD_CardDetail+CoreDataClass.swift in Sources */,
 				2E40FE8F28EDBE040050F4E0 /* CardDAO.swift in Sources */,
 				2E40FE9B28EDE8CB0050F4E0 /* CardListScreenRouter.swift in Sources */,
 				2E40FEB128EE51D10050F4E0 /* CardDetailScreenRouter.swift in Sources */,
 				2E40FEB528EE53640050F4E0 /* CardDetailScreenPresenter.swift in Sources */,
 				2E40FE7A28EDBBFA0050F4E0 /* ConnectonObject.swift in Sources */,
+				2E4F003228F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift in Sources */,
+				2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */,
+				2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */,
 				2E40FE9F28EDEB3C0050F4E0 /* CardListScreenPresenter.swift in Sources */,
+				2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */,
+				2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */,
 				2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */,
+				2E4F003728F12AF200B4B765 /* TabBarRouter.swift in Sources */,
 				2E40FE9528EDBE720050F4E0 /* ErrorObject.swift in Sources */,
 				2E40FE9228EDBE3D0050F4E0 /* CardProvider.swift in Sources */,
 				2E40FE9D28EDEAA30050F4E0 /* CardListScreenViewController.swift in Sources */,
 				2E40FE8A28EDBD910050F4E0 /* BasePresenterDelegate.swift in Sources */,
 				2E40FE8C28EDBDC80050F4E0 /* APIConfig.swift in Sources */,
+				2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */,
 				2E40FEA628EE10A70050F4E0 /* CardListCollectionViewCell.swift in Sources */,
+				2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */,
 				2E40FE7F28EDBC590050F4E0 /* SplashScreenViewController.swift in Sources */,
 				2E40FE8828EDBD630050F4E0 /* BaseViewController.swift in Sources */,
+				2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */,
 				2E40FEAE28EE3E7E0050F4E0 /* UIColorWithHex.swift in Sources */,
 				2E40FEA928EE1BB40050F4E0 /* ReusableCells.swift in Sources */,
 				2E40FE7D28EDBC370050F4E0 /* SplashScreenRouter.swift in Sources */,
@@ -978,6 +1050,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E40FE3828EDBAEC0050F4E0 /* Project object */;
 }

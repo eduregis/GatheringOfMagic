@@ -42,7 +42,7 @@ extension CardProvider: TargetType {
                 parameters: [
                     "name": "\(name)",
                     "page": "\(page)",
-                    "pageSize": "20",
+                    "pageSize": "30",
                     "contains": "imageUrl"],
                 encoding: URLEncoding.queryString)
         case .getCardById:

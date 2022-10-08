@@ -5,22 +5,28 @@
 //  Created by Eduardo Oliveira on 05/10/22.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 protocol CardDetailScreenPresenterDelegate: BasePresenterDelegate {
 }
 
 class CardDetailScreenPresenter {
     
+    // MARK: - Variables
     let cardId: String?
     weak var delegate: CardDetailScreenPresenterDelegate?
     let router: CardDetailScreenRouter
     var currentCard: CardDetail?
+    var isFavorited: Bool?
+    var completionHandler: (() -> Void)?
     
-    init(cardId: String, delegate: CardDetailScreenPresenterDelegate, router: CardDetailScreenRouter) {
+    init(cardId: String, isFavorited: Bool?, completion: (() -> Void)?, delegate: CardDetailScreenPresenterDelegate, router: CardDetailScreenRouter) {
         self.cardId = cardId
         self.delegate = delegate
         self.router = router
+        self.isFavorited = isFavorited
+        self.completionHandler = completion
         currentCard = CardDetail()
     }
     
@@ -38,7 +44,6 @@ class CardDetailScreenPresenter {
     }
     
     func loadCard(completion: @escaping () -> Void) {
-        
         delegate?.showLoader()
         
         guard let cardId = cardId else { return }
@@ -46,9 +51,7 @@ class CardDetailScreenPresenter {
         VehicleDAO.getCardById(
             cardId: cardId,
             success: { card in
-                
                 self.currentCard = card
-                
                 self.delegate?.hideLoader()
                 completion()
                 
@@ -59,5 +62,45 @@ class CardDetailScreenPresenter {
                     completion()
                 }
             }
+    }
+    
+    func favoriteCard() {
+        if let card = currentCard, card.id != nil  {
+            
+            guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
+            var cards = DataManager.shared.getCards(deck: deck)
+            
+            let cardDetail = DataManager.shared.createCard(
+                artist: card.artist ?? "",
+                cmc: Int32(card.cmc ?? 0),
+                id: card.id ?? "",
+                imageUrl: card.imageUrl ?? "",
+                manaCost: card.manaCost ?? "",
+                name: card.name ?? "",
+                power: card.power ?? "",
+                rarity: card.rarity ?? "",
+                toughness: card.toughness ?? "",
+                type: card.type ?? "",
+                deck: deck)
+            
+            cards.append(cardDetail)
+            
+            DataManager.shared.save()
+        }
+        isFavorited = true
+    }
+    
+    func unfavoriteCard() {
+        if let card = currentCard, card.id != nil  {
+            
+            guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
+            let cards = DataManager.shared.getCards(deck: deck)
+            
+            let cardToUnfavorite = cards.filter { $0.id == card.id }.first
+            guard let cardToUnfavorite = cardToUnfavorite else { return }
+            
+            DataManager.shared.deleteCard(card: cardToUnfavorite)
+        }
+        isFavorited = false
     }
 }

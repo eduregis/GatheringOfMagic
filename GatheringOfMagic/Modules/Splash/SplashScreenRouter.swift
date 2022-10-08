@@ -22,6 +22,6 @@ class SplashScreenRouter: BaseRouter {
     }
     
     func navigateToCardList() {
-        self.push(CardListScreenRouter.makeModule(), animated: true)
+        self.push(TabBarRouter.makeModule(), animated: true)
     }
 }

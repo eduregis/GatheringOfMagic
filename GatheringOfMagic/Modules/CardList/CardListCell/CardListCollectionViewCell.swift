@@ -13,6 +13,7 @@ class CardListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardImage: UIImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var cardName: UILabel!
+    @IBOutlet weak var favoriteStar: UIImageView!
     
     var currentCard: Card?
     
@@ -20,13 +21,16 @@ class CardListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         indicator.startAnimating()
         indicator.hidesWhenStopped = true
+        favoriteStar.isHidden = true
     }
     
-    func fill(name: String?, imageURL: String?) {
+    func fill(name: String?, imageURL: String?, isFavorited: Bool = false) {
         cardName.text = name
         if let imageURL = imageURL {
             cardImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "backCard.png"))
+            cardImage.layer.cornerRadius = 10
             indicator.stopAnimating()
+            favoriteStar.isHidden = !isFavorited
         }
         
     }

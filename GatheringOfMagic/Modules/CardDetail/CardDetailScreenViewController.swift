@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class CardDetailScreenViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var createDeckButton: UIButton!
+    @IBOutlet weak var addToDeckButton: UIButton!
     
     // MARK: - Properties
     var isBlocked = false
@@ -44,6 +48,17 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
+        
+        guard let isFavorited = presenter.isFavorited else { return }
+        if (isFavorited) {
+            setUnfavoriteButton()
+        } else {
+            setFavoriteButton()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.completionHandler!()
     }
     
     // MARK: - Methods
@@ -61,11 +76,48 @@ class CardDetailScreenViewController: BaseViewController {
         self.view.addSubview(blurEffectView)
         self.view.sendSubviewToBack(blurEffectView)
     }
+    
+    func setFavoriteButton() {
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = "Favoritar"
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+    }
+    
+    func setUnfavoriteButton() {
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = "Desfavoritar"
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }
+    }
 
     // MARK: - Actions
     func navigateToCardList() {
         self.presenter.router.backToList()
     }
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        guard let isFavorited = presenter.isFavorited else { return }
+        if (isFavorited) {
+            presenter.unfavoriteCard()
+            setFavoriteButton()
+        } else {
+            presenter.favoriteCard()
+            setUnfavoriteButton()
+        }
+    }
+    
+    @IBAction func createDeckAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func addToDeckAction(_ sender: Any) {
+    }
+    
 }
 
 // MARK: - CardDetailScreenPresenterDelegate

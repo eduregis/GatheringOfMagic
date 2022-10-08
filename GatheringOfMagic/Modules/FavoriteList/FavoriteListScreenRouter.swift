@@ -1,18 +1,18 @@
 //
-//  CardListScreenRouter.swift
+//  FavoriteListScreenRouter.swift
 //  GatheringOfMagic
 //
-//  Created by Eduardo Oliveira on 05/10/22.
+//  Created by Eduardo Oliveira on 08/10/22.
 //
 
 import UIKit
 
-class CardListScreenRouter: BaseRouter {
+class FavoriteListScreenRouter: BaseRouter {
     
     static func makeModule() -> UIViewController {
-        let viewController = CardListScreenViewController()
-        let router = CardListScreenRouter(viewController: viewController)
-        let presenter = CardListScreenPresenter(delegate: viewController, router: router)
+        let viewController = FavoriteListScreenViewController()
+        let router = FavoriteListScreenRouter(viewController: viewController)
+        let presenter = FavoriteListScreenPresenter(delegate: viewController, router: router)
         viewController.presenter = presenter
         return viewController
     }
