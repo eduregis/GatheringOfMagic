@@ -12,6 +12,7 @@ class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var deckName: UILabel!
     @IBOutlet weak var cardsInDeckLabel: UILabel!
+    @IBOutlet weak var cardsCollectionVIew: UICollectionView!
     
     // MARK: - Properties
     var presenter: DeckDetailScreenPresenter!
@@ -51,11 +52,42 @@ class DeckDetailScreenViewController: BaseViewController {
     func actualizeUI() {
         deckName.text = presenter.currentDeck?.name
         cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.cards.count))"
+        prepareCollection()
+    }
+    
+    private func prepareCollection() {
+        self.cardsCollectionVIew.delegate = self
+        self.cardsCollectionVIew.dataSource = self
+        CardListCollectionViewCell.registerNib(for: cardsCollectionVIew)
+        self.cardsCollectionVIew.contentMode = .center
+        self.cardsCollectionVIew.showsHorizontalScrollIndicator = false
     }
 }
 
 // MARK: - CardDetailScreenPresenterDelegate
 extension DeckDetailScreenViewController: DeckDetailScreenPresenterDelegate {
     func didLoadRemoteConfig() {
+    }
+}
+
+extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+        return presenter.cards.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
+        cell.fill(
+            name: presenter.cards[indexPath.row].name,
+            imageURL: presenter.cards[indexPath.row].imageUrl
+        )
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat =  25
+        let collectionViewSize = collectionView.frame.size.width - padding
+        return CGSize(width: collectionViewSize/3, height: 187)
     }
 }
