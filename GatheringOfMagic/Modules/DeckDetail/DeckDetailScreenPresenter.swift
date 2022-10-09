@@ -17,12 +17,14 @@ class DeckDetailScreenPresenter {
     weak var delegate: DeckDetailScreenPresenterDelegate?
     let router: DeckDetailScreenRouter
     var currentDeck: CD_Deck?
+    var cards: [CD_CardDetail] = []
     var completionHandler: (() -> Void)?
     
     init(deck: CD_Deck, completion: (() -> Void)?, delegate: DeckDetailScreenPresenterDelegate, router: DeckDetailScreenRouter) {
         self.delegate = delegate
         self.router = router
         self.completionHandler = completion
+        self.cards = DataManager.shared.getCards(deck: deck)
         currentDeck = deck
     }
     

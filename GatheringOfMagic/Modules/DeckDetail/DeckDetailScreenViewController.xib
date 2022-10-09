@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckDetailScreenViewController" customModule="GatheringOfMagic" customModuleProvider="target">
             <connections>
+                <outlet property="cardsInDeckLabel" destination="FAG-jC-fXA" id="aSZ-xp-l0p"/>
+                <outlet property="deckName" destination="MZS-Fm-NU0" id="h6R-l2-feK"/>
                 <outlet property="view" destination="9jw-Dd-EVY" id="NUL-6H-ZwI"/>
             </connections>
         </placeholder>
@@ -23,7 +25,90 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df3-zb-TXr">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ey-Kq-Xgy" userLabel="HeaderContainerView">
+                                    <rect key="frame" x="0.0" y="16" width="414" height="384"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZS-Fm-NU0" userLabel="DeckName">
+                                            <rect key="frame" x="0.0" y="16" width="414" height="41.5"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Au-Fv-GeQ" userLabel="ManaCostView">
+                                            <rect key="frame" x="0.0" y="73.5" width="207" height="80"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQP-Q2-gp6">
+                                                    <rect key="frame" x="0.0" y="51" width="207" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <constraints>
+                                                <constraint firstItem="ZQP-Q2-gp6" firstAttribute="leading" secondItem="1Au-Fv-GeQ" secondAttribute="leading" id="1dw-u8-uqe"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZQP-Q2-gp6" secondAttribute="trailing" id="A7O-rI-Tfk"/>
+                                                <constraint firstAttribute="height" constant="80" id="Toc-9P-nAH"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZQP-Q2-gp6" secondAttribute="bottom" constant="8" id="bMt-bP-l2s"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3H-VW-eF0" userLabel="AverageCostView">
+                                            <rect key="frame" x="207" y="73.5" width="207" height="80"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngB-J3-qCk">
+                                                    <rect key="frame" x="0.0" y="51" width="207" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                                            <constraints>
+                                                <constraint firstItem="ngB-J3-qCk" firstAttribute="leading" secondItem="E3H-VW-eF0" secondAttribute="leading" id="3Cb-Lj-4Ut"/>
+                                                <constraint firstAttribute="bottom" secondItem="ngB-J3-qCk" secondAttribute="bottom" constant="8" id="Yfh-0R-3OL"/>
+                                                <constraint firstAttribute="trailing" secondItem="ngB-J3-qCk" secondAttribute="trailing" id="ghs-pA-LdY"/>
+                                                <constraint firstAttribute="height" constant="80" id="r6g-Go-1nO"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <constraints>
+                                        <constraint firstItem="MZS-Fm-NU0" firstAttribute="leading" secondItem="3ey-Kq-Xgy" secondAttribute="leading" id="Exf-zR-uH3"/>
+                                        <constraint firstItem="1Au-Fv-GeQ" firstAttribute="width" secondItem="3ey-Kq-Xgy" secondAttribute="width" multiplier="0.5" id="Fg1-mU-5Wz"/>
+                                        <constraint firstItem="E3H-VW-eF0" firstAttribute="top" secondItem="MZS-Fm-NU0" secondAttribute="bottom" constant="16" id="Jmn-9y-cHj"/>
+                                        <constraint firstItem="1Au-Fv-GeQ" firstAttribute="leading" secondItem="MZS-Fm-NU0" secondAttribute="leading" id="Joj-Yl-DNa"/>
+                                        <constraint firstItem="1Au-Fv-GeQ" firstAttribute="top" secondItem="MZS-Fm-NU0" secondAttribute="bottom" constant="16" id="VED-Q2-jlQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="MZS-Fm-NU0" secondAttribute="trailing" id="cdp-Oh-PHh"/>
+                                        <constraint firstAttribute="trailing" secondItem="E3H-VW-eF0" secondAttribute="trailing" id="fjp-4k-jIc"/>
+                                        <constraint firstItem="MZS-Fm-NU0" firstAttribute="top" secondItem="3ey-Kq-Xgy" secondAttribute="top" constant="16" id="pIn-Vl-02o"/>
+                                        <constraint firstItem="E3H-VW-eF0" firstAttribute="width" secondItem="3ey-Kq-Xgy" secondAttribute="width" multiplier="0.5" id="rLi-Iq-Mv5"/>
+                                        <constraint firstAttribute="height" constant="384" id="xre-ks-pP5"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAG-jC-fXA">
+                                    <rect key="frame" x="16" y="417" width="398" height="28"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="3ey-Kq-Xgy" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" id="5GK-bS-Mq0"/>
+                                <constraint firstItem="3ey-Kq-Xgy" firstAttribute="top" secondItem="df3-zb-TXr" secondAttribute="top" constant="16" id="8lF-Kt-rAa"/>
+                                <constraint firstItem="FAG-jC-fXA" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" constant="16" id="NPg-PF-33H"/>
+                                <constraint firstAttribute="trailing" secondItem="FAG-jC-fXA" secondAttribute="trailing" id="XXR-iR-675"/>
+                                <constraint firstAttribute="trailing" secondItem="3ey-Kq-Xgy" secondAttribute="trailing" id="bmJ-Y7-pbq"/>
+                                <constraint firstItem="FAG-jC-fXA" firstAttribute="top" secondItem="3ey-Kq-Xgy" secondAttribute="bottom" constant="17" id="jLA-nc-TiW"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <constraints>
@@ -46,12 +131,21 @@
                 <constraint firstItem="BPG-ep-SLe" firstAttribute="bottom" secondItem="Jn5-7v-igo" secondAttribute="bottom" id="MuL-Qf-ESB"/>
                 <constraint firstItem="Jn5-7v-igo" firstAttribute="top" secondItem="BPG-ep-SLe" secondAttribute="top" id="e8N-Dq-bcU"/>
             </constraints>
-            <point key="canvasLocation" x="78" y="139"/>
+            <point key="canvasLocation" x="76.811594202898561" y="138.61607142857142"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

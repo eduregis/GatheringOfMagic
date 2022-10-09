@@ -10,6 +10,8 @@ import CoreData
 
 class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Outlets
+    @IBOutlet weak var deckName: UILabel!
+    @IBOutlet weak var cardsInDeckLabel: UILabel!
     
     // MARK: - Properties
     var presenter: DeckDetailScreenPresenter!
@@ -47,7 +49,8 @@ class DeckDetailScreenViewController: BaseViewController {
     
     // MARK: - Methods
     func actualizeUI() {
-//        deckName.text = presenter.currentDeck?.name
+        deckName.text = presenter.currentDeck?.name
+        cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.cards.count))"
     }
 }
 
