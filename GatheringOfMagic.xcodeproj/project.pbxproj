@@ -55,6 +55,10 @@
 		2E4F004928F1EACB00B4B765 /* DeckListScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F004828F1EACB00B4B765 /* DeckListScreenViewController.xib */; };
 		2E4F004C28F1EEAA00B4B765 /* DeckListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F004B28F1EEAA00B4B765 /* DeckListCollectionViewCell.xib */; };
 		2E4F004E28F1EF2700B4B765 /* DeckListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F004D28F1EF2700B4B765 /* DeckListCollectionViewCell.swift */; };
+		2E4F005128F26EE700B4B765 /* DeckDetailScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005028F26EE700B4B765 /* DeckDetailScreenRouter.swift */; };
+		2E4F005328F26F7400B4B765 /* DeckDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */; };
+		2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */; };
+		2E4F005728F2734600B4B765 /* DeckDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
@@ -134,6 +138,10 @@
 		2E4F004828F1EACB00B4B765 /* DeckListScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckListScreenViewController.xib; sourceTree = "<group>"; };
 		2E4F004B28F1EEAA00B4B765 /* DeckListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckListCollectionViewCell.xib; sourceTree = "<group>"; };
 		2E4F004D28F1EF2700B4B765 /* DeckListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckListCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E4F005028F26EE700B4B765 /* DeckDetailScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenRouter.swift; sourceTree = "<group>"; };
+		2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenViewController.swift; sourceTree = "<group>"; };
+		2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenPresenter.swift; sourceTree = "<group>"; };
+		2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckDetailScreenViewController.xib; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +246,7 @@
 		2E40FE7428EDBB290050F4E0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F004F28F26EA900B4B765 /* DeckDetail */,
 				2E4F004128F1E67700B4B765 /* DeckList */,
 				2E4F003828F12CCA00B4B765 /* FavoriteList */,
 				2E4F003528F12A9F00B4B765 /* TabBar */,
@@ -429,6 +438,17 @@
 			path = DeckListCell;
 			sourceTree = "<group>";
 		};
+		2E4F004F28F26EA900B4B765 /* DeckDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F005028F26EE700B4B765 /* DeckDetailScreenRouter.swift */,
+				2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */,
+				2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */,
+				2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */,
+			);
+			path = DeckDetail;
+			sourceTree = "<group>";
+		};
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +601,7 @@
 				2E40FE8328EDBCCC0050F4E0 /* SplashScreenViewController.xib in Resources */,
 				2E40FEB728EE548D0050F4E0 /* CardDetailScreenViewController.xib in Resources */,
 				2E4F004028F12F4900B4B765 /* FavoriteListScreenViewController.xib in Resources */,
+				2E4F005728F2734600B4B765 /* DeckDetailScreenViewController.xib in Resources */,
 				2E40FE5028EDBAED0050F4E0 /* LaunchScreen.storyboard in Resources */,
 				2E4F004928F1EACB00B4B765 /* DeckListScreenViewController.xib in Resources */,
 				2E40FE4D28EDBAED0050F4E0 /* Assets.xcassets in Resources */,
@@ -727,6 +748,7 @@
 				2E4F004728F1E97700B4B765 /* DeckListScreenPresenter.swift in Sources */,
 				2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */,
 				2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */,
+				2E4F005328F26F7400B4B765 /* DeckDetailScreenViewController.swift in Sources */,
 				2E40FE9F28EDEB3C0050F4E0 /* CardListScreenPresenter.swift in Sources */,
 				2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */,
 				2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */,
@@ -737,11 +759,13 @@
 				2E40FE9D28EDEAA30050F4E0 /* CardListScreenViewController.swift in Sources */,
 				2E40FE8A28EDBD910050F4E0 /* BasePresenterDelegate.swift in Sources */,
 				2E40FE8C28EDBDC80050F4E0 /* APIConfig.swift in Sources */,
+				2E4F005128F26EE700B4B765 /* DeckDetailScreenRouter.swift in Sources */,
 				2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */,
 				2E40FEA628EE10A70050F4E0 /* CardListCollectionViewCell.swift in Sources */,
 				2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */,
 				2E40FE7F28EDBC590050F4E0 /* SplashScreenViewController.swift in Sources */,
 				2E40FE8828EDBD630050F4E0 /* BaseViewController.swift in Sources */,
+				2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */,
 				2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */,
 				2E4F004E28F1EF2700B4B765 /* DeckListCollectionViewCell.swift in Sources */,
 				2E40FEAE28EE3E7E0050F4E0 /* UIColorWithHex.swift in Sources */,

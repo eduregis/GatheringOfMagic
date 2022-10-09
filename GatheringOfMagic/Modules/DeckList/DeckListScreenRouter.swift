@@ -20,7 +20,7 @@ class DeckListScreenRouter: BaseRouter {
         return navigation
     }
     
-    func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-//        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: true, completion: completion), animated: true)
+    func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
+        self.push(DeckDetailScreenRouter.makeModule(deck: deck, completion: completion), animated: true)
     }
 }

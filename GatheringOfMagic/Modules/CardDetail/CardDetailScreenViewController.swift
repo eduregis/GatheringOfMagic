@@ -17,7 +17,6 @@ class CardDetailScreenViewController: BaseViewController {
     @IBOutlet weak var addToDeckButton: UIButton!
     
     // MARK: - Properties
-    var isBlocked = false
     var presenter: CardDetailScreenPresenter!
     
     // MARK: - View Lifecycle

@@ -5,8 +5,6 @@
 //  Created by Eduardo Oliveira on 05/10/22.
 //
 
-import Foundation
-
 import UIKit
 
 class CardDetailScreenRouter: BaseRouter {

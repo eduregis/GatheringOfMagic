@@ -1,19 +1,18 @@
 //
-//  SplashScreenViewController.swift
+//  DeckDetailScreenViewController.swift
 //  GatheringOfMagic
 //
-//  Created by Eduardo Oliveira on 05/10/22.
+//  Created by Eduardo Oliveira on 08/10/22.
 //
 
 import UIKit
+import CoreData
 
-class SplashScreenViewController: BaseViewController {
-
+class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Outlets
     
-    
     // MARK: - Properties
-    var presenter: SplashScreenPresenter!
+    var presenter: DeckDetailScreenPresenter!
     
     // MARK: - View Lifecycle
     
@@ -28,6 +27,7 @@ class SplashScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.actualizeUI()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -41,16 +41,18 @@ class SplashScreenViewController: BaseViewController {
         presenter.didAppear()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.completionHandler!()
+    }
+    
     // MARK: - Methods
-
-    // MARK: - Actions    
-    func navigateToCardList() {
-        self.presenter.router.navigateToCardList()
+    func actualizeUI() {
+//        deckName.text = presenter.currentDeck?.name
     }
 }
 
-// MARK: - SplashScreenPresenterDelegate
-extension SplashScreenViewController: SplashScreenPresenterDelegate {
+// MARK: - CardDetailScreenPresenterDelegate
+extension DeckDetailScreenViewController: DeckDetailScreenPresenterDelegate {
     func didLoadRemoteConfig() {
     }
 }

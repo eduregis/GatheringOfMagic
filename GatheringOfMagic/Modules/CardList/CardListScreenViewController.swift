@@ -17,7 +17,6 @@ class CardListScreenViewController: BaseViewController {
     @IBOutlet weak var cardListCollectionView: UICollectionView!
     
     // MARK: - Properties
-    var isBlocked = false
     var presenter: CardListScreenPresenter!
     var timer: Timer?
     

@@ -17,13 +17,24 @@ class DeckListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var collectionOfManaCostIcons: Array<UIImageView>?
 
+    @IBOutlet weak var manaCostXConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        clear()
         indicator.startAnimating()
         indicator.hidesWhenStopped = true
     }
     
+    func clear() {
+        guard let manaCostIcons = collectionOfManaCostIcons else { return }
+        for manaCostIcon in manaCostIcons {
+            manaCostIcon.image = nil
+        }
+    }
+    
     func fill(deck: CD_Deck?, isFavorited: Bool = false) {
+        clear()
         guard let currentDeck = deck else { return }
         deckName.text = currentDeck.name
         setManaIcons(cards: DataManager.shared.getCards(deck: currentDeck))
@@ -36,7 +47,9 @@ class DeckListCollectionViewCell: UICollectionViewCell {
     }
     
     func setManaIcons(cards: [CD_CardDetail]) {
+        
         var manaColors: [String] = []
+        
         if cards.contains(where: {$0.manaCost!.contains("B")}) { manaColors.append("mana_B") }
         if cards.contains(where: {$0.manaCost!.contains("G")}) { manaColors.append("mana_G") }
         if cards.contains(where: {$0.manaCost!.contains("R")}) { manaColors.append("mana_R") }
@@ -48,5 +61,7 @@ class DeckListCollectionViewCell: UICollectionViewCell {
         for (manaCostIcon, manaColor) in zip(manaCostIcons, manaColors) {
             manaCostIcon.image = UIImage(named: manaColor)
         }
+        
+        manaCostXConstraint.constant = CGFloat((manaColors.count - 1) * -13)
     }
 }

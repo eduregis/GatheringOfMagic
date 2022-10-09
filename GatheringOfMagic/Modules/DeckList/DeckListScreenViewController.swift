@@ -68,8 +68,8 @@ class DeckListScreenViewController: BaseViewController {
     }
 
     // MARK: - Actions
-    func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, completion: completion)
+    func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
+        self.presenter.router.navigateToDeckDetail(deck: deck, completion: completion)
     }
 }
 
@@ -92,8 +92,7 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let deck = presenter.decks?[indexPath.row] else { return }
-        print("Deck name: \(deck)")
-//        navigateToCardDetail(cardId: deck.id ?? "", completion: self.reloadData)
+        navigateToDeckDetail(deck: deck, completion: self.reloadData)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

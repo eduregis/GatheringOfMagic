@@ -66,11 +66,11 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV7-zK-RSk">
-                        <rect key="frame" x="116.5" y="134.5" width="30" height="14"/>
+                        <rect key="frame" x="113" y="134.5" width="37" height="16.5"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
-                                    <font key="NSFont" size="12" name="JosefinSans-Thin_Regular"/>
+                                    <font key="NSFont" size="14" name="Helvetica-Bold"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
@@ -105,6 +105,7 @@
                 <outlet property="deckImage" destination="M89-6r-Yq8" id="yGZ-sF-c7K"/>
                 <outlet property="deckName" destination="aV7-zK-RSk" id="clE-98-ZLs"/>
                 <outlet property="indicator" destination="Kxl-q6-oCI" id="hoY-Bv-e12"/>
+                <outlet property="manaCostXConstraint" destination="JJX-V9-KzV" id="cG7-hJ-8Hh"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="vWX-ud-AxV" collectionClass="NSMutableArray" id="Auf-hA-z2b"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="ajD-pt-Vuh" collectionClass="NSMutableArray" id="3vX-RA-6CZ"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="gwL-8K-GL6" collectionClass="NSMutableArray" id="EOz-Io-dkm"/>
