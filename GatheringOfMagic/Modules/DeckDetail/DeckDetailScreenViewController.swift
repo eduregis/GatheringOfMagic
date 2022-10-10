@@ -66,6 +66,8 @@ class DeckDetailScreenViewController: BaseViewController {
         CardListCollectionViewCell.registerNib(for: cardsCollectionView)
         self.cardsCollectionView.contentMode = .center
         self.cardsCollectionView.showsHorizontalScrollIndicator = false
+        cardsCollectionView?.register(DeckDetailCollectionViewHeader.self, forSupplementaryViewOfKind:
+                                        UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
     }
     
     func changeCollectionHeight() {
@@ -90,6 +92,28 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
             return cardData.count
         }
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if let collectionSection = CardTypes(rawValue: section) {
+            if (presenter.sortedCards[collectionSection]!.count > 0) {
+                return CGSize(width: view.frame.width, height: 20)
+            }
+        }
+        
+        return CGSize(width: view.frame.width, height: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind:
+        String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "headerId",
+                for: indexPath) as! DeckDetailCollectionViewHeader
+        if let collectionSection = CardTypes(rawValue: indexPath.section) {
+            header.typeLabel.text = presenter.titleForHeader(type: collectionSection)
+        }
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

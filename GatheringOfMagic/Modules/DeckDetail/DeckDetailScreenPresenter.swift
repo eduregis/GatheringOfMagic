@@ -58,6 +58,27 @@ class DeckDetailScreenPresenter {
         sortedCards[.planeswalker] = cards.filter({$0.type!.contains("Planeswalker")})
     }
     
+    func titleForHeader(type: CardTypes) -> String {
+        switch type {
+        case .land:
+            return "Land"
+        case .instant:
+            return "Instant"
+        case .sorcery:
+            return "Sorcery"
+        case .artifact:
+            return "Artifact"
+        case .creature:
+            return "Creature"
+        case .enchantment:
+            return "Enchantment"
+        case .planeswalker:
+            return "Planeswalker"
+        case .total:
+            return ""
+        }
+    }
+    
     func loadCard(completion: @escaping () -> Void) {
         
     }

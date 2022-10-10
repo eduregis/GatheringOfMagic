@@ -59,6 +59,7 @@
 		2E4F005328F26F7400B4B765 /* DeckDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */; };
 		2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */; };
 		2E4F005728F2734600B4B765 /* DeckDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */; };
+		2E4F005A28F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
@@ -142,6 +143,7 @@
 		2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenViewController.swift; sourceTree = "<group>"; };
 		2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenPresenter.swift; sourceTree = "<group>"; };
 		2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckDetailScreenViewController.xib; sourceTree = "<group>"; };
+		2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailCollectionViewHeader.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -441,12 +443,21 @@
 		2E4F004F28F26EA900B4B765 /* DeckDetail */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F005828F3A88700B4B765 /* DeckDetailCollectionViewHeader */,
 				2E4F005028F26EE700B4B765 /* DeckDetailScreenRouter.swift */,
 				2E4F005228F26F7400B4B765 /* DeckDetailScreenViewController.swift */,
 				2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */,
 				2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */,
 			);
 			path = DeckDetail;
+			sourceTree = "<group>";
+		};
+		2E4F005828F3A88700B4B765 /* DeckDetailCollectionViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */,
+			);
+			path = DeckDetailCollectionViewHeader;
 			sourceTree = "<group>";
 		};
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
@@ -753,6 +764,7 @@
 				2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */,
 				2E4F003E28F12E9200B4B765 /* FavoriteListScreenPresenter.swift in Sources */,
 				2E40FE4428EDBAEC0050F4E0 /* AppDelegate.swift in Sources */,
+				2E4F005A28F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift in Sources */,
 				2E4F003728F12AF200B4B765 /* TabBarRouter.swift in Sources */,
 				2E40FE9528EDBE720050F4E0 /* ErrorObject.swift in Sources */,
 				2E40FE9228EDBE3D0050F4E0 /* CardProvider.swift in Sources */,
