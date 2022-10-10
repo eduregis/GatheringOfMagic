@@ -63,6 +63,7 @@
 		2E4F005D28F3C01C00B4B765 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005C28F3C01C00B4B765 /* Localizable.swift */; };
 		2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F006228F3C11500B4B765 /* Localizable.strings */; };
 		2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */; };
+		2E5ADB7828F4CC1400FD374D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7728F4CC1400FD374D /* Enums.swift */; };
 		2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E82D42828F497720016DA53 /* UILabelPadding.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
@@ -152,6 +153,7 @@
 		2E4F006128F3C11500B4B765 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E4F006328F3C15C00B4B765 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProjectStrings.swift; sourceTree = "<group>"; };
+		2E5ADB7728F4CC1400FD374D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		2E82D42828F497720016DA53 /* UILabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				2E40FEA828EE1BB40050F4E0 /* ReusableCells.swift */,
+				2E5ADB7728F4CC1400FD374D /* Enums.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */,
 				2E40FEA628EE10A70050F4E0 /* CardListCollectionViewCell.swift in Sources */,
 				2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */,
+				2E5ADB7828F4CC1400FD374D /* Enums.swift in Sources */,
 				2E40FE7F28EDBC590050F4E0 /* SplashScreenViewController.swift in Sources */,
 				2E40FE8828EDBD630050F4E0 /* BaseViewController.swift in Sources */,
 				2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */,

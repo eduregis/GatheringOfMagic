@@ -69,7 +69,8 @@ class DeckListScreenViewController: BaseViewController {
 
     // MARK: - Actions
     func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
-        self.presenter.router.navigateToDeckDetail(deck: deck, completion: completion)
+        
+        self.presenter.navigateToDeckDetail(deck: deck, completion: completion)
     }
 }
 
@@ -92,6 +93,7 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let deck = presenter.decks?[indexPath.row] else { return }
+        
         navigateToDeckDetail(deck: deck, completion: self.reloadData)
     }
     

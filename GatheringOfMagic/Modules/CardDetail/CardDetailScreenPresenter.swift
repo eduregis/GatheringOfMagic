@@ -39,10 +39,6 @@ class CardDetailScreenPresenter {
     func didAppear() {
     }
     
-    func backToList() {
-        router.backToList()
-    }
-    
     func loadCard(completion: @escaping () -> Void) {
         delegate?.showLoader()
         
@@ -113,7 +109,7 @@ class CardDetailScreenPresenter {
             let deck = DataManager.shared.createDeck(
                 name: card.name ?? "",
                 coverId: card.imageUrl ?? "",
-                format: "Standard")
+                format: DeckFormats.standard.rawValue)
             addToDeck(deck: deck)
             DataManager.shared.save()
             self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized())

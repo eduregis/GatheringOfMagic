@@ -45,7 +45,7 @@ class SplashScreenViewController: BaseViewController {
 
     // MARK: - Actions    
     func navigateToCardList() {
-        self.presenter.router.navigateToCardList()
+        self.presenter.navigateToCardList()
     }
 }
 

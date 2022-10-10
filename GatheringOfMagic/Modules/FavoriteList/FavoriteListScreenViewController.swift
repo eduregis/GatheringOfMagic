@@ -70,7 +70,7 @@ class FavoriteListScreenViewController: BaseViewController {
 
     // MARK: - Actions
     func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, completion: completion)
+        self.presenter.navigateToCardDetail(cardId: cardId, completion: completion)
     }
 }
 

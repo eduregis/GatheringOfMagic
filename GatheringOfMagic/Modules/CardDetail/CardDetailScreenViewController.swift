@@ -123,9 +123,6 @@ class CardDetailScreenViewController: BaseViewController {
 
 
     // MARK: - Actions
-    func navigateToCardList() {
-        self.presenter.router.backToList()
-    }
     
     @IBAction func favoriteAction(_ sender: Any) {
         guard let isFavorited = presenter.isFavorited else { return }
@@ -143,6 +140,7 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     @IBAction func addToDeckAction(_ sender: Any) {
+      // call a table view with decks
     }
     
 }

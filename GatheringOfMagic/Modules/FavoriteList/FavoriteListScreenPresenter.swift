@@ -48,6 +48,7 @@ class FavoriteListScreenPresenter {
         }
     }
     
-    func navigateToCardList() {
+    func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
+        self.router.navigateToCardDetail(cardId: cardId, completion: completion)
     }
 }

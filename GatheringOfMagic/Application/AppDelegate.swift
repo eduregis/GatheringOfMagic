@@ -34,7 +34,7 @@ import CoreData
             print("\(FirstOpenTexts.notFirstOpen.localized()) \(firstOpen)")
         } else {
             print(FirstOpenTexts.firstOpen.localized())
-            _ = DataManager.shared.createDeck(name: "Favorites", coverId: "", format: "favorites")
+            _ = DataManager.shared.createDeck(name: "Favorites", coverId: "", format: "Favorites")
             DataManager.shared.save()
             
             UserDefaults.standard.set(Date(), forKey: "FirstOpen")

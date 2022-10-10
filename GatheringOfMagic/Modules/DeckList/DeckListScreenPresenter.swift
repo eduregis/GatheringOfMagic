@@ -32,7 +32,7 @@ class DeckListScreenPresenter {
     }
     
     func updateDecks() {
-        self.decks = DataManager.shared.getDecks()
+        self.decks = DataManager.shared.getDecks().filter {$0.format != "Favorites"}
     }
     
     func loadDecks(completion: @escaping () -> Void) {
@@ -45,7 +45,7 @@ class DeckListScreenPresenter {
             completion()
         }
     }
-    
-    func navigateToCardList() {
+    func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
+        router.navigateToDeckDetail(deck: deck, completion: completion)
     }
 }
