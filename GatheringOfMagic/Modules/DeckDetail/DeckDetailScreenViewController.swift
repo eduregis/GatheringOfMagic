@@ -12,7 +12,8 @@ class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var deckName: UILabel!
     @IBOutlet weak var cardsInDeckLabel: UILabel!
-    @IBOutlet weak var cardsCollectionVIew: UICollectionView!
+    @IBOutlet weak var cardsCollectionView: UICollectionView!
+    @IBOutlet weak var cardsCVHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var presenter: DeckDetailScreenPresenter!
@@ -31,7 +32,11 @@ class DeckDetailScreenViewController: BaseViewController {
         super.viewDidLoad()
         presenter.didLoad()
         self.actualizeUI()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.layoutIfNeeded()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.changeCollectionHeight()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,11 +61,15 @@ class DeckDetailScreenViewController: BaseViewController {
     }
     
     private func prepareCollection() {
-        self.cardsCollectionVIew.delegate = self
-        self.cardsCollectionVIew.dataSource = self
-        CardListCollectionViewCell.registerNib(for: cardsCollectionVIew)
-        self.cardsCollectionVIew.contentMode = .center
-        self.cardsCollectionVIew.showsHorizontalScrollIndicator = false
+        self.cardsCollectionView.delegate = self
+        self.cardsCollectionView.dataSource = self
+        CardListCollectionViewCell.registerNib(for: cardsCollectionView)
+        self.cardsCollectionView.contentMode = .center
+        self.cardsCollectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func changeCollectionHeight() {
+        self.cardsCVHeightConstraint.constant = self.cardsCollectionView.contentSize.height
     }
 }
 
@@ -71,23 +80,31 @@ extension DeckDetailScreenViewController: DeckDetailScreenPresenterDelegate {
 }
 
 extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-        return presenter.cards.count
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return CardTypes.total.rawValue
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let collectionSection = CardTypes(rawValue: section), let cardData = presenter.sortedCards[collectionSection] {
+            return cardData.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
-        cell.fill(
-            name: presenter.cards[indexPath.row].name,
-            imageURL: presenter.cards[indexPath.row].imageUrl
-        )
+        if let collectionSection = CardTypes(rawValue: indexPath.section), let card = presenter.sortedCards[collectionSection]?[indexPath.row] {
+            cell.fill(
+                name: card.name,
+                imageURL: card.imageUrl)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  25
         let collectionViewSize = collectionView.frame.size.width - padding
-        return CGSize(width: collectionViewSize/3, height: 187)
+        return CGSize(width: collectionViewSize/4, height: 187)
     }
 }

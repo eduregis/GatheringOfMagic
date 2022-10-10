@@ -33,13 +33,13 @@ class CardListScreenPresenter {
     
     func didAppear() {
         let decks = DataManager.shared.getDecks()
-        for deck in decks {
-            let cards = DataManager.shared.getCards(deck: deck)
-            print(deck.name ?? "")
-            for card in cards {
-                print("  ", deck.name ?? "", ": ", card.name ?? "")
-            }
-        }
+//        for deck in decks {
+//            let cards = DataManager.shared.getCards(deck: deck)
+//            print(deck.name ?? "")
+//            for card in cards {
+//                print("  ", deck.name ?? "", ": ", card.name ?? "")
+//            }
+//        }
         
     }
     

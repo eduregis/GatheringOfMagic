@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckDetailScreenViewController" customModule="GatheringOfMagic" customModuleProvider="target">
             <connections>
-                <outlet property="cardsCollectionVIew" destination="tmU-kR-Mal" id="mwh-Pk-Kud"/>
+                <outlet property="cardsCVHeightConstraint" destination="dze-5P-fDg" id="aiR-Jx-6pa"/>
+                <outlet property="cardsCollectionView" destination="hEX-8a-zQB" id="cqb-6w-JBH"/>
                 <outlet property="cardsInDeckLabel" destination="FAG-jC-fXA" id="aSZ-xp-l0p"/>
                 <outlet property="deckName" destination="MZS-Fm-NU0" id="h6R-l2-feK"/>
                 <outlet property="view" destination="9jw-Dd-EVY" id="NUL-6H-ZwI"/>
@@ -25,7 +26,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df3-zb-TXr">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ey-Kq-Xgy" userLabel="HeaderContainerView">
                                     <rect key="frame" x="0.0" y="16" width="414" height="320"/>
@@ -100,13 +101,13 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tmU-kR-Mal">
-                                    <rect key="frame" x="1" y="396" width="412" height="180"/>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-8a-zQB">
+                                    <rect key="frame" x="0.0" y="396" width="414" height="100"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="180" id="Mr5-sj-0ue"/>
+                                        <constraint firstAttribute="height" constant="100" id="dze-5P-fDg"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yrw-ks-l3n">
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TVi-mA-SRC">
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -117,20 +118,20 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="3ey-Kq-Xgy" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" id="5GK-bS-Mq0"/>
-                                <constraint firstItem="tmU-kR-Mal" firstAttribute="top" secondItem="FAG-jC-fXA" secondAttribute="bottom" constant="16" id="8If-Ol-VAX"/>
                                 <constraint firstItem="3ey-Kq-Xgy" firstAttribute="top" secondItem="df3-zb-TXr" secondAttribute="top" constant="16" id="8lF-Kt-rAa"/>
+                                <constraint firstItem="hEX-8a-zQB" firstAttribute="top" secondItem="FAG-jC-fXA" secondAttribute="bottom" constant="16" id="CSg-BR-C0s"/>
                                 <constraint firstItem="FAG-jC-fXA" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" constant="16" id="H0f-FL-K5R"/>
-                                <constraint firstAttribute="trailing" secondItem="tmU-kR-Mal" secondAttribute="trailing" constant="1" id="Nno-9s-cJq"/>
+                                <constraint firstAttribute="bottom" secondItem="hEX-8a-zQB" secondAttribute="bottom" constant="1" id="Ifn-GL-2oG"/>
+                                <constraint firstItem="hEX-8a-zQB" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" id="NJ4-f1-C8x"/>
                                 <constraint firstItem="FAG-jC-fXA" firstAttribute="top" secondItem="3ey-Kq-Xgy" secondAttribute="bottom" constant="16" id="Pvl-aX-NmD"/>
                                 <constraint firstAttribute="trailing" secondItem="3ey-Kq-Xgy" secondAttribute="trailing" id="bmJ-Y7-pbq"/>
-                                <constraint firstItem="tmU-kR-Mal" firstAttribute="leading" secondItem="df3-zb-TXr" secondAttribute="leading" constant="1" id="sI9-kr-DP6"/>
+                                <constraint firstAttribute="trailing" secondItem="hEX-8a-zQB" secondAttribute="trailing" id="pHn-db-wwh"/>
                                 <constraint firstAttribute="trailing" secondItem="FAG-jC-fXA" secondAttribute="trailing" constant="16" id="znk-tb-W04"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="df3-zb-TXr" firstAttribute="leading" secondItem="Jn5-7v-igo" secondAttribute="leading" id="C9K-ms-ZhC"/>
-                        <constraint firstItem="df3-zb-TXr" firstAttribute="height" secondItem="Jn5-7v-igo" secondAttribute="height" id="OvF-7W-dyP"/>
                         <constraint firstItem="df3-zb-TXr" firstAttribute="top" secondItem="Jn5-7v-igo" secondAttribute="top" id="Ox7-4N-HEc"/>
                         <constraint firstAttribute="bottom" secondItem="df3-zb-TXr" secondAttribute="bottom" id="Pl1-g9-XcT"/>
                         <constraint firstItem="df3-zb-TXr" firstAttribute="width" secondItem="Jn5-7v-igo" secondAttribute="width" id="RxM-9e-fAu"/>
