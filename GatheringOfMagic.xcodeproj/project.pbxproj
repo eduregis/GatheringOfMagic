@@ -63,6 +63,7 @@
 		2E4F005D28F3C01C00B4B765 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005C28F3C01C00B4B765 /* Localizable.swift */; };
 		2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F006228F3C11500B4B765 /* Localizable.strings */; };
 		2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */; };
+		2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E82D42828F497720016DA53 /* UILabelPadding.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
@@ -151,6 +152,7 @@
 		2E4F006128F3C11500B4B765 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E4F006328F3C15C00B4B765 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProjectStrings.swift; sourceTree = "<group>"; };
+		2E82D42828F497720016DA53 /* UILabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			children = (
 				2E40FEAD28EE3E7E0050F4E0 /* UIColorWithHex.swift */,
 				2E40FEB828EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift */,
+				2E82D42828F497720016DA53 /* UILabelPadding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				2E40FE8828EDBD630050F4E0 /* BaseViewController.swift in Sources */,
 				2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */,
 				2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */,
+				2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */,
 				2E4F004E28F1EF2700B4B765 /* DeckListCollectionViewCell.swift in Sources */,
 				2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */,
 				2E40FEAE28EE3E7E0050F4E0 /* UIColorWithHex.swift in Sources */,

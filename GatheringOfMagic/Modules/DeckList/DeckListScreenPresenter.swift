@@ -18,10 +18,10 @@ class DeckListScreenPresenter {
     var decks: [CD_Deck]?
     
     init(delegate: DeckListScreenPresenterDelegate, router: DeckListScreenRouter) {
-        
         self.delegate = delegate
         self.router = router
     }
+    
     func didLoad() {
     }
     

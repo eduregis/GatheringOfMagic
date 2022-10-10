@@ -61,6 +61,12 @@
                         </constraints>
                         <imageReference key="image" image="star" catalog="system" symbolScale="default"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9d-aC-QKo" customClass="UILabelPadding" customModule="GatheringOfMagic" customModuleProvider="target">
+                        <rect key="frame" x="88.5" y="20" width="39" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="BQ9-X9-nwA" firstAttribute="centerY" secondItem="SYp-BB-0qq" secondAttribute="centerY" id="2b7-j8-St4"/>
@@ -68,11 +74,13 @@
                     <constraint firstItem="Dht-TP-jS9" firstAttribute="centerY" secondItem="j8m-TP-DYr" secondAttribute="centerY" id="AuS-YU-oH5"/>
                     <constraint firstItem="j8m-TP-DYr" firstAttribute="centerX" secondItem="cnb-CK-wkt" secondAttribute="centerX" id="Bsz-t9-hAh"/>
                     <constraint firstItem="Kxt-wO-DFe" firstAttribute="top" secondItem="j8m-TP-DYr" secondAttribute="bottom" constant="4" id="DZK-Za-ude"/>
+                    <constraint firstItem="V9d-aC-QKo" firstAttribute="trailing" secondItem="j8m-TP-DYr" secondAttribute="trailing" id="JYa-aI-GZE"/>
                     <constraint firstItem="BQ9-X9-nwA" firstAttribute="width" secondItem="BQ9-X9-nwA" secondAttribute="height" multiplier="1:1" id="Mnl-Ou-Qhm"/>
                     <constraint firstItem="Dht-TP-jS9" firstAttribute="centerX" secondItem="j8m-TP-DYr" secondAttribute="centerX" id="Otg-MH-Ob9"/>
                     <constraint firstItem="j8m-TP-DYr" firstAttribute="top" secondItem="cnb-CK-wkt" secondAttribute="top" constant="20" id="WrP-5V-7Fh"/>
                     <constraint firstAttribute="trailing" secondItem="Kxt-wO-DFe" secondAttribute="trailing" id="aFr-W0-Syy"/>
                     <constraint firstItem="SYp-BB-0qq" firstAttribute="top" secondItem="j8m-TP-DYr" secondAttribute="top" constant="-15" id="f26-4i-pr8"/>
+                    <constraint firstItem="V9d-aC-QKo" firstAttribute="top" secondItem="j8m-TP-DYr" secondAttribute="top" id="i02-3q-jWV"/>
                     <constraint firstItem="Kxt-wO-DFe" firstAttribute="leading" secondItem="cnb-CK-wkt" secondAttribute="leading" id="nTg-KK-Xxt"/>
                     <constraint firstItem="SYp-BB-0qq" firstAttribute="leading" secondItem="j8m-TP-DYr" secondAttribute="leading" constant="10" id="rsk-he-qjM"/>
                 </constraints>
@@ -83,6 +91,7 @@
                 <outlet property="cardName" destination="Kxt-wO-DFe" id="J4C-2W-KtI"/>
                 <outlet property="favoriteStar" destination="SYp-BB-0qq" id="lDD-6D-JRm"/>
                 <outlet property="indicator" destination="Dht-TP-jS9" id="up7-Ny-dtf"/>
+                <outlet property="quantityLabel" destination="V9d-aC-QKo" id="37W-8r-35L"/>
                 <outlet property="strokeFavoriteStar" destination="BQ9-X9-nwA" id="rYd-jZ-8E9"/>
             </connections>
             <point key="canvasLocation" x="3.6231884057971016" y="-72.991071428571431"/>
