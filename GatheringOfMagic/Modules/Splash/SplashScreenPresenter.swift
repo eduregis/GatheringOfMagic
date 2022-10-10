@@ -31,7 +31,7 @@ class SplashScreenPresenter {
     }
     
     func navigateToCardList() {
-        router.navigateToCardList()
+        self.router.navigateToCardList()
     }
     
     @objc func checkInternet() {

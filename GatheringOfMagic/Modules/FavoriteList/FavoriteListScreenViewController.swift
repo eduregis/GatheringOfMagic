@@ -28,7 +28,7 @@ class FavoriteListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.title = "Favorites"
+        self.title = FavoriteListScreenTexts.title.localized()
         configureUI()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -70,7 +70,7 @@ class FavoriteListScreenViewController: BaseViewController {
 
     // MARK: - Actions
     func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, completion: completion)
+        self.presenter.navigateToCardDetail(cardId: cardId, completion: completion)
     }
 }
 

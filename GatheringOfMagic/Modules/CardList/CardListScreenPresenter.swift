@@ -32,7 +32,7 @@ class CardListScreenPresenter {
     }
     
     func didAppear() {
-        let decks = DataManager.shared.getDecks()
+//        let decks = DataManager.shared.getDecks()
 //        for deck in decks {
 //            let cards = DataManager.shared.getCards(deck: deck)
 //            print(deck.name ?? "")
@@ -44,7 +44,7 @@ class CardListScreenPresenter {
     }
     
     func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
+        self.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
     }
     
     func updateFavorites() {
@@ -70,7 +70,7 @@ class CardListScreenPresenter {
                 }
         }) { error in
             self.delegate?.hideLoader()
-            self.delegate?.showMessage("erro, localized")
+            self.delegate?.showMessage(error.error ?? "")
             DispatchQueue.main.async {
                 completion()
             }

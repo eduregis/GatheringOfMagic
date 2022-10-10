@@ -31,7 +31,7 @@ class CoreDataMethods {
             }
 
         } catch {
-            print("Unable to fetch managed objects for entity \(entity).")
+            print("\(ErrorMessages.coreDataUnableFetch.localized()) \(entity).")
         }
 
         return result

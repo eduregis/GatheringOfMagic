@@ -60,6 +60,11 @@
 		2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */; };
 		2E4F005728F2734600B4B765 /* DeckDetailScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */; };
 		2E4F005A28F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */; };
+		2E4F005D28F3C01C00B4B765 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F005C28F3C01C00B4B765 /* Localizable.swift */; };
+		2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F006228F3C11500B4B765 /* Localizable.strings */; };
+		2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */; };
+		2E5ADB7828F4CC1400FD374D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7728F4CC1400FD374D /* Enums.swift */; };
+		2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E82D42828F497720016DA53 /* UILabelPadding.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
 		A231A6736ABD9234CB426604 /* Pods_GatheringOfMagicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE666E8C443F4F6D1DA17E1D /* Pods_GatheringOfMagicTests.framework */; };
@@ -144,6 +149,12 @@
 		2E4F005428F2708500B4B765 /* DeckDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailScreenPresenter.swift; sourceTree = "<group>"; };
 		2E4F005628F2734600B4B765 /* DeckDetailScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckDetailScreenViewController.xib; sourceTree = "<group>"; };
 		2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailCollectionViewHeader.swift; sourceTree = "<group>"; };
+		2E4F005C28F3C01C00B4B765 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		2E4F006128F3C11500B4B765 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E4F006328F3C15C00B4B765 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProjectStrings.swift; sourceTree = "<group>"; };
+		2E5ADB7728F4CC1400FD374D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		2E82D42828F497720016DA53 /* UILabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3921059B912346C363E51B55 /* Pods-GatheringOfMagicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatheringOfMagicTests.debug.xcconfig"; path = "Target Support Files/Pods-GatheringOfMagicTests/Pods-GatheringOfMagicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +285,7 @@
 		2E40FE7628EDBB3E0050F4E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F005B28F3C00600B4B765 /* Localizable */,
 				2E40FE4C28EDBAED0050F4E0 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -376,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				2E40FEA828EE1BB40050F4E0 /* ReusableCells.swift */,
+				2E5ADB7728F4CC1400FD374D /* Enums.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +398,7 @@
 			children = (
 				2E40FEAD28EE3E7E0050F4E0 /* UIColorWithHex.swift */,
 				2E40FEB828EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift */,
+				2E82D42828F497720016DA53 /* UILabelPadding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +472,16 @@
 				2E4F005928F3A8AA00B4B765 /* DeckDetailCollectionViewHeader.swift */,
 			);
 			path = DeckDetailCollectionViewHeader;
+			sourceTree = "<group>";
+		};
+		2E4F005B28F3C00600B4B765 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F006228F3C11500B4B765 /* Localizable.strings */,
+				2E4F005C28F3C01C00B4B765 /* Localizable.swift */,
+				2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
@@ -588,6 +612,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 2E40FE3728EDBAEC0050F4E0;
 			productRefGroup = 2E40FE4128EDBAEC0050F4E0 /* Products */;
@@ -608,6 +633,7 @@
 			files = (
 				2E40FEA428EDFDB40050F4E0 /* CardListCollectionViewCell.xib in Resources */,
 				2E4F004C28F1EEAA00B4B765 /* DeckListCollectionViewCell.xib in Resources */,
+				2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */,
 				2E40FEA128EDECE00050F4E0 /* CardListScreenViewController.xib in Resources */,
 				2E40FE8328EDBCCC0050F4E0 /* SplashScreenViewController.xib in Resources */,
 				2E40FEB728EE548D0050F4E0 /* CardDetailScreenViewController.xib in Resources */,
@@ -775,14 +801,18 @@
 				2E4F003A28F12CF700B4B765 /* FavoriteListScreenRouter.swift in Sources */,
 				2E40FEA628EE10A70050F4E0 /* CardListCollectionViewCell.swift in Sources */,
 				2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */,
+				2E5ADB7828F4CC1400FD374D /* Enums.swift in Sources */,
 				2E40FE7F28EDBC590050F4E0 /* SplashScreenViewController.swift in Sources */,
 				2E40FE8828EDBD630050F4E0 /* BaseViewController.swift in Sources */,
 				2E4F005528F2708500B4B765 /* DeckDetailScreenPresenter.swift in Sources */,
 				2E4F003328F1112F00B4B765 /* CD_Deck+CoreDataClass.swift in Sources */,
+				2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */,
 				2E4F004E28F1EF2700B4B765 /* DeckListCollectionViewCell.swift in Sources */,
+				2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */,
 				2E40FEAE28EE3E7E0050F4E0 /* UIColorWithHex.swift in Sources */,
 				2E40FEA928EE1BB40050F4E0 /* ReusableCells.swift in Sources */,
 				2E40FE7D28EDBC370050F4E0 /* SplashScreenRouter.swift in Sources */,
+				2E4F005D28F3C01C00B4B765 /* Localizable.swift in Sources */,
 				2E40FEB928EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift in Sources */,
 				2E4F004528F1E7FB00B4B765 /* DeckListScreenViewController.swift in Sources */,
 			);
@@ -829,6 +859,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		2E4F006228F3C11500B4B765 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E4F006128F3C11500B4B765 /* en */,
+				2E4F006328F3C15C00B4B765 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -836,6 +875,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -896,6 +936,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

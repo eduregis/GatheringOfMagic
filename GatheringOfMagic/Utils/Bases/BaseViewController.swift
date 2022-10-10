@@ -40,9 +40,9 @@ class BaseViewController: UIViewController, BaseViewControllerMethods {
     }
     
     func showMessage(_ message: String) {
-        let alert = UIAlertController(title: "Atenção!",
+        let alert = UIAlertController(title: AlertTexts.alert.localized(),
                                       message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: {_ in
+        let action = UIAlertAction(title: AlertTexts.ok.localized(), style: .default, handler: {_ in
             self.hideLoader()
         })
         alert.addAction(action)

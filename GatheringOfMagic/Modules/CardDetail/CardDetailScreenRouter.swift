@@ -18,8 +18,4 @@ class CardDetailScreenRouter: BaseRouter {
         
         return viewController
     }
-    
-    func backToList() {
-        
-    }
 }

@@ -81,7 +81,7 @@ class CardListScreenViewController: BaseViewController {
 
     // MARK: - Actions    
     func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
+        self.presenter.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
     }
 }
 

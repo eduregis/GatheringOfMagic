@@ -39,10 +39,6 @@ class CardDetailScreenPresenter {
     func didAppear() {
     }
     
-    func backToList() {
-        router.backToList()
-    }
-    
     func loadCard(completion: @escaping () -> Void) {
         delegate?.showLoader()
         
@@ -57,7 +53,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                self.delegate?.showMessage("erro, localized")
+                self.delegate?.showMessage(error.error ?? "")
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -113,10 +109,10 @@ class CardDetailScreenPresenter {
             let deck = DataManager.shared.createDeck(
                 name: card.name ?? "",
                 coverId: card.imageUrl ?? "",
-                format: "Standard")
+                format: DeckFormats.standard.rawValue)
             addToDeck(deck: deck)
             DataManager.shared.save()
-            self.delegate?.showMessage("deck criado!")
+            self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized())
         }
     }
 }

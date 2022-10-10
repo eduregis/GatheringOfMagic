@@ -11,10 +11,6 @@ import CoreData
 protocol DeckDetailScreenPresenterDelegate: BasePresenterDelegate {
 }
 
-enum CardTypes: Int {
-    case land = 0, instant, sorcery, artifact, creature, enchantment, planeswalker, total
-}
-
 class DeckDetailScreenPresenter {
     
     // MARK: - Variables
@@ -45,7 +41,7 @@ class DeckDetailScreenPresenter {
     }
     
     func backToList() {
-        router.backToList()
+        
     }
     
     func sortingCards() {
@@ -61,19 +57,19 @@ class DeckDetailScreenPresenter {
     func titleForHeader(type: CardTypes) -> String {
         switch type {
         case .land:
-            return "Land"
+            return DeckDetailScreenTexts.land.localized()
         case .instant:
-            return "Instant"
+            return DeckDetailScreenTexts.instant.localized()
         case .sorcery:
-            return "Sorcery"
+            return DeckDetailScreenTexts.sorcery.localized()
         case .artifact:
-            return "Artifact"
+            return DeckDetailScreenTexts.artifact.localized()
         case .creature:
-            return "Creature"
+            return DeckDetailScreenTexts.creature.localized()
         case .enchantment:
-            return "Enchantment"
+            return DeckDetailScreenTexts.enchantment.localized()
         case .planeswalker:
-            return "Planeswalker"
+            return DeckDetailScreenTexts.planeswalker.localized()
         case .total:
             return ""
         }

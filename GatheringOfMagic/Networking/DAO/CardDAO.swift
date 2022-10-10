@@ -19,13 +19,13 @@ class VehicleDAO {
             switch result {
             case .success(let response):
                 guard let cards = try? response.map(Cards.self) else {
-                    failure(ErrorObject(message: "erro, colocar em localized strings"))
+                    failure(ErrorObject(message: ErrorMessages.failureMock.localized()))
                     return
                 }
                 success(cards)
                 
             case .failure(_):
-                failure(ErrorObject(message: "erro, colocar em localized strings"))
+                failure(ErrorObject(message: ErrorMessages.failureAPI.localized()))
             }
         })
     }
@@ -40,13 +40,13 @@ class VehicleDAO {
             switch result {
             case .success(let response):
                 guard let cardResponse = try? response.map(CardResponse.self) else {
-                    failure(ErrorObject(message: "erro, colocar em localized strings"))
+                    failure(ErrorObject(message: ErrorMessages.failureMock.localized()))
                     return
                 }
                 guard let card = cardResponse.card else { return }
                 success(card)
             case .failure(_):
-                failure(ErrorObject(message: "erro, colocar em localized strings"))
+                failure(ErrorObject(message: ErrorMessages.failureAPI.localized()))
             }
         })
     }

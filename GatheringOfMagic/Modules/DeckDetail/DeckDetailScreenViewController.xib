@@ -10,10 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckDetailScreenViewController" customModule="GatheringOfMagic" customModuleProvider="target">
             <connections>
+                <outlet property="averageCostLabel" destination="ngB-J3-qCk" id="opG-su-YXg"/>
                 <outlet property="cardsCVHeightConstraint" destination="dze-5P-fDg" id="aiR-Jx-6pa"/>
                 <outlet property="cardsCollectionView" destination="hEX-8a-zQB" id="cqb-6w-JBH"/>
                 <outlet property="cardsInDeckLabel" destination="FAG-jC-fXA" id="aSZ-xp-l0p"/>
                 <outlet property="deckName" destination="MZS-Fm-NU0" id="h6R-l2-feK"/>
+                <outlet property="manaLabel" destination="ZQP-Q2-gp6" id="VRJ-2g-5hK"/>
                 <outlet property="view" destination="9jw-Dd-EVY" id="NUL-6H-ZwI"/>
             </connections>
         </placeholder>

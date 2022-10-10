@@ -14,6 +14,7 @@ class DeckListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var deckImage: UIImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var deckName: UILabel!
+    @IBOutlet weak var overlay: UIView!
     
     @IBOutlet var collectionOfManaCostIcons: Array<UIImageView>?
 
@@ -41,6 +42,8 @@ class DeckListCollectionViewCell: UICollectionViewCell {
         if let imageURL = currentDeck.coverId {
             deckImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "placeholderDeck.png"))
             deckImage.backgroundColor = .systemGray
+            deckImage.contentMode = .top
+            deckImage.layer.contentsRect = CGRect(x: 0.1, y: 0.2, width: 0.75, height: 0.75)
             deckImage.layer.cornerRadius = 10
             indicator.stopAnimating()
         }
@@ -63,5 +66,15 @@ class DeckListCollectionViewCell: UICollectionViewCell {
         }
         
         manaCostXConstraint.constant = CGFloat((manaColors.count - 1) * -13)
+    }
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
