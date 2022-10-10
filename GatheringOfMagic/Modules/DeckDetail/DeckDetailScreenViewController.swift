@@ -124,7 +124,7 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
         let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
         if let collectionSection = CardTypes(rawValue: indexPath.section), let card = presenter.sortedCards[collectionSection]?[indexPath.row] {
             cell.fill(
-                name: card.name,
+                name: "\(card.name ?? "") (\(card.quantity ?? 0))",
                 imageURL: card.imageUrl)
         }
         return cell

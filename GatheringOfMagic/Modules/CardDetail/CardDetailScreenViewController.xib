@@ -15,6 +15,7 @@
                 <outlet property="cardImage" destination="FDd-mC-rhJ" id="axt-7l-uyL"/>
                 <outlet property="createDeckButton" destination="F5p-7S-jL6" id="gNh-gc-K2e"/>
                 <outlet property="favoriteButton" destination="681-z4-ytR" id="xUS-fx-t7h"/>
+                <outlet property="stackOfButtons" destination="Yxn-Zw-qMM" id="nJ1-b7-aih"/>
                 <outlet property="view" destination="uyd-lb-QE4" id="6dd-vr-cRn"/>
             </connections>
         </placeholder>
@@ -63,13 +64,6 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <attributedString key="attributedSubtitle">
-                                    <fragment content="deck">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="JosefinSans-Thin"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
                             </buttonConfiguration>
                             <connections>
                                 <action selector="createDeckAction:" destination="-1" eventType="touchUpInside" id="fbn-gf-d45"/>
@@ -85,13 +79,6 @@
                                         <attributes>
                                             <font key="NSFont" size="12" name="JosefinSans-Thin_Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <attributedString key="attributedSubtitle">
-                                    <fragment content="a deck">
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="JosefinSans-Thin"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>

@@ -18,7 +18,9 @@
 // MARK: - Card Detail Screen Texts
 "CardDetailScreenTexts_favorite" = "Favoritar";
 "CardDetailScreenTexts_unfavorite" = "Desfavoritar";
-"CardDetailScreenTexts_newDeckCreated" = "Deck novo criado!";
+"CardDetailScreenTexts_createNewDeck" = "Criar novo\ngrimório";
+"CardDetailScreenTexts_addToDeck" = "Adicionar à\ngrimório";
+"CardDetailScreenTexts_newDeckCreated" = "Grimório novo criado!";
 
 // MARK: - Favorite List Screen Texts
 "FavoriteListScreenTexts_title" = "Favoritas";

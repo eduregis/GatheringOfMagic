@@ -21,6 +21,8 @@ enum TabBarTexts: String, Localizable {
 enum CardDetailScreenTexts: String, Localizable {
     case favorite = "CardDetailScreenTexts_favorite"
     case unfavorite = "CardDetailScreenTexts_unfavorite"
+    case createNewDeck = "CardDetailScreenTexts_createNewDeck"
+    case addToDeck = "CardDetailScreenTexts_addToDeck"
     case newDeckCreated = "CardDetailScreenTexts_newDeckCreated"
 }
 

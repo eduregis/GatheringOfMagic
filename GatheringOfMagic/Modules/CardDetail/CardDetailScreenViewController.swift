@@ -15,6 +15,7 @@ class CardDetailScreenViewController: BaseViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var createDeckButton: UIButton!
     @IBOutlet weak var addToDeckButton: UIButton!
+    @IBOutlet weak var stackOfButtons: UIStackView!
     
     // MARK: - Properties
     var presenter: CardDetailScreenPresenter!
@@ -42,6 +43,7 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.willAppear()
+        stackOfButtons.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,7 +65,10 @@ class CardDetailScreenViewController: BaseViewController {
     // MARK: - Methods
     func actualizeUI() {
         cardImage.sd_setImage(with: URL(string: presenter.currentCard?.imageUrl?.protocolAPS() ?? ""), placeholderImage: UIImage(named: "backCard.png"))
-        cardImage.layer.cornerRadius = 20
+        cardImage.layer.cornerRadius = 25
+        setCreateDeckButton()
+        setAddToButton()
+        stackOfButtons.isHidden = false
     }
     
     func blurBackground() {
@@ -81,7 +86,9 @@ class CardDetailScreenViewController: BaseViewController {
             let title = CardDetailScreenTexts.favorite.localized()
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
-            favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+            favoriteButton.contentHorizontalAlignment = .center
+            let image = UIImage(systemName: "star")
+            favoriteButton.setImage(image, for: .normal)
         }
     }
     
@@ -90,9 +97,30 @@ class CardDetailScreenViewController: BaseViewController {
             let title = CardDetailScreenTexts.unfavorite.localized()
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
-            favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            favoriteButton.contentHorizontalAlignment = .center
+            let image = UIImage(systemName: "star.fill")
+            favoriteButton.setImage(image, for: .normal)
         }
     }
+    
+    func setCreateDeckButton() {
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = CardDetailScreenTexts.createNewDeck.localized()
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            createDeckButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            createDeckButton.contentHorizontalAlignment = .center
+        }
+    }
+    
+    func setAddToButton() {
+        if let attrFont = UIFont(name: "Helvetica", size: 12) {
+            let title = CardDetailScreenTexts.addToDeck.localized()
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            addToDeckButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
+            addToDeckButton.contentHorizontalAlignment = .center
+        }
+    }
+
 
     // MARK: - Actions
     func navigateToCardList() {

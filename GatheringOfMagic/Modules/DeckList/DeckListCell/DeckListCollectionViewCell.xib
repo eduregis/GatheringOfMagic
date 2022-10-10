@@ -106,6 +106,7 @@
                 <outlet property="deckName" destination="aV7-zK-RSk" id="clE-98-ZLs"/>
                 <outlet property="indicator" destination="Kxl-q6-oCI" id="hoY-Bv-e12"/>
                 <outlet property="manaCostXConstraint" destination="JJX-V9-KzV" id="cG7-hJ-8Hh"/>
+                <outlet property="overlay" destination="Yxa-p0-My2" id="z3X-lP-ApY"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="vWX-ud-AxV" collectionClass="NSMutableArray" id="Auf-hA-z2b"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="ajD-pt-Vuh" collectionClass="NSMutableArray" id="3vX-RA-6CZ"/>
                 <outletCollection property="collectionOfManaCostIcons" destination="gwL-8K-GL6" collectionClass="NSMutableArray" id="EOz-Io-dkm"/>

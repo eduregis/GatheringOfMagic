@@ -14,6 +14,8 @@ class CardListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var cardName: UILabel!
     @IBOutlet weak var favoriteStar: UIImageView!
+    @IBOutlet weak var strokeFavoriteStar: UIImageView!
+    
     
     var currentCard: Card?
     
@@ -22,6 +24,9 @@ class CardListCollectionViewCell: UICollectionViewCell {
         indicator.startAnimating()
         indicator.hidesWhenStopped = true
         favoriteStar.isHidden = true
+        strokeFavoriteStar.isHidden = true
+        cardName.numberOfLines = 0
+        cardName.lineBreakMode = .byTruncatingTail
     }
     
     func fill(name: String?, imageURL: String?, isFavorited: Bool = false) {
@@ -31,6 +36,7 @@ class CardListCollectionViewCell: UICollectionViewCell {
             cardImage.layer.cornerRadius = 10
             indicator.stopAnimating()
             favoriteStar.isHidden = !isFavorited
+            strokeFavoriteStar.isHidden = !isFavorited
         }
         
     }

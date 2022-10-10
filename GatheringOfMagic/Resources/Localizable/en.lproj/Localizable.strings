@@ -18,6 +18,8 @@
 // MARK: - Card Detail Screen Texts
 "CardDetailScreenTexts_favorite" = "Favorite";
 "CardDetailScreenTexts_unfavorite" = "Unfavorite";
+"CardDetailScreenTexts_createNewDeck" = "Create new\ndeck";
+"CardDetailScreenTexts_addToDeck" = "Add to\na deck";
 "CardDetailScreenTexts_newDeckCreated" = "New deck created!";
 
 // MARK: - Favorite List Screen Texts
