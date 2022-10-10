@@ -9,10 +9,15 @@ import Foundation
 
 extension String {
     func protocolAPS() -> String {
-        var newStr = self
-        let char: Character = "s"
-        let strIndex = self.index(self.startIndex, offsetBy: 4)
-        newStr.insert(char, at: strIndex)
-        return newStr
+        if (self.count > 4) {
+            var newStr = self
+            let char: Character = "s"
+            let strIndex = self.index(self.startIndex, offsetBy: 4)
+            newStr.insert(char, at: strIndex)
+            return newStr
+        } else {
+            return self
+        }
+        
     }
 }

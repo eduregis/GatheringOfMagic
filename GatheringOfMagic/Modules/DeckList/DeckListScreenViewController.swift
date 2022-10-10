@@ -1,5 +1,5 @@
 //
-//  FavoriteListScreenViewController.swift
+//  DeckListScreenViewController.swift
 //  GatheringOfMagic
 //
 //  Created by Eduardo Oliveira on 08/10/22.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class FavoriteListScreenViewController: BaseViewController {
+class DeckListScreenViewController: BaseViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var favoriteListCollectionView: UICollectionView!
+    @IBOutlet weak var deckListCollectionView: UICollectionView!
     
     // MARK: - Properties
-    var presenter: FavoriteListScreenPresenter!
+    var presenter: DeckListScreenPresenter!
     
     // MARK: - View Lifecycle
     
@@ -28,7 +28,7 @@ class FavoriteListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.title = "Favorites"
+        self.title = "Decks"
         configureUI()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -50,59 +50,55 @@ class FavoriteListScreenViewController: BaseViewController {
     }
     
     private func prepareCollection() {
-        self.favoriteListCollectionView.delegate = self
-        self.favoriteListCollectionView.dataSource = self
-        CardListCollectionViewCell.registerNib(for: favoriteListCollectionView)
-        self.favoriteListCollectionView.contentMode = .center
-        self.favoriteListCollectionView.showsHorizontalScrollIndicator = false
+        self.deckListCollectionView.delegate = self
+        self.deckListCollectionView.dataSource = self
+        DeckListCollectionViewCell.registerNib(for: deckListCollectionView)
+        self.deckListCollectionView.contentMode = .center
+        self.deckListCollectionView.showsHorizontalScrollIndicator = false
     }
     
     func loadCards() {
-        presenter.loadFavoriteCards(completion: {
+        presenter.loadDecks(completion: {
             self.reloadData()
         })
     }
     
     func reloadData() {
-        presenter.updateFavorites()
-        favoriteListCollectionView.reloadData()
+        deckListCollectionView.reloadData()
     }
 
     // MARK: - Actions
-    func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-        self.presenter.router.navigateToCardDetail(cardId: cardId, completion: completion)
+    func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
+        self.presenter.router.navigateToDeckDetail(deck: deck, completion: completion)
     }
 }
 
 // MARK: - SplashScreenPresenterDelegate
-extension FavoriteListScreenViewController: FavoriteListScreenPresenterDelegate {
+extension DeckListScreenViewController: DeckListScreenPresenterDelegate {
     func didLoadRemoteConfig() {
     }
 }
 
-extension FavoriteListScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.favoriteCards?.count ?? 0
+        return presenter.decks?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = CardListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
-        cell.fill(
-            name: presenter.favoriteCards?[indexPath.row].name,
-            imageURL: presenter.favoriteCards?[indexPath.row].imageUrl,
-            isFavorited: true
-        )
+        let cell = DeckListCollectionViewCell.dequeueCell(from: collectionView, for: indexPath)
+        cell.fill(deck: presenter.decks?[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let card = presenter.favoriteCards?[indexPath.row] else { return }
-        navigateToCardDetail(cardId: card.id ?? "", completion: self.reloadData)
+        guard let deck = presenter.decks?[indexPath.row] else { return }
+        navigateToDeckDetail(deck: deck, completion: self.reloadData)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  25
         let collectionViewSize = collectionView.frame.size.width - padding
-        return CGSize(width: collectionViewSize/3, height: 187)
+        return CGSize(width: collectionViewSize/2, height: 187)
     }
 }
+

@@ -64,10 +64,8 @@ class CardDetailScreenPresenter {
             }
     }
     
-    func favoriteCard() {
+    func addToDeck(deck: CD_Deck) {
         if let card = currentCard, card.id != nil  {
-            
-            guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
             var cards = DataManager.shared.getCards(deck: deck)
             
             let cardDetail = DataManager.shared.createCard(
@@ -87,6 +85,12 @@ class CardDetailScreenPresenter {
             
             DataManager.shared.save()
         }
+    }
+    
+    func favoriteCard() {
+        guard let deck = DataManager.shared.getDeckByName(name: "Favorites") else { return }
+        addToDeck(deck: deck)
+        
         isFavorited = true
     }
     
@@ -102,5 +106,17 @@ class CardDetailScreenPresenter {
             DataManager.shared.deleteCard(card: cardToUnfavorite)
         }
         isFavorited = false
+    }
+    
+    func createDeck() {
+        if let card = currentCard, card.id != nil  {
+            let deck = DataManager.shared.createDeck(
+                name: card.name ?? "",
+                coverId: card.imageUrl ?? "",
+                format: "Standard")
+            addToDeck(deck: deck)
+            DataManager.shared.save()
+            self.delegate?.showMessage("deck criado!")
+        }
     }
 }

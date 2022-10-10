@@ -13,7 +13,6 @@ class SplashScreenViewController: BaseViewController {
     
     
     // MARK: - Properties
-    var isBlocked = false
     var presenter: SplashScreenPresenter!
     
     // MARK: - View Lifecycle

@@ -1,0 +1,25 @@
+//
+//  DeckDetailScreenRouter.swift
+//  GatheringOfMagic
+//
+//  Created by Eduardo Oliveira on 08/10/22.
+//
+
+import UIKit
+
+class DeckDetailScreenRouter: BaseRouter {
+    
+    static func makeModule(deck: CD_Deck, completion: (() -> Void)?) -> UIViewController {
+        
+        let viewController = DeckDetailScreenViewController()
+        let router = DeckDetailScreenRouter(viewController: viewController)
+        let presenter = DeckDetailScreenPresenter(deck: deck, completion: completion, delegate: viewController, router: router)
+        viewController.presenter = presenter
+        
+        return viewController
+    }
+    
+    func backToList() {
+        
+    }
+}

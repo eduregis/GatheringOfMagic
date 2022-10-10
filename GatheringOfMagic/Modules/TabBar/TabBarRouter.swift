@@ -18,9 +18,14 @@ class TabBarRouter: BaseRouter {
         let favoriteListScreenViewController = FavoriteListScreenRouter.makeModule()
         let tabTwoBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         favoriteListScreenViewController.tabBarItem = tabTwoBarItem
+        
+        let deckListScreenViewController = DeckListScreenRouter.makeModule()
+        let tabThreeBarItem = UITabBarItem(title: "Decks", image: UIImage(systemName: "tray"), selectedImage: UIImage(systemName: "tray.fill"))
+        deckListScreenViewController.tabBarItem = tabThreeBarItem
+
 
         let tabBar = UITabBarController()
-        tabBar.viewControllers = [cardListScreenViewController, favoriteListScreenViewController]
+        tabBar.viewControllers = [cardListScreenViewController, favoriteListScreenViewController, deckListScreenViewController]
 
         return tabBar
     }
