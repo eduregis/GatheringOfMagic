@@ -38,8 +38,8 @@
 "DeckDetailScreenTexts_planeswalker" = "Planeswalkers";
 
 // MARK: - Alert Texts
-"AlertTexts_alert" = "Alert!"
-"AlertTexts_ok" = "Ok"
+"AlertTexts_alert" = "Alert!";
+"AlertTexts_ok" = "Ok";
 
 // MARK: - Error Messages
 "ErrorMessages_noWindow" = "No Window";

@@ -38,8 +38,8 @@
 "DeckDetailScreenTexts_planeswalker" = "Planinautas";
 
 // MARK: - Alert Texts
-"AlertTexts_alert" = "Atenção!"
-"AlertTexts_ok" = "Ok"
+"AlertTexts_alert" = "Atenção!";
+"AlertTexts_ok" = "Ok";
 
 // MARK: - Error Messages
 "ErrorMessages_noWindow" = "Sem tela";
