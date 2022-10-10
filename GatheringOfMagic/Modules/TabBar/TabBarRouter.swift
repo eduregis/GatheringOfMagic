@@ -12,15 +12,15 @@ class TabBarRouter: BaseRouter {
     static func makeModule() -> UIViewController {
         
         let cardListScreenViewController = CardListScreenRouter.makeModule()
-        let tabOneBarItem = UITabBarItem(title: "Cards", image: UIImage(systemName: "square.stack.3d.down.right"), selectedImage: UIImage(systemName: "square.stack.3d.down.right.fill"))
+        let tabOneBarItem = UITabBarItem(title: TabBarTexts.cards.localized(), image: UIImage(systemName: "square.stack.3d.down.right"), selectedImage: UIImage(systemName: "square.stack.3d.down.right.fill"))
         cardListScreenViewController.tabBarItem = tabOneBarItem
 
         let favoriteListScreenViewController = FavoriteListScreenRouter.makeModule()
-        let tabTwoBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        let tabTwoBarItem = UITabBarItem(title: TabBarTexts.favorites.localized(), image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         favoriteListScreenViewController.tabBarItem = tabTwoBarItem
         
         let deckListScreenViewController = DeckListScreenRouter.makeModule()
-        let tabThreeBarItem = UITabBarItem(title: "Decks", image: UIImage(systemName: "tray"), selectedImage: UIImage(systemName: "tray.fill"))
+        let tabThreeBarItem = UITabBarItem(title: TabBarTexts.decks.localized(), image: UIImage(systemName: "tray"), selectedImage: UIImage(systemName: "tray.fill"))
         deckListScreenViewController.tabBarItem = tabThreeBarItem
 
 

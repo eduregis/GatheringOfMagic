@@ -12,6 +12,8 @@ class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var deckName: UILabel!
     @IBOutlet weak var cardsInDeckLabel: UILabel!
+    @IBOutlet weak var manaLabel: UILabel!
+    @IBOutlet weak var averageCostLabel: UILabel!
     @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var cardsCVHeightConstraint: NSLayoutConstraint!
     
@@ -57,6 +59,8 @@ class DeckDetailScreenViewController: BaseViewController {
     func actualizeUI() {
         deckName.text = presenter.currentDeck?.name
         cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.cards.count))"
+        manaLabel.text = DeckDetailScreenTexts.mana.localized()
+        averageCostLabel.text = DeckDetailScreenTexts.averageCost.localized()
         prepareCollection()
     }
     

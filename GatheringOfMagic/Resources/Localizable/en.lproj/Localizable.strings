@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  GatheringOfMagic
+
+  Created by Eduardo Oliveira on 09/10/22.
+  
+*/
+
+// MARK: - Tab Bar Texts
+"TabBarTexts_cards" = "Cards";
+"TabBarTexts_favorites" = "Favorites";
+"TabBarTexts_decks" = "Decks";
+
+// MARK: - Favorite List Screen Texts
+"FavoriteListScreenTexts_title" = "Favorites";
+
+// MARK: - Deck Detail Screen Texts
+"DeckDetailScreenTexts_mana" = "Mana";
+"DeckDetailScreenTexts_averageCost" = "Average cost";
+"DeckDetailScreenTexts_land" = "Lands";
+"DeckDetailScreenTexts_instant" = "Instants";
+"DeckDetailScreenTexts_sorcery" = "Sorceries";
+"DeckDetailScreenTexts_artifact" = "Artifacts";
+"DeckDetailScreenTexts_creature" = "Creatures";
+"DeckDetailScreenTexts_enchantment" = "Enchantments";
+"DeckDetailScreenTexts_planeswalker" = "Planeswalkers";

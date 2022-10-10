@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  GatheringOfMagic
+
+  Created by Eduardo Oliveira on 09/10/22.
+  
+*/
+
+// MARK: - Tab Bar Texts
+"TabBarTexts_cards" = "Cartas";
+"TabBarTexts_favorites" = "Favoritas";
+"TabBarTexts_decks" = "Grimórios";
+
+// MARK: - Favorite List Screen Texts
+"FavoriteListScreenTexts_title" = "Favoritas";
+
+// MARK: - Deck Detail Screen Texts
+"DeckDetailScreenTexts_mana" = "Mana";
+"DeckDetailScreenTexts_averageCost" = "Custo médio";
+"DeckDetailScreenTexts_land" = "Terrenos";
+"DeckDetailScreenTexts_instant" = "Instantâneas";
+"DeckDetailScreenTexts_sorcery" = "Feitiços";
+"DeckDetailScreenTexts_artifact" = "Artefatos";
+"DeckDetailScreenTexts_creature" = "Criaturas";
+"DeckDetailScreenTexts_enchantment" = "Encantamentos";
+"DeckDetailScreenTexts_planeswalker" = "Planinautas";
