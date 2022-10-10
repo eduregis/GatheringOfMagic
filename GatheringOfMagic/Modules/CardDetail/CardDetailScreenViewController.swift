@@ -78,7 +78,7 @@ class CardDetailScreenViewController: BaseViewController {
     
     func setFavoriteButton() {
         if let attrFont = UIFont(name: "Helvetica", size: 12) {
-            let title = "Favoritar"
+            let title = CardDetailScreenTexts.favorite.localized()
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
             favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -87,7 +87,7 @@ class CardDetailScreenViewController: BaseViewController {
     
     func setUnfavoriteButton() {
         if let attrFont = UIFont(name: "Helvetica", size: 12) {
-            let title = "Desfavoritar"
+            let title = CardDetailScreenTexts.unfavorite.localized()
             let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             favoriteButton.setAttributedTitle(attrTitle, for: UIControl.State.normal)
             favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)

@@ -6,13 +6,25 @@
   
 */
 
+// MARK: - First Open Texts
+"FirstOpenTexts_firstOpen" = "Abrindo pela primeira vez";
+"FirstOpenTexts_notFirstOpen" = "Este app foi aberto pela primeira vez em ";
+
 // MARK: - Tab Bar Texts
 "TabBarTexts_cards" = "Cartas";
 "TabBarTexts_favorites" = "Favoritas";
 "TabBarTexts_decks" = "Grimórios";
 
+// MARK: - Card Detail Screen Texts
+"CardDetailScreenTexts_favorite" = "Favoritar";
+"CardDetailScreenTexts_unfavorite" = "Desfavoritar";
+"CardDetailScreenTexts_newDeckCreated" = "Deck novo criado!";
+
 // MARK: - Favorite List Screen Texts
 "FavoriteListScreenTexts_title" = "Favoritas";
+
+// MARK: - Favorite List Screen Texts
+"DeckListScreenTexts_title" = "Grimórios";
 
 // MARK: - Deck Detail Screen Texts
 "DeckDetailScreenTexts_mana" = "Mana";
@@ -24,3 +36,16 @@
 "DeckDetailScreenTexts_creature" = "Criaturas";
 "DeckDetailScreenTexts_enchantment" = "Encantamentos";
 "DeckDetailScreenTexts_planeswalker" = "Planinautas";
+
+// MARK: - Alert Texts
+"AlertTexts_alert" = "Atenção!"
+"AlertTexts_ok" = "Ok"
+
+// MARK: - Error Messages
+"ErrorMessages_noWindow" = "Sem tela";
+"ErrorMessages_failureAPI" = "Falha ao realizar a request!";
+"ErrorMessages_failureMock" = "Falha ao transformar os dados da API na estrutura de Model!";
+"ErrorMessages_coreDataUnableFetch" = "Não foi possível buscar objetos gerenciados para a entidade";
+"ErrorMessages_errorFetchDecks" = "Erro ao buscar grimórios";
+"ErrorMessages_errorFetchCards" = "Erro ao buscar cartas";
+"ErrorMessages_unresolvedError" = "Erro não resolvido";

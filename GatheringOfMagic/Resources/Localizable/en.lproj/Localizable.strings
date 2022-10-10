@@ -6,13 +6,25 @@
   
 */
 
+// MARK: - First Open Texts
+"FirstOpenTexts_firstOpen" = "First Open!";
+"FirstOpenTexts_notFirstOpen" = "The app was first opened on ";
+
 // MARK: - Tab Bar Texts
 "TabBarTexts_cards" = "Cards";
 "TabBarTexts_favorites" = "Favorites";
 "TabBarTexts_decks" = "Decks";
 
+// MARK: - Card Detail Screen Texts
+"CardDetailScreenTexts_favorite" = "Favorite";
+"CardDetailScreenTexts_unfavorite" = "Unfavorite";
+"CardDetailScreenTexts_newDeckCreated" = "New deck created!";
+
 // MARK: - Favorite List Screen Texts
 "FavoriteListScreenTexts_title" = "Favorites";
+
+// MARK: - Deck List Screen Texts
+"DeckListScreenTexts_title" = "Decks";
 
 // MARK: - Deck Detail Screen Texts
 "DeckDetailScreenTexts_mana" = "Mana";
@@ -24,3 +36,16 @@
 "DeckDetailScreenTexts_creature" = "Creatures";
 "DeckDetailScreenTexts_enchantment" = "Enchantments";
 "DeckDetailScreenTexts_planeswalker" = "Planeswalkers";
+
+// MARK: - Alert Texts
+"AlertTexts_alert" = "Alert!"
+"AlertTexts_ok" = "Ok"
+
+// MARK: - Error Messages
+"ErrorMessages_noWindow" = "No Window";
+"ErrorMessages_failureAPI" = "Failed to make the request!";
+"ErrorMessages_failureMock" = "Failed to transform API data into Model structure!";
+"ErrorMessages_coreDataUnableFetch" = "Unable to fetch managed objects for entity";
+"ErrorMessages_errorFetchDecks" = "Error fetching decks";
+"ErrorMessages_errorFetchCards" = "Error fetching cards";
+"ErrorMessages_unresolvedError" = "Unresolved error";

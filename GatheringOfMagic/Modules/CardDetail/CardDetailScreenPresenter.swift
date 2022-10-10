@@ -57,7 +57,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                self.delegate?.showMessage("erro, localized")
+                self.delegate?.showMessage(error.error ?? "")
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -116,7 +116,7 @@ class CardDetailScreenPresenter {
                 format: "Standard")
             addToDeck(deck: deck)
             DataManager.shared.save()
-            self.delegate?.showMessage("deck criado!")
+            self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized())
         }
     }
 }

@@ -28,7 +28,7 @@ class DeckListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.title = "Decks"
+        self.title = DeckListScreenTexts.title.localized()
         configureUI()
         // Do any additional setup after loading the view, typically from a nib.
     }

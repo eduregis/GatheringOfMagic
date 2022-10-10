@@ -32,7 +32,7 @@ class CardListScreenPresenter {
     }
     
     func didAppear() {
-        let decks = DataManager.shared.getDecks()
+//        let decks = DataManager.shared.getDecks()
 //        for deck in decks {
 //            let cards = DataManager.shared.getCards(deck: deck)
 //            print(deck.name ?? "")
@@ -70,7 +70,7 @@ class CardListScreenPresenter {
                 }
         }) { error in
             self.delegate?.hideLoader()
-            self.delegate?.showMessage("erro, localized")
+            self.delegate?.showMessage(error.error ?? "")
             DispatchQueue.main.async {
                 completion()
             }

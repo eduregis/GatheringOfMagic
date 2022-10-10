@@ -24,7 +24,7 @@ class DataManager {
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("\(ErrorMessages.unresolvedError.localized()) \(error), \(error.userInfo)")
             }
         })
         return container
@@ -62,7 +62,7 @@ class DataManager {
         do {
             fetchedDecks = try persistentContainer.viewContext.fetch(request)
         } catch let error {
-            print("Error fetching decks \(error)")
+            print("\(ErrorMessages.errorFetchingDecks.localized()) \(error)")
         }
         return fetchedDecks
     }
@@ -74,7 +74,7 @@ class DataManager {
         do {
             fetchedDeck = try persistentContainer.viewContext.fetch(request).first
         } catch let error {
-            print("Error fetching cards \(error)")
+            print("\(ErrorMessages.errorFetchingCards.localized()) \(error)")
         }
         return fetchedDeck
     }
@@ -88,7 +88,7 @@ class DataManager {
         do {
             fetchedCards = try persistentContainer.viewContext.fetch(request)
         } catch let error {
-            print("Error fetching cards \(error)")
+            print("\(ErrorMessages.errorFetchingCards.localized()) \(error)")
         }
         return fetchedCards
     }
@@ -103,7 +103,7 @@ class DataManager {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                fatalError("❗️Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError("\(ErrorMessages.unresolvedError.localized()) \(nserror), \(nserror.userInfo)")
             }
         }
     }
