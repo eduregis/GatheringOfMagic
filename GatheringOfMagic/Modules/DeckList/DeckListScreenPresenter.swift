@@ -25,8 +25,6 @@ class DeckListScreenPresenter {
         self.router = router
         self.isComingFromTabBar = isComingFromTabBar
         self.cardToAddInDeck = cardToAddInDeck
-        
-        print(cardToAddInDeck?.name)
     }
     
     func didLoad() {
@@ -67,7 +65,7 @@ class DeckListScreenPresenter {
             if let appendToCard = cardThatAlreadyExistsInDeck {
                 if (appendToCard.quantity == 4) {
                     if let isBasicLand = card.type?.contains("Basic Land"), (isBasicLand == false) {
-                        return (false, "número máximo dessa carta no grimório! localized")
+                        return (false, AddToDeckScreenTexts.maxNumberOfCopies.localized())
                     }
                 }
                 appendToCard.quantity += 1
@@ -91,6 +89,6 @@ class DeckListScreenPresenter {
             DataManager.shared.save()
             return (true, "")
         }
-        return (false, "card nulo, localized")
+        return (false, AddToDeckScreenTexts.nilCard.localized())
     }
 }

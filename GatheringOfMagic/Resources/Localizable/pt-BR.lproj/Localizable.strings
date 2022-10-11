@@ -30,6 +30,9 @@
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Adicionar à grimório";
+"AddToDeckScreenTexts_maxNumberOfCopies" = "Número máximo dessa carta no grimório!";
+"AddToDeckScreenTexts_cardAddedSuccess" = "Carta adicionada ao grimório com sucesso!";
+"AddToDeckScreenTexts_nilCard" = "Carta não encontrada!";
 
 // MARK: - Deck Detail Screen Texts
 "DeckDetailScreenTexts_mana" = "Mana";
@@ -54,3 +57,7 @@
 "ErrorMessages_errorFetchDecks" = "Erro ao buscar grimórios";
 "ErrorMessages_errorFetchCards" = "Erro ao buscar cartas";
 "ErrorMessages_unresolvedError" = "Erro não resolvido";
+
+// MARK: - SnackBar Title Messages
+"SnackBarTitleMessages_success" = "Sucesso!";
+"SnackBarTitleMessages_failure" = "Algo deu errado!";

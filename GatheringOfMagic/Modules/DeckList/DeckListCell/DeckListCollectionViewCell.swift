@@ -25,6 +25,8 @@ class DeckListCollectionViewCell: UICollectionViewCell {
         clear()
         indicator.startAnimating()
         indicator.hidesWhenStopped = true
+        deckName.numberOfLines = 0
+        deckName.lineBreakMode = .byTruncatingTail
     }
     
     func clear() {
@@ -35,10 +37,14 @@ class DeckListCollectionViewCell: UICollectionViewCell {
     }
     
     func fill(deck: CD_Deck?, isFavorited: Bool = false) {
+        
         clear()
         guard let currentDeck = deck else { return }
-        deckName.text = currentDeck.name
-        setManaIcons(cards: DataManager.shared.getCards(deck: currentDeck))
+        let cards = DataManager.shared.getCards(deck: currentDeck)
+        
+        deckName.text = "\(currentDeck.name ?? "") (\(totalCardsInDeck(cards: cards)))"
+        
+        setManaIcons(cards: cards)
         if let imageURL = currentDeck.coverId {
             deckImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "placeholderDeck.png"))
             deckImage.backgroundColor = .systemGray
@@ -47,6 +53,14 @@ class DeckListCollectionViewCell: UICollectionViewCell {
             deckImage.layer.cornerRadius = 10
             indicator.stopAnimating()
         }
+    }
+    
+    func totalCardsInDeck(cards: [CD_CardDetail]) -> Int {
+        var totalCount = 0
+        for card in cards {
+            totalCount += Int(card.quantity)
+        }
+        return totalCount
     }
     
     func setManaIcons(cards: [CD_CardDetail]) {

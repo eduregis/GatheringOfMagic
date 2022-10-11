@@ -58,7 +58,7 @@ class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Methods
     func actualizeUI() {
         deckName.text = presenter.currentDeck?.name
-        cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.cards.count))"
+        cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
         manaLabel.text = DeckDetailScreenTexts.mana.localized()
         averageCostLabel.text = DeckDetailScreenTexts.averageCost.localized()
         prepareCollection()

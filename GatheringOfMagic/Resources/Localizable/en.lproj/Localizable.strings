@@ -30,6 +30,9 @@
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Add to Deck";
+"AddToDeckScreenTexts_maxNumberOfCopies" = "Maximum number of this card in the deck!";
+"AddToDeckScreenTexts_cardAddedSuccess" = "Added card in deck successfully!";
+"AddToDeckScreenTexts_nilCard" = "Null card!";
 
 // MARK: - Deck Detail Screen Texts
 "DeckDetailScreenTexts_mana" = "Mana";
@@ -54,3 +57,7 @@
 "ErrorMessages_errorFetchDecks" = "Error fetching decks";
 "ErrorMessages_errorFetchCards" = "Error fetching cards";
 "ErrorMessages_unresolvedError" = "Unresolved error";
+
+// MARK: - SnackBar Title Messages
+"SnackBarTitleMessages_success" = "Success!";
+"SnackBarTitleMessages_failure" = "Something went wrong!";

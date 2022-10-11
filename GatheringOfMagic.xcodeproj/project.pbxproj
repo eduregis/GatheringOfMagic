@@ -64,6 +64,7 @@
 		2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F006228F3C11500B4B765 /* Localizable.strings */; };
 		2E4F006528F3C22400B4B765 /* LocalizableProjectStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */; };
 		2E5ADB7828F4CC1400FD374D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7728F4CC1400FD374D /* Enums.swift */; };
+		2E5ADB7D28F4F53800FD374D /* SnackBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7C28F4F53800FD374D /* SnackBars.swift */; };
 		2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E82D42828F497720016DA53 /* UILabelPadding.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
@@ -154,6 +155,7 @@
 		2E4F006328F3C15C00B4B765 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2E4F006428F3C22400B4B765 /* LocalizableProjectStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableProjectStrings.swift; sourceTree = "<group>"; };
 		2E5ADB7728F4CC1400FD374D /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		2E5ADB7C28F4F53800FD374D /* SnackBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBars.swift; sourceTree = "<group>"; };
 		2E82D42828F497720016DA53 /* UILabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				2E40FEA828EE1BB40050F4E0 /* ReusableCells.swift */,
 				2E5ADB7728F4CC1400FD374D /* Enums.swift */,
+				2E5ADB7C28F4F53800FD374D /* SnackBars.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				2E40FEA928EE1BB40050F4E0 /* ReusableCells.swift in Sources */,
 				2E40FE7D28EDBC370050F4E0 /* SplashScreenRouter.swift in Sources */,
 				2E4F005D28F3C01C00B4B765 /* Localizable.swift in Sources */,
+				2E5ADB7D28F4F53800FD374D /* SnackBars.swift in Sources */,
 				2E40FEB928EE80110050F4E0 /* StringURL_From_HTTP_To_HTTPS.swift in Sources */,
 				2E4F004528F1E7FB00B4B765 /* DeckListScreenViewController.swift in Sources */,
 			);

@@ -46,7 +46,7 @@ class DeckListScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
-        loadCards()
+        loadDecks()
     }
     
     // MARK: - Methods
@@ -62,7 +62,7 @@ class DeckListScreenViewController: BaseViewController {
         self.deckListCollectionView.showsHorizontalScrollIndicator = false
     }
     
-    func loadCards() {
+    func loadDecks() {
         presenter.loadDecks(completion: {
             self.reloadData()
         })
@@ -104,11 +104,10 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
             } else {
                 let result = presenter.addToDeck(deck: deck)
                 if (result.0 == false) {
-                    presenter.delegate?.showMessage(result.1, okAction: {
-                        self.dismiss(animated: true)
-                    })
+                    MDSnackBarHelper.shared.showErrorMessage(message: result.1)
                 } else {
-                    self.dismiss(animated: true)
+                    MDSnackBarHelper.shared.showSuccessMessage(message: AddToDeckScreenTexts.cardAddedSuccess.localized())
+                    loadDecks()
                 }
             }
         }

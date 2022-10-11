@@ -110,7 +110,7 @@ class CardDetailScreenPresenter {
                 format: DeckFormats.standard.rawValue)
             addToDeck(deck: deck)
             DataManager.shared.save()
-            self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized(), okAction: nil)
+            MDSnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
         }
     }
     

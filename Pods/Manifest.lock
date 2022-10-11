@@ -7,22 +7,28 @@ PODS:
   - SDWebImage (5.13.2):
     - SDWebImage/Core (= 5.13.2)
   - SDWebImage/Core (5.13.2)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
 
 DEPENDENCIES:
   - Moya
   - SDWebImage (~> 5.0)
+  - SwiftMessages
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
     - SDWebImage
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
 
-PODFILE CHECKSUM: 6bb5734e58c0dd0241db9a7a09bc4de5f7709738
+PODFILE CHECKSUM: d140827b980f274f2660daad37b2f651df448d6f
 
 COCOAPODS: 1.11.3
