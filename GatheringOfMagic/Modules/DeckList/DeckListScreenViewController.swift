@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeckListScreenViewController: BaseViewController {
+class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var deckListCollectionView: UICollectionView!
@@ -35,6 +35,7 @@ class DeckListScreenViewController: BaseViewController {
                 self.title = AddToDeckScreenTexts.title.localized()
             }
         }
+        setupLongGestureRecognizerOnCollection()
         configureUI()
     }
     
@@ -111,13 +112,41 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
                 }
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat =  25
         let collectionViewSize = collectionView.frame.size.width - padding
         return CGSize(width: collectionViewSize/2, height: 187)
+    }
+}
+
+// MARK: - Long Press Gesture
+extension DeckListScreenViewController {
+    
+    private func setupLongGestureRecognizerOnCollection() {
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.deckListCollectionView.addGestureRecognizer(lpgr)
+    }
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        guard gestureReconizer.state == .ended else { return }
+        let point = gestureReconizer.location(in: self.deckListCollectionView)
+        guard let indexPath = self.deckListCollectionView.indexPathForItem(at: point) else { return }
+        if let isComingFromTabBar = presenter.isComingFromTabBar {
+            guard let deck = presenter.decks?[indexPath.row] else { return }
+            if (isComingFromTabBar) {
+                self.presenter.delegate?.showMessage("\(DeckListScreenTexts.wantToDeleteDeck.localized()) \(deck.name ?? "")?", okAction: {
+                    self.presenter.deleteDeck(deck: deck)
+                    self.reloadData()
+                }, cancelAction: {
+                    self.reloadData()
+                })
+            }
+        }
     }
 }
 

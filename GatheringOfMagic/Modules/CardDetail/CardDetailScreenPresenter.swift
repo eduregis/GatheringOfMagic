@@ -51,7 +51,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                self.delegate?.showMessage(error.error ?? "", okAction: nil)
+                MDSnackBarHelper.shared.showErrorMessage(message: error.error ?? "")
                 DispatchQueue.main.async {
                     completion()
                 }

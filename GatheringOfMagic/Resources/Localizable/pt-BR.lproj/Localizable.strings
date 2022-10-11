@@ -27,6 +27,7 @@
 
 // MARK: - Favorite List Screen Texts
 "DeckListScreenTexts_title" = "Grimórios";
+"DeckListScreenTexts_wantToDeleteDeck" = "Deseja excluir o grimório";
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Adicionar à grimório";
@@ -48,6 +49,7 @@
 // MARK: - Alert Texts
 "AlertTexts_alert" = "Atenção!";
 "AlertTexts_ok" = "Ok";
+"AlertTexts_cancel" = "Cancelar";
 
 // MARK: - Error Messages
 "ErrorMessages_noWindow" = "Sem tela";

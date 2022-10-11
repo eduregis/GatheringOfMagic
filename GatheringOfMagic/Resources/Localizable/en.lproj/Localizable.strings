@@ -27,6 +27,7 @@
 
 // MARK: - Deck List Screen Texts
 "DeckListScreenTexts_title" = "Decks";
+"DeckListScreenTexts_wantToDeleteDeck" = "Do you want to delete the deck";
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Add to Deck";
@@ -48,6 +49,7 @@
 // MARK: - Alert Texts
 "AlertTexts_alert" = "Alert!";
 "AlertTexts_ok" = "Ok";
+"AlertTexts_cancel" = "Cancel";
 
 // MARK: - Error Messages
 "ErrorMessages_noWindow" = "No Window";
