@@ -43,8 +43,8 @@ class CardListScreenPresenter {
         
     }
     
-    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
+        self.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited)
     }
     
     func updateFavorites() {
@@ -70,7 +70,7 @@ class CardListScreenPresenter {
                 }
         }) { error in
             self.delegate?.hideLoader()
-            self.delegate?.showMessage(error.error ?? "")
+            self.delegate?.showMessage(error.error ?? "", okAction: nil)
             DispatchQueue.main.async {
                 completion()
             }

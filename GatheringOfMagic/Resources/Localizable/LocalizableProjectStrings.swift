@@ -34,6 +34,13 @@ enum DeckListScreenTexts: String, Localizable {
     case title = "DeckListScreenTexts_title"
 }
 
+enum AddToDeckScreenTexts: String, Localizable {
+    case title = "AddToDeckScreenTexts_title"
+    case maxNumberOfCopies = "AddToDeckScreenTexts_maxNumberOfCopies"
+    case cardAddedSuccess = "AddToDeckScreenTexts_cardAddedSuccess"
+    case nilCard = "AddToDeckScreenTexts_nilCard"
+}
+
 enum DeckDetailScreenTexts: String, Localizable {
     case mana = "DeckDetailScreenTexts_mana"
     case averageCost = "DeckDetailScreenTexts_averageCost"
@@ -51,7 +58,7 @@ enum AlertTexts: String, Localizable {
     case ok = "AlertTexts_ok"
 }
 
-enum ErrorMessages: String,Localizable {
+enum ErrorMessages: String, Localizable {
     case noWindow = "ErrorMessages_noWindow"
     case failureAPI = "ErrorMessages_failureAPI"
     case failureMock = "ErrorMessages_failureMock"
@@ -59,5 +66,9 @@ enum ErrorMessages: String,Localizable {
     case errorFetchingDecks = "ErrorMessages_errorFetchDecks"
     case errorFetchingCards = "ErrorMessages_errorFetchCards"
     case unresolvedError = "ErrorMessages_unresolvedError"
-    
+}
+
+enum SnackBarTitleMessages: String, Localizable {
+    case success = "SnackBarTitleMessages_success"
+    case failure = "SnackBarTitleMessages_failure"
 }

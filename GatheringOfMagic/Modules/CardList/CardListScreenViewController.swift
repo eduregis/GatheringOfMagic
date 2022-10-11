@@ -52,8 +52,22 @@ class CardListScreenViewController: BaseViewController {
     
     // MARK: - Methods
     private func configureUI() {
+        prepareImageTitle()
         prepareCollection()
         prepareSearchBar()
+    }
+    
+    private func prepareImageTitle() {
+        let navController = navigationController!
+        let image = UIImage(named: "MagicIcon.png")
+        let imageView = UIImageView(image: image)
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        let bannerX = bannerWidth / 2 - (image?.size.width)! / 2
+        let bannerY = bannerHeight / 2 - (image?.size.height)! / 2
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
     }
     
     private func prepareCollection() {
@@ -80,8 +94,8 @@ class CardListScreenViewController: BaseViewController {
     }
 
     // MARK: - Actions    
-    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.presenter.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
+        self.presenter.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited)
     }
 }
 
@@ -108,7 +122,9 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let card = presenter.currentCards?[indexPath.row] else { return }
-        navigateToCardDetail(cardId: card.id ?? "", isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row]), completion: self.reloadData)
+        navigateToCardDetail(
+            cardId: card.id ?? "",
+            isFavorited: presenter.isFavorited(card: presenter.currentCards?[indexPath.row]))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -28,9 +28,14 @@ class DeckListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.title = DeckListScreenTexts.title.localized()
+        if let isComingFromTabBar = presenter.isComingFromTabBar {
+            if (isComingFromTabBar) {
+                self.title = DeckListScreenTexts.title.localized()
+            } else {
+                self.title = AddToDeckScreenTexts.title.localized()
+            }
+        }
         configureUI()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +46,7 @@ class DeckListScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
-        loadCards()
+        loadDecks()
     }
     
     // MARK: - Methods
@@ -57,7 +62,7 @@ class DeckListScreenViewController: BaseViewController {
         self.deckListCollectionView.showsHorizontalScrollIndicator = false
     }
     
-    func loadCards() {
+    func loadDecks() {
         presenter.loadDecks(completion: {
             self.reloadData()
         })
@@ -92,9 +97,21 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let deck = presenter.decks?[indexPath.row] else { return }
+        if let isComingFromTabBar = presenter.isComingFromTabBar {
+            guard let deck = presenter.decks?[indexPath.row] else { return }
+            if (isComingFromTabBar) {
+                navigateToDeckDetail(deck: deck, completion: self.reloadData)
+            } else {
+                let result = presenter.addToDeck(deck: deck)
+                if (result.0 == false) {
+                    MDSnackBarHelper.shared.showErrorMessage(message: result.1)
+                } else {
+                    MDSnackBarHelper.shared.showSuccessMessage(message: AddToDeckScreenTexts.cardAddedSuccess.localized())
+                    loadDecks()
+                }
+            }
+        }
         
-        navigateToDeckDetail(deck: deck, completion: self.reloadData)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

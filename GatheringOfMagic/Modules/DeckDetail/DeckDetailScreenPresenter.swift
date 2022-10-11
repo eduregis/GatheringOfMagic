@@ -75,6 +75,14 @@ class DeckDetailScreenPresenter {
         }
     }
     
+    func totalCardsInDeck() -> Int {
+        var totalCount = 0
+        for card in cards {
+            totalCount += Int(card.quantity)
+        }
+        return totalCount
+    }
+    
     func loadCard(completion: @escaping () -> Void) {
         
     }

@@ -33,7 +33,7 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.blurBackground()
+//        self.blurBackground()
         presenter.loadCard(completion: {
             self.actualizeUI()
         })
@@ -59,7 +59,6 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        presenter.completionHandler!()
     }
     
     // MARK: - Methods
@@ -140,7 +139,7 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     @IBAction func addToDeckAction(_ sender: Any) {
-      // call a table view with decks
+        presenter.navigateToAddToDeckScreen()
     }
     
 }

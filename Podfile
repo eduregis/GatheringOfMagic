@@ -8,6 +8,7 @@ target 'GatheringOfMagic' do
   # Pods for GatheringOfMagic
   pod 'Moya'
   pod 'SDWebImage', '~> 5.0'
+  pod 'SwiftMessages'
 
   target 'GatheringOfMagicTests' do
     inherit! :search_paths
