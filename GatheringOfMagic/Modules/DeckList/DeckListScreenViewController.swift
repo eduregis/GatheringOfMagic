@@ -14,6 +14,7 @@ class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDeleg
     
     // MARK: - Properties
     var presenter: DeckListScreenPresenter!
+    var isAnimating: Bool = false
     
     // MARK: - View Lifecycle
     
@@ -133,19 +134,39 @@ extension DeckListScreenViewController {
     }
     
     @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
-        guard gestureReconizer.state == .ended else { return }
+        guard gestureReconizer.state != .began else { return }
         let point = gestureReconizer.location(in: self.deckListCollectionView)
         guard let indexPath = self.deckListCollectionView.indexPathForItem(at: point) else { return }
-        if let isComingFromTabBar = presenter.isComingFromTabBar {
-            guard let deck = presenter.decks?[indexPath.row] else { return }
-            if (isComingFromTabBar) {
-                self.presenter.delegate?.showMessage("\(DeckListScreenTexts.wantToDeleteDeck.localized()) \(deck.name ?? "")?", okAction: {
-                    self.presenter.deleteDeck(deck: deck)
-                    self.reloadData()
-                }, cancelAction: {
-                    self.reloadData()
-                })
+        if let isComingFromTabBar = presenter.isComingFromTabBar, !isAnimating {
+            
+            isAnimating = true
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                if let cell = self.deckListCollectionView.cellForItem(at: indexPath) as? DeckListCollectionViewCell {
+                    cell.transform = CGAffineTransform(scaleX: 19/20, y: 19/20)
+                }
+            }) { (completed) in
+                
+                guard let deck = self.presenter.decks?[indexPath.row] else { return }
+                if (isComingFromTabBar) {
+                    self.presenter.delegate?.showMessage("\(DeckListScreenTexts.wantToDeleteDeck.localized()) \(deck.name ?? "")?", okAction: {
+                        self.presenter.deleteDeck(deck: deck)
+                        self.isAnimating = false
+                        self.reloadData()
+                    }, cancelAction: {
+                        self.isAnimating = false
+                        self.reloadData()
+                    })
+                }
+                
+                UIView.animate(withDuration: 0.3, animations: {
+                   if let cell = self.deckListCollectionView.cellForItem(at: indexPath) as? DeckListCollectionViewCell {
+                       cell.transform = .identity
+                   }
+               })
             }
+            
+            
         }
     }
 }
