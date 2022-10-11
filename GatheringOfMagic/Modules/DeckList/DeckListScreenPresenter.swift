@@ -57,26 +57,40 @@ class DeckListScreenPresenter {
         router.navigateToDeckDetail(deck: deck, completion: completion)
     }
     
-    func addToDeck(deck: CD_Deck) {
+    func addToDeck(deck: CD_Deck) -> (Bool, String) {
         if let card = cardToAddInDeck, card.id != nil  {
             var cards = DataManager.shared.getCards(deck: deck)
             
-            let cardDetail = DataManager.shared.createCard(
-                artist: card.artist ?? "",
-                cmc: Int32(card.cmc ?? 0),
-                id: card.id ?? "",
-                imageUrl: card.imageUrl ?? "",
-                manaCost: card.manaCost ?? "",
-                name: card.name ?? "",
-                power: card.power ?? "",
-                rarity: card.rarity ?? "",
-                toughness: card.toughness ?? "",
-                type: card.type ?? "",
-                deck: deck)
+            let cardThatAlreadyExistsInDeck = cards.filter{ $0.id == card.id }.first
+
             
-            cards.append(cardDetail)
+            if let appendToCard = cardThatAlreadyExistsInDeck {
+                if (appendToCard.quantity == 4) {
+                    if let isBasicLand = card.type?.contains("Basic Land"), (isBasicLand == false) {
+                        return (false, "número máximo dessa carta no grimório! localized")
+                    }
+                }
+                appendToCard.quantity += 1
+            } else {
+                let cardDetail = DataManager.shared.createCard(
+                    artist: card.artist ?? "",
+                    cmc: Int32(card.cmc ?? 0),
+                    id: card.id ?? "",
+                    imageUrl: card.imageUrl ?? "",
+                    manaCost: card.manaCost ?? "",
+                    name: card.name ?? "",
+                    power: card.power ?? "",
+                    rarity: card.rarity ?? "",
+                    toughness: card.toughness ?? "",
+                    type: card.type ?? "",
+                    deck: deck)
+                
+                cards.append(cardDetail)
+            }
             
             DataManager.shared.save()
+            return (true, "")
         }
+        return (false, "card nulo, localized")
     }
 }

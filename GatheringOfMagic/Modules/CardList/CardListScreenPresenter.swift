@@ -43,8 +43,8 @@ class CardListScreenPresenter {
         
     }
     
-    func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited, completion: completion)
+    func navigateToCardDetail(cardId: String, isFavorited: Bool) {
+        self.router.navigateToCardDetail(cardId: cardId, isFavorited: isFavorited)
     }
     
     func updateFavorites() {

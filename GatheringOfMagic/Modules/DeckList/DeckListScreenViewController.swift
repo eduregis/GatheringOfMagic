@@ -102,10 +102,14 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
             if (isComingFromTabBar) {
                 navigateToDeckDetail(deck: deck, completion: self.reloadData)
             } else {
-                presenter.addToDeck(deck: deck)
-                presenter.delegate?.showMessage("Card \(presenter.cardToAddInDeck?.name ?? "") added to \(deck.name)", okAction: {
+                let result = presenter.addToDeck(deck: deck)
+                if (result.0 == false) {
+                    presenter.delegate?.showMessage(result.1, okAction: {
+                        self.dismiss(animated: true)
+                    })
+                } else {
                     self.dismiss(animated: true)
-                })
+                }
             }
         }
         

@@ -59,7 +59,6 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        presenter.completionHandler!()
     }
     
     // MARK: - Methods
