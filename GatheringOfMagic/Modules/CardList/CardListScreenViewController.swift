@@ -33,6 +33,7 @@ class CardListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.blurBackground()
         configureUI()
         loadCards(name: "")
         
@@ -76,10 +77,16 @@ class CardListScreenViewController: BaseViewController {
         CardListCollectionViewCell.registerNib(for: cardListCollectionView)
         self.cardListCollectionView.contentMode = .center
         self.cardListCollectionView.showsHorizontalScrollIndicator = false
+        self.cardListCollectionView.backgroundColor = UIColor.clear
     }
     
     private func prepareSearchBar() {
         self.searchBar.delegate = self
+        self.searchBar.barTintColor = UIColor.clear
+        self.searchBar.backgroundColor = UIColor.clear
+        self.searchBar.isTranslucent = true
+        self.searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        
     }
     
     func loadCards(name: String) {

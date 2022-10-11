@@ -11,6 +11,7 @@ protocol BaseViewControllerMethods {
     func showLoader()
     func hideLoader()
     func showMessage(_ message: String, okAction: (() -> Void)?, cancelAction: (() -> Void)?)
+    func blurBackground()
 }
 
 class BaseViewController: UIViewController, BaseViewControllerMethods {
@@ -54,5 +55,16 @@ class BaseViewController: UIViewController, BaseViewControllerMethods {
         }
         alert.addAction(okActionBtn)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func blurBackground() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        guard let bkgImage = UIImage(named: "serra_angel.png") else { return }
+        self.view.backgroundColor = UIColor(patternImage: bkgImage)
+        self.view.addSubview(blurEffectView)
+        self.view.sendSubviewToBack(blurEffectView)
     }
 }

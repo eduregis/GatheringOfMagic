@@ -14,6 +14,9 @@ class DeckDetailScreenViewController: BaseViewController {
     @IBOutlet weak var cardsInDeckLabel: UILabel!
     @IBOutlet weak var manaLabel: UILabel!
     @IBOutlet weak var averageCostLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var cardsCVHeightConstraint: NSLayoutConstraint!
     
@@ -33,6 +36,7 @@ class DeckDetailScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.blurBackground()
         self.actualizeUI()
         self.view.layoutIfNeeded()
     }
@@ -57,6 +61,9 @@ class DeckDetailScreenViewController: BaseViewController {
     
     // MARK: - Methods
     func actualizeUI() {
+        scrollView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+        headerContainer.backgroundColor = UIColor(white: 1, alpha: 0.1)
         deckName.text = presenter.currentDeck?.name
         cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
         manaLabel.text = DeckDetailScreenTexts.mana.localized()
@@ -72,6 +79,7 @@ class DeckDetailScreenViewController: BaseViewController {
         self.cardsCollectionView.showsHorizontalScrollIndicator = false
         cardsCollectionView?.register(DeckDetailCollectionViewHeader.self, forSupplementaryViewOfKind:
                                         UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
+        self.cardsCollectionView.backgroundColor = UIColor.clear
     }
     
     func changeCollectionHeight() {
@@ -101,7 +109,7 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if let collectionSection = CardTypes(rawValue: section) {
             if (presenter.sortedCards[collectionSection]!.count > 0) {
-                return CGSize(width: view.frame.width, height: 20)
+                return CGSize(width: view.frame.width, height: 30)
             }
         }
         
@@ -116,6 +124,7 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
                 for: indexPath) as! DeckDetailCollectionViewHeader
         if let collectionSection = CardTypes(rawValue: indexPath.section) {
             header.typeLabel.text = presenter.titleForHeader(type: collectionSection)
+            header.backgroundColor = UIColor(white: 1, alpha: 0.1)
         }
         return header
     }
@@ -132,7 +141,7 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat =  25
+        let padding: CGFloat = -10
         let collectionViewSize = collectionView.frame.size.width - padding
         return CGSize(width: collectionViewSize/4, height: 187)
     }

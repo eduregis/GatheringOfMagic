@@ -29,6 +29,7 @@ class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.blurBackground()
         if let isComingFromTabBar = presenter.isComingFromTabBar {
             if (isComingFromTabBar) {
                 self.title = DeckListScreenTexts.title.localized()
@@ -62,6 +63,7 @@ class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDeleg
         DeckListCollectionViewCell.registerNib(for: deckListCollectionView)
         self.deckListCollectionView.contentMode = .center
         self.deckListCollectionView.showsHorizontalScrollIndicator = false
+        self.deckListCollectionView.backgroundColor = UIColor.clear
     }
     
     func loadDecks() {
@@ -137,7 +139,7 @@ extension DeckListScreenViewController {
         guard gestureReconizer.state != .began else { return }
         let point = gestureReconizer.location(in: self.deckListCollectionView)
         guard let indexPath = self.deckListCollectionView.indexPathForItem(at: point) else { return }
-        if let isComingFromTabBar = presenter.isComingFromTabBar, !isAnimating {
+        if let isComingFromTabBar = presenter.isComingFromTabBar, isComingFromTabBar, !isAnimating {
             
             isAnimating = true
             

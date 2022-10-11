@@ -28,6 +28,7 @@ class FavoriteListScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.blurBackground()
         self.title = FavoriteListScreenTexts.title.localized()
         configureUI()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,6 +56,7 @@ class FavoriteListScreenViewController: BaseViewController {
         CardListCollectionViewCell.registerNib(for: favoriteListCollectionView)
         self.favoriteListCollectionView.contentMode = .center
         self.favoriteListCollectionView.showsHorizontalScrollIndicator = false
+        self.favoriteListCollectionView.backgroundColor = UIColor.clear
     }
     
     func loadCards() {

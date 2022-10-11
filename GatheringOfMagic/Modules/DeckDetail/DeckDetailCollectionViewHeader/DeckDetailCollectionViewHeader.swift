@@ -26,7 +26,7 @@ func setupHeaderViews()   {
     addSubview(typeLabel)
 
     typeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
-    typeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+    typeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     typeLabel.widthAnchor.constraint(equalToConstant: 240).isActive = true
     typeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 }
