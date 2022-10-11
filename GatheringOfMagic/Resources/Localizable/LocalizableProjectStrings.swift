@@ -34,6 +34,10 @@ enum DeckListScreenTexts: String, Localizable {
     case title = "DeckListScreenTexts_title"
 }
 
+enum AddToDeckScreenTexts: String, Localizable {
+    case title = "AddToDeckScreenTexts_title"
+}
+
 enum DeckDetailScreenTexts: String, Localizable {
     case mana = "DeckDetailScreenTexts_mana"
     case averageCost = "DeckDetailScreenTexts_averageCost"
@@ -59,5 +63,4 @@ enum ErrorMessages: String,Localizable {
     case errorFetchingDecks = "ErrorMessages_errorFetchDecks"
     case errorFetchingCards = "ErrorMessages_errorFetchCards"
     case unresolvedError = "ErrorMessages_unresolvedError"
-    
 }

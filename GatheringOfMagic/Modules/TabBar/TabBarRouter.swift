@@ -19,7 +19,7 @@ class TabBarRouter: BaseRouter {
         let tabTwoBarItem = UITabBarItem(title: TabBarTexts.favorites.localized(), image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         favoriteListScreenViewController.tabBarItem = tabTwoBarItem
         
-        let deckListScreenViewController = DeckListScreenRouter.makeModule()
+        let deckListScreenViewController = DeckListScreenRouter.makeModule(isComingFromTabBar: true)
         let tabThreeBarItem = UITabBarItem(title: TabBarTexts.decks.localized(), image: UIImage(systemName: "tray"), selectedImage: UIImage(systemName: "tray.fill"))
         deckListScreenViewController.tabBarItem = tabThreeBarItem
 

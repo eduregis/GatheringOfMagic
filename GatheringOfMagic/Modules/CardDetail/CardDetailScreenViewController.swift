@@ -140,7 +140,7 @@ class CardDetailScreenViewController: BaseViewController {
     }
     
     @IBAction func addToDeckAction(_ sender: Any) {
-      // call a table view with decks
+        presenter.navigateToAddToDeckScreen()
     }
     
 }

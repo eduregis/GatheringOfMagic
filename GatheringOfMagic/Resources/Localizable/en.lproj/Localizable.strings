@@ -28,6 +28,9 @@
 // MARK: - Deck List Screen Texts
 "DeckListScreenTexts_title" = "Decks";
 
+// MARK: - Add To Deck Screen Texts
+"AddToDeckScreenTexts_title" = "Add to Deck";
+
 // MARK: - Deck Detail Screen Texts
 "DeckDetailScreenTexts_mana" = "Mana";
 "DeckDetailScreenTexts_averageCost" = "Average cost";

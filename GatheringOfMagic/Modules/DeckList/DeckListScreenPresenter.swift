@@ -14,12 +14,19 @@ class DeckListScreenPresenter {
     
     weak var delegate: DeckListScreenPresenterDelegate?
     let router: DeckListScreenRouter
+    let isComingFromTabBar: Bool?
     
     var decks: [CD_Deck]?
+    // Add to Card from Card detail Screen
+    var cardToAddInDeck: CardDetail?
     
-    init(delegate: DeckListScreenPresenterDelegate, router: DeckListScreenRouter) {
+    init(delegate: DeckListScreenPresenterDelegate, router: DeckListScreenRouter, isComingFromTabBar: Bool, cardToAddInDeck: CardDetail? = nil) {
         self.delegate = delegate
         self.router = router
+        self.isComingFromTabBar = isComingFromTabBar
+        self.cardToAddInDeck = cardToAddInDeck
+        
+        print(cardToAddInDeck?.name)
     }
     
     func didLoad() {
@@ -45,7 +52,31 @@ class DeckListScreenPresenter {
             completion()
         }
     }
+    
     func navigateToDeckDetail(deck: CD_Deck, completion: (() -> Void)?) {
         router.navigateToDeckDetail(deck: deck, completion: completion)
+    }
+    
+    func addToDeck(deck: CD_Deck) {
+        if let card = cardToAddInDeck, card.id != nil  {
+            var cards = DataManager.shared.getCards(deck: deck)
+            
+            let cardDetail = DataManager.shared.createCard(
+                artist: card.artist ?? "",
+                cmc: Int32(card.cmc ?? 0),
+                id: card.id ?? "",
+                imageUrl: card.imageUrl ?? "",
+                manaCost: card.manaCost ?? "",
+                name: card.name ?? "",
+                power: card.power ?? "",
+                rarity: card.rarity ?? "",
+                toughness: card.toughness ?? "",
+                type: card.type ?? "",
+                deck: deck)
+            
+            cards.append(cardDetail)
+            
+            DataManager.shared.save()
+        }
     }
 }

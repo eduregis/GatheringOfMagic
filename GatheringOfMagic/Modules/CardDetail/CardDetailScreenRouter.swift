@@ -18,4 +18,8 @@ class CardDetailScreenRouter: BaseRouter {
         
         return viewController
     }
+    
+    func navigateToAddToDeckScreen(card: CardDetail) {
+        self.present(DeckListScreenRouter.makeModule(isComingFromTabBar: false, cardToAddInDeck: card), animated: true)
+    }
 }

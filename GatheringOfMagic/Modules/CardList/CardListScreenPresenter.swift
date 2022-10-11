@@ -70,7 +70,7 @@ class CardListScreenPresenter {
                 }
         }) { error in
             self.delegate?.hideLoader()
-            self.delegate?.showMessage(error.error ?? "")
+            self.delegate?.showMessage(error.error ?? "", okAction: nil)
             DispatchQueue.main.async {
                 completion()
             }

@@ -53,7 +53,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                self.delegate?.showMessage(error.error ?? "")
+                self.delegate?.showMessage(error.error ?? "", okAction: nil)
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -112,7 +112,12 @@ class CardDetailScreenPresenter {
                 format: DeckFormats.standard.rawValue)
             addToDeck(deck: deck)
             DataManager.shared.save()
-            self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized())
+            self.delegate?.showMessage(CardDetailScreenTexts.newDeckCreated.localized(), okAction: nil)
         }
+    }
+    
+    func navigateToAddToDeckScreen() {
+        guard let card = currentCard else { return }
+        router.navigateToAddToDeckScreen(card: card)
     }
 }
