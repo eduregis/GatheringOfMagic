@@ -21,6 +21,6 @@ class FavoriteListScreenRouter: BaseRouter {
     }
     
     func navigateToCardDetail(cardId: String, completion: (() -> Void)?) {
-        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: true, completion: completion), animated: true)
+        self.push(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: true, completion: completion), animated: true)
     }
 }

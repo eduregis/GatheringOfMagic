@@ -33,7 +33,7 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.blurBackground()
+//        self.blurBackground()
         presenter.loadCard(completion: {
             self.actualizeUI()
         })

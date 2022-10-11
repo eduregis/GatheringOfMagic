@@ -13,11 +13,14 @@ class CardListScreenRouter: BaseRouter {
         let viewController = CardListScreenViewController()
         let router = CardListScreenRouter(viewController: viewController)
         let presenter = CardListScreenPresenter(delegate: viewController, router: router)
+        let navigation = UINavigationController(rootViewController: viewController)
+        navigation.isNavigationBarHidden = false
         viewController.presenter = presenter
-        return viewController
+        
+        return navigation
     }
     
     func navigateToCardDetail(cardId: String, isFavorited: Bool, completion: (() -> Void)?) {
-        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: isFavorited, completion: completion), animated: true)
+        self.push(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: isFavorited, completion: completion), animated: true)
     }
 }
