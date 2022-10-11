@@ -19,6 +19,8 @@ class DeckDetailScreenViewController: BaseViewController {
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var cardsCollectionView: UICollectionView!
     @IBOutlet weak var cardsCVHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var collectionOfManaCostIcons: Array<UIImageView>?
+    @IBOutlet weak var manaCostXConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     var presenter: DeckDetailScreenPresenter!
@@ -53,6 +55,7 @@ class DeckDetailScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
+        setManaIcons()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,6 +87,37 @@ class DeckDetailScreenViewController: BaseViewController {
     
     func changeCollectionHeight() {
         self.cardsCVHeightConstraint.constant = self.cardsCollectionView.contentSize.height
+    }
+    
+    func setManaIcons() {
+        
+        clearManaCosts()
+        
+        guard let currentDeck = presenter.currentDeck else { return }
+        let cards = DataManager.shared.getCards(deck: currentDeck)
+        
+        var manaColors: [String] = []
+        
+        if cards.contains(where: {$0.manaCost!.contains("B")}) { manaColors.append("mana_B") }
+        if cards.contains(where: {$0.manaCost!.contains("G")}) { manaColors.append("mana_G") }
+        if cards.contains(where: {$0.manaCost!.contains("R")}) { manaColors.append("mana_R") }
+        if cards.contains(where: {$0.manaCost!.contains("U")}) { manaColors.append("mana_U") }
+        if cards.contains(where: {$0.manaCost!.contains("W")}) { manaColors.append("mana_W") }
+        
+        guard let manaCostIcons = collectionOfManaCostIcons else { return }
+        
+        for (manaCostIcon, manaColor) in zip(manaCostIcons, manaColors) {
+            manaCostIcon.image = UIImage(named: manaColor)
+        }
+        
+        manaCostXConstraint.constant = CGFloat((manaColors.count - 1) * -16)
+    }
+    
+    func clearManaCosts() {
+        guard let manaCostIcons = collectionOfManaCostIcons else { return }
+        for manaCostIcon in manaCostIcons {
+            manaCostIcon.image = nil
+        }
     }
 }
 

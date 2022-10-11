@@ -17,9 +17,15 @@
                 <outlet property="contentView" destination="df3-zb-TXr" id="EMM-zw-Dwi"/>
                 <outlet property="deckName" destination="MZS-Fm-NU0" id="h6R-l2-feK"/>
                 <outlet property="headerContainer" destination="3ey-Kq-Xgy" id="gZf-Zi-5qg"/>
+                <outlet property="manaCostXConstraint" destination="NfY-aP-GA1" id="UFi-Cc-Ean"/>
                 <outlet property="manaLabel" destination="ZQP-Q2-gp6" id="VRJ-2g-5hK"/>
                 <outlet property="scrollView" destination="Jn5-7v-igo" id="mN0-5Z-OKt"/>
                 <outlet property="view" destination="9jw-Dd-EVY" id="NUL-6H-ZwI"/>
+                <outletCollection property="collectionOfManaCostIcons" destination="t5f-UE-1HW" collectionClass="NSMutableArray" id="kgu-cY-IR5"/>
+                <outletCollection property="collectionOfManaCostIcons" destination="4bQ-b5-pqD" collectionClass="NSMutableArray" id="iOZ-b9-2JV"/>
+                <outletCollection property="collectionOfManaCostIcons" destination="nDk-a3-sWB" collectionClass="NSMutableArray" id="jAR-Ez-fUl"/>
+                <outletCollection property="collectionOfManaCostIcons" destination="BA2-1J-WqW" collectionClass="NSMutableArray" id="Lfa-tT-6ii"/>
+                <outletCollection property="collectionOfManaCostIcons" destination="M7K-F4-XKZ" collectionClass="NSMutableArray" id="nyX-8p-h97"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -58,13 +64,58 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-UE-1HW" userLabel="ManaColor1">
+                                                    <rect key="frame" x="91" y="3" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="3YH-VP-CB1"/>
+                                                        <constraint firstAttribute="height" constant="25" id="ADJ-TS-xxf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bQ-b5-pqD" userLabel="ManaColor2">
+                                                    <rect key="frame" x="123" y="3" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="OHx-EG-vct"/>
+                                                        <constraint firstAttribute="width" constant="25" id="t3X-eZ-gkD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nDk-a3-sWB" userLabel="ManaColor3">
+                                                    <rect key="frame" x="155" y="3" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="8vs-SG-2Er"/>
+                                                        <constraint firstAttribute="width" constant="25" id="zhN-0S-WDh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BA2-1J-WqW" userLabel="ManaColor4">
+                                                    <rect key="frame" x="187" y="3" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="icl-8v-n5g"/>
+                                                        <constraint firstAttribute="width" constant="25" id="rAZ-Vr-7zB"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7K-F4-XKZ" userLabel="ManaColor5">
+                                                    <rect key="frame" x="219" y="3" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="3YM-bI-jLn"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Ves-nY-kIp"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="ZQP-Q2-gp6" firstAttribute="leading" secondItem="1Au-Fv-GeQ" secondAttribute="leading" id="1dw-u8-uqe"/>
+                                                <constraint firstItem="4bQ-b5-pqD" firstAttribute="leading" secondItem="t5f-UE-1HW" secondAttribute="trailing" constant="7" id="5hC-0H-A3a"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZQP-Q2-gp6" secondAttribute="trailing" id="A7O-rI-Tfk"/>
+                                                <constraint firstItem="BA2-1J-WqW" firstAttribute="centerY" secondItem="nDk-a3-sWB" secondAttribute="centerY" id="BbR-6P-OHK"/>
+                                                <constraint firstItem="nDk-a3-sWB" firstAttribute="centerY" secondItem="4bQ-b5-pqD" secondAttribute="centerY" id="EWu-0j-pub"/>
+                                                <constraint firstItem="4bQ-b5-pqD" firstAttribute="centerY" secondItem="t5f-UE-1HW" secondAttribute="centerY" id="JdO-fK-18b"/>
+                                                <constraint firstItem="ZQP-Q2-gp6" firstAttribute="top" secondItem="t5f-UE-1HW" secondAttribute="bottom" constant="7" id="L6x-jH-Icv"/>
+                                                <constraint firstItem="t5f-UE-1HW" firstAttribute="centerX" secondItem="1Au-Fv-GeQ" secondAttribute="centerX" id="NfY-aP-GA1"/>
+                                                <constraint firstItem="M7K-F4-XKZ" firstAttribute="centerY" secondItem="BA2-1J-WqW" secondAttribute="centerY" id="PZn-nx-zfJ"/>
                                                 <constraint firstAttribute="height" constant="64" id="Toc-9P-nAH"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZQP-Q2-gp6" secondAttribute="bottom" constant="8" id="bMt-bP-l2s"/>
+                                                <constraint firstItem="nDk-a3-sWB" firstAttribute="leading" secondItem="4bQ-b5-pqD" secondAttribute="trailing" constant="7" id="m4X-n7-eCl"/>
+                                                <constraint firstItem="BA2-1J-WqW" firstAttribute="leading" secondItem="nDk-a3-sWB" secondAttribute="trailing" constant="7" id="pkS-x9-pdX"/>
+                                                <constraint firstItem="M7K-F4-XKZ" firstAttribute="leading" secondItem="BA2-1J-WqW" secondAttribute="trailing" constant="7" id="xLt-6F-dQy"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3H-VW-eF0" userLabel="AverageCostView">
@@ -77,7 +128,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="ngB-J3-qCk" firstAttribute="leading" secondItem="E3H-VW-eF0" secondAttribute="leading" id="3Cb-Lj-4Ut"/>
                                                 <constraint firstAttribute="bottom" secondItem="ngB-J3-qCk" secondAttribute="bottom" constant="8" id="Yfh-0R-3OL"/>
@@ -161,12 +212,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
