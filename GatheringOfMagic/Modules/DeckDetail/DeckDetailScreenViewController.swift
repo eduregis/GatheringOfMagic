@@ -52,6 +52,8 @@ class DeckDetailScreenViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = UIBarStyle.default
         navigationController?.navigationBar.tintColor = UIColor.white
+        deckName.text = presenter.currentDeck?.name
+        cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
         presenter.willAppear()
     }
     

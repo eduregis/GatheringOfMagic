@@ -45,6 +45,10 @@ class EditDeckScreenViewController: BaseViewController {
         presenter.didAppear()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.editDeck()
+    }
+    
     // MARK: - Methods
 
     // MARK: - Actions

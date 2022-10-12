@@ -41,6 +41,12 @@ class EditDeckScreenPresenter {
     func didAppear() {
     }
     
+    func editDeck() {
+        deck?.name = name
+        deck?.format = format
+        DataManager.shared.save()
+    }
+    
     func formatForDeck(format: DeckFormats) -> String {
         switch (format) {
         case .vintage:

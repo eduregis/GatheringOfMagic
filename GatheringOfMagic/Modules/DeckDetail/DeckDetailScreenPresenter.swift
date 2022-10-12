@@ -38,6 +38,7 @@ class DeckDetailScreenPresenter {
     }
     
     func didAppear() {
+        
     }
     
     func reloadDeck() {
