@@ -51,7 +51,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                MDSnackBarHelper.shared.showErrorMessage(message: error.error ?? "")
+                SnackBarHelper.shared.showErrorMessage(message: error.error ?? "")
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -110,7 +110,7 @@ class CardDetailScreenPresenter {
                 format: DeckFormats.standard.rawValue)
             addToDeck(deck: deck)
             DataManager.shared.save()
-            MDSnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
+            SnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
         }
     }
     

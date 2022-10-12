@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDelegate {
+class DeckListScreenViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var deckListCollectionView: UICollectionView!
@@ -29,15 +29,6 @@ class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.blurBackground()
-        if let isComingFromTabBar = presenter.isComingFromTabBar {
-            if (isComingFromTabBar) {
-                self.title = DeckListScreenTexts.title.localized()
-            } else {
-                self.title = AddToDeckScreenTexts.title.localized()
-            }
-        }
-        setupLongGestureRecognizerOnCollection()
         configureUI()
     }
     
@@ -54,6 +45,15 @@ class DeckListScreenViewController: BaseViewController, UIGestureRecognizerDeleg
     
     // MARK: - Methods
     private func configureUI() {
+        self.blurBackground()
+        if let isComingFromTabBar = presenter.isComingFromTabBar {
+            if (isComingFromTabBar) {
+                self.title = DeckListScreenTexts.title.localized()
+            } else {
+                self.title = AddToDeckScreenTexts.title.localized()
+            }
+        }
+        setupLongGestureRecognizerOnCollection()
         prepareCollection()
     }
     
@@ -108,9 +108,9 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
             } else {
                 let result = presenter.addToDeck(deck: deck)
                 if (result.0 == false) {
-                    MDSnackBarHelper.shared.showErrorMessage(message: result.1)
+                    SnackBarHelper.shared.showErrorMessage(message: result.1)
                 } else {
-                    MDSnackBarHelper.shared.showSuccessMessage(message: AddToDeckScreenTexts.cardAddedSuccess.localized())
+                    SnackBarHelper.shared.showSuccessMessage(message: AddToDeckScreenTexts.cardAddedSuccess.localized())
                     loadDecks()
                 }
             }
@@ -125,7 +125,7 @@ extension DeckListScreenViewController: UICollectionViewDelegate, UICollectionVi
 }
 
 // MARK: - Long Press Gesture
-extension DeckListScreenViewController {
+extension DeckListScreenViewController: UIGestureRecognizerDelegate {
     
     private func setupLongGestureRecognizerOnCollection() {
         let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
@@ -167,8 +167,6 @@ extension DeckListScreenViewController {
                    }
                })
             }
-            
-            
         }
     }
 }

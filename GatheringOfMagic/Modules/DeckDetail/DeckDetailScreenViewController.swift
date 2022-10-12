@@ -24,6 +24,7 @@ class DeckDetailScreenViewController: BaseViewController {
     
     // MARK: - Properties
     var presenter: DeckDetailScreenPresenter!
+    var isAnimating: Bool = false
     
     // MARK: - View Lifecycle
     
@@ -38,7 +39,6 @@ class DeckDetailScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-        self.blurBackground()
         self.actualizeUI()
         self.view.layoutIfNeeded()
     }
@@ -55,7 +55,7 @@ class DeckDetailScreenViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.didAppear()
-        setManaIcons()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,6 +64,9 @@ class DeckDetailScreenViewController: BaseViewController {
     
     // MARK: - Methods
     func actualizeUI() {
+        self.blurBackground()
+        setManaIcons()
+        setupLongGestureRecognizerOnCollection()
         scrollView.backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
         headerContainer.backgroundColor = UIColor(white: 1, alpha: 0.1)
@@ -78,8 +81,6 @@ class DeckDetailScreenViewController: BaseViewController {
         self.cardsCollectionView.delegate = self
         self.cardsCollectionView.dataSource = self
         CardListCollectionViewCell.registerNib(for: cardsCollectionView)
-        self.cardsCollectionView.contentMode = .center
-        self.cardsCollectionView.showsHorizontalScrollIndicator = false
         cardsCollectionView?.register(DeckDetailCollectionViewHeader.self, forSupplementaryViewOfKind:
                                         UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
         self.cardsCollectionView.backgroundColor = UIColor.clear
@@ -178,5 +179,63 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
         let padding: CGFloat = -10
         let collectionViewSize = collectionView.frame.size.width - padding
         return CGSize(width: collectionViewSize/4, height: 187)
+    }
+    
+    func reloadData() {
+        cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
+        cardsCollectionView.reloadData()
+    }
+}
+
+// MARK: - Long Press Gesture
+extension DeckDetailScreenViewController: UIGestureRecognizerDelegate {
+    
+    private func setupLongGestureRecognizerOnCollection() {
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.cardsCollectionView.addGestureRecognizer(lpgr)
+    }
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        guard gestureReconizer.state != .began else { return }
+        let point = gestureReconizer.location(in: self.cardsCollectionView)
+        guard let indexPath = self.cardsCollectionView.indexPathForItem(at: point) else { return }
+        if (!isAnimating) {
+            
+            isAnimating = true
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                if let cell = self.cardsCollectionView.cellForItem(at: indexPath) as? CardListCollectionViewCell {
+                    cell.transform = CGAffineTransform(scaleX: 19/20, y: 19/20)
+                }
+            }) { (completed) in
+                
+                self.isAnimating = false
+                
+                if let collectionSection = CardTypes(rawValue: indexPath.section), let card = self.presenter.sortedCards[collectionSection]?[indexPath.row] {
+                    let customAlert = EditCardQuantityAlert(card: card)
+                    customAlert.delegate = self
+                    customAlert.show()
+                }
+                
+                UIView.animate(withDuration: 0.3, animations: {
+                   if let cell = self.cardsCollectionView.cellForItem(at: indexPath) as? CardListCollectionViewCell {
+                       cell.transform = .identity
+                   }
+               })
+            }
+        }
+    }
+}
+
+extension DeckDetailScreenViewController: EditCardQuantityAlertDelegate {
+    func confirmButtonPressed(_ alert: EditCardQuantityAlert) {
+        self.reloadData()
+    }
+    
+    func cancelButtonPressed(_ alert: EditCardQuantityAlert) {
+        print("Cancel button pressed")
     }
 }
