@@ -87,6 +87,10 @@ class EditCardQuantityAlert: UIViewController {
     @IBAction func confirmButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         card?.quantity = quantity
+        guard let card = card else { return }
+        if (quantity == 0) {
+            DataManager.shared.deleteCard(card: card)
+        }
         DataManager.shared.save()
         delegate?.confirmButtonPressed(self)
     }

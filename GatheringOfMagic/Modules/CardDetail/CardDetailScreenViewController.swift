@@ -42,6 +42,8 @@ class CardDetailScreenViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        navigationController?.navigationBar.tintColor = UIColor.white
         presenter.willAppear()
         stackOfButtons.isHidden = true
     }

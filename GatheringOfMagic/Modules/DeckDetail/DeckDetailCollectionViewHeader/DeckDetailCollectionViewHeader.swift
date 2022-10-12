@@ -16,7 +16,7 @@ override init(frame: CGRect) {
 
 let typeLabel: UILabel = {
     let title = UILabel()
-    title.font = UIFont(name: "Montserrat", size: 17)
+    title.font = UIFont(name: "Helvetica-Bold", size: 20)
     title.textColor = .gray
     title.translatesAutoresizingMaskIntoConstraints = false
     return title
@@ -26,7 +26,7 @@ func setupHeaderViews()   {
     addSubview(typeLabel)
 
     typeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
-    typeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    typeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5).isActive = true
     typeLabel.widthAnchor.constraint(equalToConstant: 240).isActive = true
     typeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 }

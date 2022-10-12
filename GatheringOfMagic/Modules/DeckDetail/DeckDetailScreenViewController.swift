@@ -14,6 +14,7 @@ class DeckDetailScreenViewController: BaseViewController {
     @IBOutlet weak var cardsInDeckLabel: UILabel!
     @IBOutlet weak var manaLabel: UILabel!
     @IBOutlet weak var averageCostLabel: UILabel!
+    @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var headerContainer: UIView!
@@ -49,6 +50,8 @@ class DeckDetailScreenViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        navigationController?.navigationBar.tintColor = UIColor.white
         presenter.willAppear()
     }
     
@@ -65,7 +68,15 @@ class DeckDetailScreenViewController: BaseViewController {
     // MARK: - Methods
     func actualizeUI() {
         self.blurBackground()
-        setManaIcons()
+        
+        setupNavigationButton()
+        
+        guard let currentDeck = presenter.currentDeck else { return }
+        let cards = DataManager.shared.getCards(deck: currentDeck)
+        
+        setManaIcons(cards: cards)
+        setAverageCosts()
+        
         setupLongGestureRecognizerOnCollection()
         scrollView.backgroundColor = UIColor.clear
         contentView.backgroundColor = UIColor.clear
@@ -90,12 +101,9 @@ class DeckDetailScreenViewController: BaseViewController {
         self.cardsCVHeightConstraint.constant = self.cardsCollectionView.contentSize.height
     }
     
-    func setManaIcons() {
+    func setManaIcons(cards: [CD_CardDetail]) {
         
         clearManaCosts()
-        
-        guard let currentDeck = presenter.currentDeck else { return }
-        let cards = DataManager.shared.getCards(deck: currentDeck)
         
         var manaColors: [String] = []
         
@@ -119,6 +127,26 @@ class DeckDetailScreenViewController: BaseViewController {
         for manaCostIcon in manaCostIcons {
             manaCostIcon.image = nil
         }
+    }
+    
+    func setAverageCosts() {
+        cost.text = "\(presenter.averageCostInDeck())"
+    }
+    
+    func setupNavigationButton() {
+        let btn: UIButton = UIButton(frame: CGRect(x:0, y:0, width:35, height:35))
+        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.contentMode = .right
+
+        btn.setTitle("Edit", for: .normal)
+        btn.addTarget(self, action: #selector(navigateToEditDeck), for: .touchDown)
+        let backBarButton: UIBarButtonItem = UIBarButtonItem(customView: btn)
+
+        self.navigationItem.setRightBarButtonItems([backBarButton], animated: false)
+    }
+    
+    @objc func navigateToEditDeck() {
+        print("vapo")
     }
 }
 
@@ -159,7 +187,7 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
                 for: indexPath) as! DeckDetailCollectionViewHeader
         if let collectionSection = CardTypes(rawValue: indexPath.section) {
             header.typeLabel.text = presenter.titleForHeader(type: collectionSection)
-            header.backgroundColor = UIColor(white: 1, alpha: 0.1)
+//            header.backgroundColor = UIColor(white: 1, alpha: 0.1)
         }
         return header
     }
@@ -176,12 +204,15 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = -10
-        let collectionViewSize = collectionView.frame.size.width - padding
+        let collectionViewSize = collectionView.frame.size.width
         return CGSize(width: collectionViewSize/4, height: 187)
     }
     
     func reloadData() {
+        guard let currentDeck = presenter.currentDeck else { return }
+        let cards = DataManager.shared.getCards(deck: currentDeck)
+        setManaIcons(cards: cards)
+        setAverageCosts()
         cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
         cardsCollectionView.reloadData()
     }
@@ -232,10 +263,10 @@ extension DeckDetailScreenViewController: UIGestureRecognizerDelegate {
 
 extension DeckDetailScreenViewController: EditCardQuantityAlertDelegate {
     func confirmButtonPressed(_ alert: EditCardQuantityAlert) {
+        presenter.reloadDeck()
         self.reloadData()
     }
     
     func cancelButtonPressed(_ alert: EditCardQuantityAlert) {
-        print("Cancel button pressed")
     }
 }
