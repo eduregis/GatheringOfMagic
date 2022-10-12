@@ -146,7 +146,7 @@ class DeckDetailScreenViewController: BaseViewController {
     }
     
     @objc func navigateToEditDeck() {
-        print("vapo")
+        presenter.navigateToEditDeck()
     }
 }
 

@@ -67,6 +67,11 @@
 		2E5ADB7D28F4F53800FD374D /* SnackBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7C28F4F53800FD374D /* SnackBars.swift */; };
 		2E5ADB8028F7360D00FD374D /* EditCardQuantityAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5ADB7F28F7360D00FD374D /* EditCardQuantityAlert.xib */; };
 		2E5ADB8228F73D8900FD374D /* EditCardQuantityAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8128F73D8900FD374D /* EditCardQuantityAlert.swift */; };
+		2E5ADB8528F7639000FD374D /* EditDeckScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8428F7639000FD374D /* EditDeckScreenRouter.swift */; };
+		2E5ADB8728F7642700FD374D /* EditDeckScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8628F7642700FD374D /* EditDeckScreenViewController.xib */; };
+		2E5ADB8928F7644B00FD374D /* EditDeckScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8828F7644B00FD374D /* EditDeckScreenViewController.swift */; };
+		2E5ADB8B28F7646300FD374D /* EditDeckScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8A28F7646300FD374D /* EditDeckScreenPresenter.swift */; };
+		2E5ADB8D28F774A400FD374D /* EditDeckEditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5ADB8C28F774A400FD374D /* EditDeckEditableTableViewCell.swift */; };
 		2E82D42928F497720016DA53 /* UILabelPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E82D42828F497720016DA53 /* UILabelPadding.swift */; };
 		2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D128EFB0CB00E2BBD3 /* DataModel.xcdatamodeld */; };
 		2EF8F0D528F05C4D00E2BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */; };
@@ -160,6 +165,11 @@
 		2E5ADB7C28F4F53800FD374D /* SnackBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBars.swift; sourceTree = "<group>"; };
 		2E5ADB7F28F7360D00FD374D /* EditCardQuantityAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCardQuantityAlert.xib; sourceTree = "<group>"; };
 		2E5ADB8128F73D8900FD374D /* EditCardQuantityAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardQuantityAlert.swift; sourceTree = "<group>"; };
+		2E5ADB8428F7639000FD374D /* EditDeckScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckScreenRouter.swift; sourceTree = "<group>"; };
+		2E5ADB8628F7642700FD374D /* EditDeckScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDeckScreenViewController.xib; sourceTree = "<group>"; };
+		2E5ADB8828F7644B00FD374D /* EditDeckScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckScreenViewController.swift; sourceTree = "<group>"; };
+		2E5ADB8A28F7646300FD374D /* EditDeckScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckScreenPresenter.swift; sourceTree = "<group>"; };
+		2E5ADB8C28F774A400FD374D /* EditDeckEditableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckEditableTableViewCell.swift; sourceTree = "<group>"; };
 		2E82D42828F497720016DA53 /* UILabelPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPadding.swift; sourceTree = "<group>"; };
 		2EF8F0D228EFB0CB00E2BBD3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		2EF8F0D428F05C4D00E2BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -265,6 +275,7 @@
 		2E40FE7428EDBB290050F4E0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2E5ADB8328F7636C00FD374D /* EditDeck */,
 				2E4F004F28F26EA900B4B765 /* DeckDetail */,
 				2E4F004128F1E67700B4B765 /* DeckList */,
 				2E4F003828F12CCA00B4B765 /* FavoriteList */,
@@ -501,6 +512,26 @@
 			path = DeckDetailAlert;
 			sourceTree = "<group>";
 		};
+		2E5ADB8328F7636C00FD374D /* EditDeck */ = {
+			isa = PBXGroup;
+			children = (
+				2E5ADB8E28F774BD00FD374D /* EditDeckEditableCell */,
+				2E5ADB8428F7639000FD374D /* EditDeckScreenRouter.swift */,
+				2E5ADB8828F7644B00FD374D /* EditDeckScreenViewController.swift */,
+				2E5ADB8A28F7646300FD374D /* EditDeckScreenPresenter.swift */,
+				2E5ADB8628F7642700FD374D /* EditDeckScreenViewController.xib */,
+			);
+			path = EditDeck;
+			sourceTree = "<group>";
+		};
+		2E5ADB8E28F774BD00FD374D /* EditDeckEditableCell */ = {
+			isa = PBXGroup;
+			children = (
+				2E5ADB8C28F774A400FD374D /* EditDeckEditableTableViewCell.swift */,
+			);
+			path = EditDeckEditableCell;
+			sourceTree = "<group>";
+		};
 		2EF8F0D028EFB0AB00E2BBD3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +681,7 @@
 			files = (
 				2E40FEA428EDFDB40050F4E0 /* CardListCollectionViewCell.xib in Resources */,
 				2E4F004C28F1EEAA00B4B765 /* DeckListCollectionViewCell.xib in Resources */,
+				2E5ADB8728F7642700FD374D /* EditDeckScreenViewController.xib in Resources */,
 				2E4F006028F3C11500B4B765 /* Localizable.strings in Resources */,
 				2E40FEA128EDECE00050F4E0 /* CardListScreenViewController.xib in Resources */,
 				2E40FE8328EDBCCC0050F4E0 /* SplashScreenViewController.xib in Resources */,
@@ -790,6 +822,7 @@
 				2E40FE8128EDBC870050F4E0 /* SplashScreenPresenter.swift in Sources */,
 				2E2E9ADE28F06EEF00F3D9D3 /* DataManager.swift in Sources */,
 				2E40FE9828EDBE990050F4E0 /* Cards.swift in Sources */,
+				2E5ADB8928F7644B00FD374D /* EditDeckScreenViewController.swift in Sources */,
 				2E40FE8628EDBD240050F4E0 /* BaseRouter.swift in Sources */,
 				2E4F004328F1E77400B4B765 /* DeckListScreenRouter.swift in Sources */,
 				2E40FEB328EE52530050F4E0 /* CardDetailScreenViewController.swift in Sources */,
@@ -802,8 +835,11 @@
 				2E4F003228F1112F00B4B765 /* CD_CardDetail+CoreDataProperties.swift in Sources */,
 				2E5ADB8228F73D8900FD374D /* EditCardQuantityAlert.swift in Sources */,
 				2E4F004728F1E97700B4B765 /* DeckListScreenPresenter.swift in Sources */,
+				2E5ADB8B28F7646300FD374D /* EditDeckScreenPresenter.swift in Sources */,
 				2E4F003C28F12D3B00B4B765 /* FavoriteListScreenViewController.swift in Sources */,
 				2EF8F0D328EFB0CB00E2BBD3 /* DataModel.xcdatamodeld in Sources */,
+				2E5ADB8528F7639000FD374D /* EditDeckScreenRouter.swift in Sources */,
+				2E5ADB8D28F774A400FD374D /* EditDeckEditableTableViewCell.swift in Sources */,
 				2E4F005328F26F7400B4B765 /* DeckDetailScreenViewController.swift in Sources */,
 				2E40FE9F28EDEB3C0050F4E0 /* CardListScreenPresenter.swift in Sources */,
 				2E4F003428F1112F00B4B765 /* CD_Deck+CoreDataProperties.swift in Sources */,

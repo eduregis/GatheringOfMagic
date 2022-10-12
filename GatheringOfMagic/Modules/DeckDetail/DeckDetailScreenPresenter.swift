@@ -97,8 +97,10 @@ class DeckDetailScreenPresenter {
         }
         return CGFloat(totalCost/cardsWithCost)
     }
-    
-    func loadCard(completion: @escaping () -> Void) {
-        
+
+    func navigateToEditDeck() {
+        guard let deck = currentDeck else { return }
+        router.navigateToEditDeck(deck: deck)
     }
+    
 }

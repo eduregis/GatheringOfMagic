@@ -19,7 +19,7 @@ class DeckDetailScreenRouter: BaseRouter {
         return viewController
     }
     
-    func backToList() {
-        
+    func navigateToEditDeck(deck: CD_Deck) {
+        self.push(EditDeckScreenRouter.makeModule(deck: deck), animated: true)
     }
 }

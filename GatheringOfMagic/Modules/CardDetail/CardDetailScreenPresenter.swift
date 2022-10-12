@@ -107,7 +107,7 @@ class CardDetailScreenPresenter {
             let deck = DataManager.shared.createDeck(
                 name: card.name ?? "",
                 coverId: card.imageUrl ?? "",
-                format: DeckFormats.standard.rawValue)
+                format: "Standard")
             addToDeck(deck: deck)
             DataManager.shared.save()
             SnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
