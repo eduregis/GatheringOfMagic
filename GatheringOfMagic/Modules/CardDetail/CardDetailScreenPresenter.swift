@@ -51,7 +51,7 @@ class CardDetailScreenPresenter {
                 
             }) { error in
                 self.delegate?.hideLoader()
-                self.delegate?.showMessage(error.error ?? "", okAction: nil)
+                SnackBarHelper.shared.showErrorMessage(message: error.error ?? "")
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -107,10 +107,10 @@ class CardDetailScreenPresenter {
             let deck = DataManager.shared.createDeck(
                 name: card.name ?? "",
                 coverId: card.imageUrl ?? "",
-                format: DeckFormats.standard.rawValue)
+                format: "Standard")
             addToDeck(deck: deck)
             DataManager.shared.save()
-            MDSnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
+            SnackBarHelper.shared.showSuccessMessage(message: CardDetailScreenTexts.newDeckCreated.localized())
         }
     }
     

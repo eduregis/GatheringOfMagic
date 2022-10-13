@@ -52,7 +52,8 @@ class CardListCollectionViewCell: UICollectionViewCell {
             quantityLabel.layer.borderColor = UIColor.systemBlue.cgColor
             quantityLabel.layer.cornerRadius = 3
             quantityLabel.clipsToBounds = true
-            
+        } else {
+            quantityLabel.isHidden = true
         }
     }
 }

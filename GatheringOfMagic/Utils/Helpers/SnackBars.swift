@@ -8,9 +8,9 @@
 import UIKit
 import SwiftMessages
 
-class MDSnackBarHelper: NSObject {
+class SnackBarHelper: NSObject {
 
-    static let shared = MDSnackBarHelper()
+    static let shared = SnackBarHelper()
     private override init() {}
     
     enum ToastMessagesTheme {

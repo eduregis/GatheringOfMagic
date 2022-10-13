@@ -33,7 +33,7 @@ class CardDetailScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
-//        self.blurBackground()
+        self.blurBackground()
         presenter.loadCard(completion: {
             self.actualizeUI()
         })
@@ -42,6 +42,8 @@ class CardDetailScreenViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barStyle = UIBarStyle.default
+        navigationController?.navigationBar.tintColor = UIColor.white
         presenter.willAppear()
         stackOfButtons.isHidden = true
     }
@@ -70,15 +72,7 @@ class CardDetailScreenViewController: BaseViewController {
         stackOfButtons.isHidden = false
     }
     
-    func blurBackground() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.backgroundColor = UIColor.clear
-        self.view.addSubview(blurEffectView)
-        self.view.sendSubviewToBack(blurEffectView)
-    }
+    
     
     func setFavoriteButton() {
         if let attrFont = UIFont(name: "Helvetica", size: 12) {

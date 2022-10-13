@@ -49,8 +49,9 @@ class DeckListCollectionViewCell: UICollectionViewCell {
             deckImage.sd_setImage(with: URL(string: imageURL.protocolAPS()), placeholderImage: UIImage(named: "placeholderDeck.png"))
             deckImage.backgroundColor = .systemGray
             deckImage.contentMode = .top
-            deckImage.layer.contentsRect = CGRect(x: 0.1, y: 0.2, width: 0.75, height: 0.75)
+            deckImage.layer.contentsRect = CGRect(x: 0.1, y: 0.15, width: 0.75, height: 0.75)
             deckImage.layer.cornerRadius = 10
+            overlay.layer.cornerRadius = 10
             indicator.stopAnimating()
         }
     }

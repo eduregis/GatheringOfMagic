@@ -10,7 +10,8 @@ import UIKit
 protocol BaseViewControllerMethods {
     func showLoader()
     func hideLoader()
-    func showMessage(_ message: String, okAction: (() -> Void)?)
+    func showMessage(_ message: String, okAction: (() -> Void)?, cancelAction: (() -> Void)?)
+    func blurBackground()
 }
 
 class BaseViewController: UIViewController, BaseViewControllerMethods {
@@ -39,14 +40,31 @@ class BaseViewController: UIViewController, BaseViewControllerMethods {
         self.greyView.removeFromSuperview()
     }
     
-    func showMessage(_ message: String, okAction: (() -> Void)?) {
+    func showMessage(_ message: String, okAction: (() -> Void)?, cancelAction: (() -> Void)?) {
         let alert = UIAlertController(title: AlertTexts.alert.localized(),
                                       message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: AlertTexts.ok.localized(), style: .default, handler: {_ in
+        let okActionBtn = UIAlertAction(title: AlertTexts.ok.localized(), style: .default, handler: {_ in
             guard let okAction = okAction else { return}
             okAction()
         })
-        alert.addAction(action)
+        if let cancelAction = cancelAction {
+            let cancelActionBtn = UIAlertAction(title: AlertTexts.cancel.localized(), style: .default, handler: {_ in
+                cancelAction()
+            })
+            alert.addAction(cancelActionBtn)
+        }
+        alert.addAction(okActionBtn)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func blurBackground() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        guard let bkgImage = UIImage(named: "serra_angel.png") else { return }
+        self.view.backgroundColor = UIColor(patternImage: bkgImage)
+        self.view.addSubview(blurEffectView)
+        self.view.sendSubviewToBack(blurEffectView)
     }
 }

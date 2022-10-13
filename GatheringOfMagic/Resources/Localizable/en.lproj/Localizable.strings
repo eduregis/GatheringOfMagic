@@ -27,6 +27,7 @@
 
 // MARK: - Deck List Screen Texts
 "DeckListScreenTexts_title" = "Decks";
+"DeckListScreenTexts_wantToDeleteDeck" = "Do you want to delete the deck";
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Add to Deck";
@@ -35,6 +36,7 @@
 "AddToDeckScreenTexts_nilCard" = "Null card!";
 
 // MARK: - Deck Detail Screen Texts
+"DeckDetailScreenTexts_edit" = "Edit";
 "DeckDetailScreenTexts_mana" = "Mana";
 "DeckDetailScreenTexts_averageCost" = "Average cost";
 "DeckDetailScreenTexts_land" = "Lands";
@@ -45,9 +47,18 @@
 "DeckDetailScreenTexts_enchantment" = "Enchantments";
 "DeckDetailScreenTexts_planeswalker" = "Planeswalkers";
 
+// MARK: - Edit Deck Screen Texts
+"EditDeckScreenTexts_deckName" = "Deck name: ";
+"EditDeckScreenTexts_deckFormat" = "Deck format: ";
+
+// MARK: - Edit Card Quantity Alert Texts
+"EditCardQuantityAlertTexts_confirm" = "Confirm";
+"EditCardQuantityAlertTexts_cancel" = "Cancel";
+
 // MARK: - Alert Texts
 "AlertTexts_alert" = "Alert!";
 "AlertTexts_ok" = "Ok";
+"AlertTexts_cancel" = "Cancel";
 
 // MARK: - Error Messages
 "ErrorMessages_noWindow" = "No Window";

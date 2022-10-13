@@ -38,10 +38,13 @@ class DeckDetailScreenPresenter {
     }
     
     func didAppear() {
+        
     }
     
-    func backToList() {
-        
+    func reloadDeck() {
+        guard let deck = currentDeck else { return }
+        self.cards = DataManager.shared.getCards(deck: deck)
+        self.sortingCards()
     }
     
     func sortingCards() {
@@ -83,15 +86,38 @@ class DeckDetailScreenPresenter {
         return totalCount
     }
     
-    func loadCard(completion: @escaping () -> Void) {
+    func averageCostInDeck() -> CGFloat {
+        var cardsWithCost = 0
+        var totalCost = 0
         
+        for card in cards {
+            if (card.cmc > 0) {
+                cardsWithCost += Int(card.quantity)
+                totalCost += Int(card.quantity) * Int(card.cmc)
+            }
+        }
+        return CGFloat(totalCost/cardsWithCost)
     }
     
-    func addToDeck(deck: CD_Deck) {
+    func curveColors() -> [Int] {
+        var curve = [0,0,0,0,0,0]
         
+        for card in cards {
+            if card.cmc > 0 {
+                if card.cmc >= 6 {
+                    curve[5] += 1
+                } else {
+                    curve[Int(card.cmc) - 1] += 1
+                }
+            }
+        }
+        
+        return curve
+    }
+
+    func navigateToEditDeck() {
+        guard let deck = currentDeck else { return }
+        router.navigateToEditDeck(deck: deck)
     }
     
-    func createDeck() {
-        
-    }
 }

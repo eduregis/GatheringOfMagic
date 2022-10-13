@@ -10,5 +10,6 @@ import UIKit
 protocol BasePresenterDelegate where Self: UIViewController {
     func showLoader()
     func hideLoader()
-    func showMessage(_ message: String, okAction: (() -> Void)?)
+    func showMessage(_ message: String, okAction: (() -> Void)?, cancelAction: (() -> Void)?)
+    func blurBackground()
 }

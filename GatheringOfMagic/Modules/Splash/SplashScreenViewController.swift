@@ -28,6 +28,7 @@ class SplashScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.didLoad()
+        self.blurBackground()
         // Do any additional setup after loading the view, typically from a nib.
     }
     

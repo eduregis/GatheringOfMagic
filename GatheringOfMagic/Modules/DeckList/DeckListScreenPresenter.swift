@@ -91,4 +91,10 @@ class DeckListScreenPresenter {
         }
         return (false, AddToDeckScreenTexts.nilCard.localized())
     }
+    
+    func deleteDeck(deck: CD_Deck) {
+        DataManager.shared.deleteDeck(deck: deck)
+        DataManager.shared.save()
+        updateDecks()
+    }
 }
