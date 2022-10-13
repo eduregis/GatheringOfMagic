@@ -53,8 +53,8 @@ class EditCardQuantityAlert: UIViewController {
         guard let card = card else { return }
         cardName.text = card.name
         quantity = card.quantity
-        cancelButton.setTitle("Cancel", for: .normal)
-        confirmButton.setTitle("Confirm", for: .normal)
+        cancelButton.setTitle(EditCardQuantityAlertTexts.cancel.localized(), for: .normal)
+        confirmButton.setTitle(EditCardQuantityAlertTexts.confirm.localized(), for: .normal)
         actualizeUI()
     }
     

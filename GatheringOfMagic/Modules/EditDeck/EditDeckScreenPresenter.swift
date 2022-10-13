@@ -17,8 +17,8 @@ class EditDeckScreenPresenter {
     var format: String? = ""
     
     let tableViewInfos: [String] = [
-        "Deck name: ",
-        "Deck format: "
+        EditDeckScreenTexts.deckName.localized(),
+        EditDeckScreenTexts.deckFormat.localized()
     ]
     
     weak var delegate: EditDeckScreenPresenterDelegate?

@@ -142,7 +142,7 @@ class DeckDetailScreenViewController: BaseViewController {
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.contentMode = .right
 
-        btn.setTitle("Edit", for: .normal)
+        btn.setTitle(DeckDetailScreenTexts.edit.localized(), for: .normal)
         btn.addTarget(self, action: #selector(navigateToEditDeck), for: .touchDown)
         let backBarButton: UIBarButtonItem = UIBarButtonItem(customView: btn)
 
@@ -240,7 +240,6 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
                 for: indexPath) as! DeckDetailCollectionViewHeader
         if let collectionSection = CardTypes(rawValue: indexPath.section) {
             header.typeLabel.text = presenter.titleForHeader(type: collectionSection)
-//            header.backgroundColor = UIColor(white: 1, alpha: 0.1)
         }
         return header
     }

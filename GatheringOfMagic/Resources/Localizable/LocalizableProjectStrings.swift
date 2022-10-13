@@ -43,6 +43,7 @@ enum AddToDeckScreenTexts: String, Localizable {
 }
 
 enum DeckDetailScreenTexts: String, Localizable {
+    case edit = "DeckDetailScreenTexts_edit"
     case mana = "DeckDetailScreenTexts_mana"
     case averageCost = "DeckDetailScreenTexts_averageCost"
     case land = "DeckDetailScreenTexts_land"
@@ -52,6 +53,16 @@ enum DeckDetailScreenTexts: String, Localizable {
     case creature = "DeckDetailScreenTexts_creature"
     case enchantment = "DeckDetailScreenTexts_enchantment"
     case planeswalker = "DeckDetailScreenTexts_planeswalker"
+}
+
+enum EditDeckScreenTexts: String, Localizable {
+    case deckName = "EditDeckScreenTexts_deckName"
+    case deckFormat = "EditDeckScreenTexts_deckFormat"
+}
+
+enum EditCardQuantityAlertTexts: String, Localizable {
+    case confirm = "EditCardQuantityAlertTexts_confirm"
+    case cancel = "EditCardQuantityAlertTexts_cancel"
 }
 
 enum AlertTexts: String, Localizable {

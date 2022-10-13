@@ -36,6 +36,7 @@
 "AddToDeckScreenTexts_nilCard" = "Carta não encontrada!";
 
 // MARK: - Deck Detail Screen Texts
+"DeckDetailScreenTexts_edit" = "Editar";
 "DeckDetailScreenTexts_mana" = "Mana";
 "DeckDetailScreenTexts_averageCost" = "Custo médio";
 "DeckDetailScreenTexts_land" = "Terrenos";
@@ -45,6 +46,14 @@
 "DeckDetailScreenTexts_creature" = "Criaturas";
 "DeckDetailScreenTexts_enchantment" = "Encantamentos";
 "DeckDetailScreenTexts_planeswalker" = "Planinautas";
+
+// MARK: - Edit Deck Screen Texts
+"EditDeckScreenTexts_deckName" = "Nome do grimório: ";
+"EditDeckScreenTexts_deckFormat" = "Formato do grimório: ";
+
+// MARK: - Edit Card Quantity Alert Texts
+"EditCardQuantityAlertTexts_confirm" = "Confirmar";
+"EditCardQuantityAlertTexts_cancel" = "Cancelar";
 
 // MARK: - Alert Texts
 "AlertTexts_alert" = "Atenção!";
