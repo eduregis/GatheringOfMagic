@@ -98,6 +98,22 @@ class DeckDetailScreenPresenter {
         }
         return CGFloat(totalCost/cardsWithCost)
     }
+    
+    func curveColors() -> [Int] {
+        var curve = [0,0,0,0,0,0]
+        
+        for card in cards {
+            if card.cmc > 0 {
+                if card.cmc >= 6 {
+                    curve[5] += 1
+                } else {
+                    curve[Int(card.cmc) - 1] += 1
+                }
+            }
+        }
+        
+        return curve
+    }
 
     func navigateToEditDeck() {
         guard let deck = currentDeck else { return }

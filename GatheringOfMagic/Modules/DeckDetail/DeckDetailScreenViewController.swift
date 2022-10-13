@@ -14,6 +14,7 @@ class DeckDetailScreenViewController: BaseViewController {
     @IBOutlet weak var cardsInDeckLabel: UILabel!
     @IBOutlet weak var manaLabel: UILabel!
     @IBOutlet weak var averageCostLabel: UILabel!
+    @IBOutlet weak var curveLabel: UILabel!
     @IBOutlet weak var cost: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -78,6 +79,7 @@ class DeckDetailScreenViewController: BaseViewController {
         
         setManaIcons(cards: cards)
         setAverageCosts()
+        setCurveCost()
         
         setupLongGestureRecognizerOnCollection()
         scrollView.backgroundColor = UIColor.clear
@@ -145,6 +147,55 @@ class DeckDetailScreenViewController: BaseViewController {
         let backBarButton: UIBarButtonItem = UIBarButtonItem(customView: btn)
 
         self.navigationItem.setRightBarButtonItems([backBarButton], animated: false)
+    }
+    
+    func setCurveCost() {
+        
+        let colorCurve = presenter.curveColors()
+        
+        let maxValueCurve: Int = colorCurve.max() ?? 0
+
+        for index in 1...colorCurve.count {
+            
+            let filledView = UIView()
+            filledView.translatesAutoresizingMaskIntoConstraints = false
+            filledView.backgroundColor = .systemYellow
+            filledView.layer.cornerRadius = 5
+            
+            let curveView = UIView()
+            curveView.translatesAutoresizingMaskIntoConstraints = false
+            curveView.backgroundColor = .clear
+            curveView.layer.borderWidth = 3
+            curveView.layer.borderColor = UIColor.white.cgColor
+            curveView.layer.cornerRadius = 5
+            
+            let title = UILabel()
+            title.font = UIFont(name: "Helvetica", size: 13)
+            title.textColor = .gray
+            title.text = (index == 6) ? "6+" : "\(index)"
+            title.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.headerContainer.addSubview(filledView)
+
+            filledView.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
+            filledView.bottomAnchor.constraint(equalTo: curveLabel.topAnchor, constant: -10).isActive = true
+            filledView.heightAnchor.constraint(equalToConstant: CGFloat(colorCurve[index - 1] * 80 / maxValueCurve)).isActive = true
+            filledView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+            
+            self.headerContainer.addSubview(curveView)
+
+            curveView.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
+            curveView.bottomAnchor.constraint(equalTo: curveLabel.topAnchor, constant: -10).isActive = true
+            curveView.heightAnchor.constraint(equalToConstant: 105).isActive = true
+            curveView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+            
+            self.headerContainer.addSubview(title)
+
+            title.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
+            title.bottomAnchor.constraint(equalTo: curveView.topAnchor, constant: -10).isActive = true
+        }
+        
+        
     }
     
     @objc func navigateToEditDeck() {

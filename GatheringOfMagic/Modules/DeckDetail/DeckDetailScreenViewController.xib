@@ -16,6 +16,7 @@
                 <outlet property="cardsInDeckLabel" destination="FAG-jC-fXA" id="aSZ-xp-l0p"/>
                 <outlet property="contentView" destination="df3-zb-TXr" id="EMM-zw-Dwi"/>
                 <outlet property="cost" destination="Vk9-aE-hii" id="Ynh-Fi-ibP"/>
+                <outlet property="curveLabel" destination="VrA-da-msi" id="8sz-jG-oU7"/>
                 <outlet property="deckName" destination="MZS-Fm-NU0" id="h6R-l2-feK"/>
                 <outlet property="headerContainer" destination="3ey-Kq-Xgy" id="gZf-Zi-5qg"/>
                 <outlet property="manaCostXConstraint" destination="NfY-aP-GA1" id="UFi-Cc-Ean"/>
@@ -179,14 +180,29 @@
                                                 <constraint firstAttribute="height" constant="64" id="r6g-Go-1nO"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrA-da-msi">
+                                            <rect key="frame" x="189.5" y="272" width="35" height="15"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Curve">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="13" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="labelColor"/>
                                     <constraints>
+                                        <constraint firstItem="VrA-da-msi" firstAttribute="centerX" secondItem="3ey-Kq-Xgy" secondAttribute="centerX" id="BGn-bQ-Ri8"/>
                                         <constraint firstItem="MZS-Fm-NU0" firstAttribute="leading" secondItem="3ey-Kq-Xgy" secondAttribute="leading" id="Exf-zR-uH3"/>
                                         <constraint firstItem="1Au-Fv-GeQ" firstAttribute="width" secondItem="3ey-Kq-Xgy" secondAttribute="width" multiplier="0.5" id="Fg1-mU-5Wz"/>
                                         <constraint firstItem="E3H-VW-eF0" firstAttribute="top" secondItem="MZS-Fm-NU0" secondAttribute="bottom" constant="16" id="Jmn-9y-cHj"/>
                                         <constraint firstItem="1Au-Fv-GeQ" firstAttribute="leading" secondItem="MZS-Fm-NU0" secondAttribute="leading" id="Joj-Yl-DNa"/>
                                         <constraint firstItem="1Au-Fv-GeQ" firstAttribute="top" secondItem="MZS-Fm-NU0" secondAttribute="bottom" constant="16" id="VED-Q2-jlQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="VrA-da-msi" secondAttribute="bottom" constant="33" id="Z1o-0o-cQa"/>
                                         <constraint firstAttribute="trailing" secondItem="MZS-Fm-NU0" secondAttribute="trailing" id="cdp-Oh-PHh"/>
                                         <constraint firstAttribute="trailing" secondItem="E3H-VW-eF0" secondAttribute="trailing" id="fjp-4k-jIc"/>
                                         <constraint firstItem="MZS-Fm-NU0" firstAttribute="top" secondItem="3ey-Kq-Xgy" secondAttribute="top" constant="16" id="pIn-Vl-02o"/>
