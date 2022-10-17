@@ -39,6 +39,7 @@
 "DeckDetailScreenTexts_edit" = "Edit";
 "DeckDetailScreenTexts_mana" = "Mana";
 "DeckDetailScreenTexts_averageCost" = "Average cost";
+"DeckDetailScreenTexts_curve" = "Curve";
 "DeckDetailScreenTexts_land" = "Lands";
 "DeckDetailScreenTexts_instant" = "Instants";
 "DeckDetailScreenTexts_sorcery" = "Sorceries";

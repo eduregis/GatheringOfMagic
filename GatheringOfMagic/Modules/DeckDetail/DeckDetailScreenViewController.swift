@@ -89,6 +89,7 @@ class DeckDetailScreenViewController: BaseViewController {
         cardsInDeckLabel.text = "\(presenter.currentDeck?.format ?? "") (\(presenter.totalCardsInDeck()))"
         manaLabel.text = DeckDetailScreenTexts.mana.localized()
         averageCostLabel.text = DeckDetailScreenTexts.averageCost.localized()
+        curveLabel.text = DeckDetailScreenTexts.curve.localized()
         prepareCollection()
     }
     

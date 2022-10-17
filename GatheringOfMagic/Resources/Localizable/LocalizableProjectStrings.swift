@@ -46,6 +46,7 @@ enum DeckDetailScreenTexts: String, Localizable {
     case edit = "DeckDetailScreenTexts_edit"
     case mana = "DeckDetailScreenTexts_mana"
     case averageCost = "DeckDetailScreenTexts_averageCost"
+    case curve = "DeckDetailScreenTexts_curve"
     case land = "DeckDetailScreenTexts_land"
     case instant = "DeckDetailScreenTexts_instant"
     case sorcery = "DeckDetailScreenTexts_sorcery"

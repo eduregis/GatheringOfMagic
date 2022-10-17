@@ -19,7 +19,7 @@ class CardListScreenViewController: BaseViewController {
     // MARK: - Properties
     var presenter: CardListScreenPresenter!
     var timer: Timer?
-    
+    var isPaginating: Bool = false
     // MARK: - View Lifecycle
     
     init() {
@@ -90,8 +90,15 @@ class CardListScreenViewController: BaseViewController {
     }
     
     func loadCards(name: String) {
-        presenter.loadCards(name: name, completion: {
-            self.reloadData()
+        presenter.loadCards(name: name, completion: { [self] in
+            reloadData()
+        })
+    }
+    
+    func loadMoreCards(name: String) {
+        presenter.loadMoreCards(name: name, completion: { [self] in
+            reloadData()
+            isPaginating = false
         })
     }
     
@@ -141,12 +148,24 @@ extension CardListScreenViewController: UICollectionViewDelegate, UICollectionVi
     }
 }
 
+// MARK: - Search Bar Delegate
 extension CardListScreenViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
             self.loadCards(name: searchText)
             self.timer?.invalidate()
+        }
+    }
+}
+
+// MARK: - Infinite Scroll
+extension CardListScreenViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if ((position > cardListCollectionView.contentSize.height -  scrollView.frame.size.height + 100) && (!isPaginating)) {
+            isPaginating = true
+            self.loadMoreCards(name: searchBar.text ?? "")
         }
     }
 }
