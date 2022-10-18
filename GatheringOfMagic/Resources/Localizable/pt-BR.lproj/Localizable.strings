@@ -15,6 +15,9 @@
 "TabBarTexts_favorites" = "Favoritas";
 "TabBarTexts_decks" = "Grimórios";
 
+// MARK: - Card List Screen Texts
+"CardListScreenTexts_loadingMoreCards" = "Carregando mais cartas...";
+
 // MARK: - Card Detail Screen Texts
 "CardDetailScreenTexts_favorite" = "Favoritar";
 "CardDetailScreenTexts_unfavorite" = "Desfavoritar";

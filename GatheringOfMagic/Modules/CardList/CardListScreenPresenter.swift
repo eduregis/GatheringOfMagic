@@ -56,9 +56,7 @@ class CardListScreenPresenter {
             success: { gathering in
                 DispatchQueue.main.async {
                     guard let cards = gathering.cards else { return }
-                    
                     self.currentCards = cards
-                    
                     self.delegate?.hideLoader()
                     completion()
                 }
@@ -73,25 +71,18 @@ class CardListScreenPresenter {
     }
     
     func loadMoreCards(name: String, completion: @escaping () -> Void) {
-        
-        delegate?.showLoader()
         pagination += 1
-        print(pagination)
+        
         VehicleDAO.getCards(
             page: pagination,
             name: name,
             success: { gathering in
                 DispatchQueue.main.async {
                     guard let cards = gathering.cards else { return }
-                    
                     self.currentCards?.append(contentsOf: cards)
-                    
-                    self.delegate?.hideLoader()
                     completion()
                 }
         }) { error in
-            self.delegate?.hideLoader()
-            
             SnackBarHelper.shared.showErrorMessage(message: error.error ?? "")
             DispatchQueue.main.async {
                 completion()

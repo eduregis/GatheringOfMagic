@@ -18,6 +18,10 @@ enum TabBarTexts: String, Localizable {
     case decks = "TabBarTexts_decks"
 }
 
+enum CardListScreenTexts: String, Localizable {
+    case loadingMoreCards = "CardListScreenTexts_loadingMoreCards"
+}
+
 enum CardDetailScreenTexts: String, Localizable {
     case favorite = "CardDetailScreenTexts_favorite"
     case unfavorite = "CardDetailScreenTexts_unfavorite"

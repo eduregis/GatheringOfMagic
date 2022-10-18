@@ -95,13 +95,6 @@ class CardListScreenViewController: BaseViewController {
         })
     }
     
-    func loadMoreCards(name: String) {
-        presenter.loadMoreCards(name: name, completion: { [self] in
-            reloadData()
-            isPaginating = false
-        })
-    }
-    
     func reloadData() {
         presenter.updateFavorites()
         cardListCollectionView.reloadData()
@@ -165,7 +158,12 @@ extension CardListScreenViewController: UIScrollViewDelegate {
         let position = scrollView.contentOffset.y
         if ((position > cardListCollectionView.contentSize.height -  scrollView.frame.size.height + 100) && (!isPaginating)) {
             isPaginating = true
-            self.loadMoreCards(name: searchBar.text ?? "")
+            SnackBarHelper.shared.showToast(message: CardListScreenTexts.loadingMoreCards.localized())
+            presenter.loadMoreCards(name: searchBar.text ?? "", completion: { [self] in
+                SnackBarHelper.shared.hideToast()
+                reloadData()
+                isPaginating = false
+            })
         }
     }
 }
