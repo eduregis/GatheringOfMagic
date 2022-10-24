@@ -69,7 +69,7 @@ class CardDetailScreenViewController: BaseViewController {
         cardImage.layer.cornerRadius = 25
         setCreateDeckButton()
         setAddToButton()
-        stackOfButtons.isHidden = false
+        stackOfButtons.isHidden = presenter.isCommingFromDeckDetail ?? false
     }
     
     

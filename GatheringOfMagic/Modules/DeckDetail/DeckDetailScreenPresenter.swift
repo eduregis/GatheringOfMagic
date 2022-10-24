@@ -120,4 +120,8 @@ class DeckDetailScreenPresenter {
         router.navigateToEditDeck(deck: deck)
     }
     
+    func navigateToCardDetail(cardId: String) {
+        self.router.navigateToCardDetail(cardId: cardId)
+    }
+    
 }

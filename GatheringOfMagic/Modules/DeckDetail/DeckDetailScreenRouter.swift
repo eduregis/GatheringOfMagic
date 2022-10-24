@@ -22,4 +22,8 @@ class DeckDetailScreenRouter: BaseRouter {
     func navigateToEditDeck(deck: CD_Deck) {
         self.push(EditDeckScreenRouter.makeModule(deck: deck), animated: true)
     }
+    
+    func navigateToCardDetail(cardId: String) {
+        self.present(CardDetailScreenRouter.makeModule(cardId: cardId, isFavorited: false, isComingFromDeckDetail: true), animated: true)
+    }
 }
