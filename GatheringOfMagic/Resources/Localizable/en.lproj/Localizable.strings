@@ -17,6 +17,7 @@
 
 // MARK: - Card List Screen Texts
 "CardListScreenTexts_loadingMoreCards" = "Loading more cards...";
+"CardListScreenTexts_emptyListMessage" = "No cards found...";
 
 // MARK: - Card Detail Screen Texts
 "CardDetailScreenTexts_favorite" = "Favorite";

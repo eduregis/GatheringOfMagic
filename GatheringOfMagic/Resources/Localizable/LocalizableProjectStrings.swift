@@ -20,6 +20,7 @@ enum TabBarTexts: String, Localizable {
 
 enum CardListScreenTexts: String, Localizable {
     case loadingMoreCards = "CardListScreenTexts_loadingMoreCards"
+    case emptyListMessage = "CardListScreenTexts_emptyListMessage"
 }
 
 enum CardDetailScreenTexts: String, Localizable {

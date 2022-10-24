@@ -15,6 +15,8 @@ class CardListScreenViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cardListCollectionView: UICollectionView!
+    @IBOutlet weak var emptyBoxImage: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     // MARK: - Properties
     var presenter: CardListScreenPresenter!
@@ -54,6 +56,7 @@ class CardListScreenViewController: BaseViewController {
     // MARK: - Methods
     private func configureUI() {
         prepareImageTitle()
+        hideEmptyBox()
         prepareCollection()
         prepareSearchBar()
     }
@@ -80,6 +83,21 @@ class CardListScreenViewController: BaseViewController {
         self.cardListCollectionView.backgroundColor = UIColor.clear
     }
     
+    private func showEmptyBox() {
+        emptyBoxImage.isHidden = false
+        emptyBoxImage.alpha = 0.5
+        emptyLabel.text = CardListScreenTexts.emptyListMessage.localized()
+        emptyLabel.numberOfLines = 0
+        emptyLabel.lineBreakMode = .byTruncatingTail
+        emptyLabel.alpha = 0.5
+        emptyLabel.isHidden = false
+    }
+    
+    private func hideEmptyBox() {
+        emptyBoxImage.isHidden = true
+        emptyLabel.isHidden = true
+    }
+    
     private func prepareSearchBar() {
         self.searchBar.delegate = self
         self.searchBar.barTintColor = UIColor.clear
@@ -98,6 +116,11 @@ class CardListScreenViewController: BaseViewController {
     func reloadData() {
         presenter.updateFavorites()
         cardListCollectionView.reloadData()
+        if (presenter.isListEmpty()) {
+            showEmptyBox()
+        } else {
+            hideEmptyBox()
+        }
     }
 
     // MARK: - Actions    
