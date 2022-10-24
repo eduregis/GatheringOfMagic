@@ -180,6 +180,7 @@ class DeckDetailScreenViewController: BaseViewController {
 
             filledView.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
             filledView.bottomAnchor.constraint(equalTo: curveLabel.topAnchor, constant: -10).isActive = true
+            print("colorCurve: \(colorCurve[index - 1]), maxCurve: \(maxValueCurve)")
             filledView.heightAnchor.constraint(equalToConstant: CGFloat(colorCurve[index - 1] * 80 / maxValueCurve)).isActive = true
             filledView.widthAnchor.constraint(equalToConstant: 40).isActive = true
             
