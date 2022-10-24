@@ -37,6 +37,13 @@ class FavoriteListScreenPresenter {
         }
     }
     
+    func isListEmpty() -> Bool {
+        if let favoriteCards = favoriteCards {
+            return favoriteCards.isEmpty
+        }
+        return true
+    }
+    
     func loadFavoriteCards(completion: @escaping () -> Void) {
         
         delegate?.showLoader()

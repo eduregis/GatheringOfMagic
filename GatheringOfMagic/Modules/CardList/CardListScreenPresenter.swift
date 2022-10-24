@@ -45,6 +45,13 @@ class CardListScreenPresenter {
         }
     }
     
+    func isListEmpty() -> Bool {
+        if let currentCards = currentCards {
+            return currentCards.isEmpty
+        }
+        return true
+    }
+    
     func loadCards(name: String, completion: @escaping () -> Void) {
         
         delegate?.showLoader()

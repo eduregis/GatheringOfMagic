@@ -11,6 +11,8 @@ class DeckListScreenViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var deckListCollectionView: UICollectionView!
+    @IBOutlet weak var emptyBoxImage: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     // MARK: - Properties
     var presenter: DeckListScreenPresenter!
@@ -46,6 +48,7 @@ class DeckListScreenViewController: BaseViewController {
     // MARK: - Methods
     private func configureUI() {
         self.blurBackground()
+        hideEmptyBox()
         if let isComingFromTabBar = presenter.isComingFromTabBar {
             if (isComingFromTabBar) {
                 self.title = DeckListScreenTexts.title.localized()
@@ -66,6 +69,21 @@ class DeckListScreenViewController: BaseViewController {
         self.deckListCollectionView.backgroundColor = UIColor.clear
     }
     
+    private func showEmptyBox() {
+        emptyBoxImage.isHidden = false
+        emptyBoxImage.alpha = 0.5
+        emptyLabel.text = DeckListScreenTexts.emptyListMessage.localized()
+        emptyLabel.numberOfLines = 0
+        emptyLabel.lineBreakMode = .byTruncatingTail
+        emptyLabel.alpha = 0.5
+        emptyLabel.isHidden = false
+    }
+    
+    private func hideEmptyBox() {
+        emptyBoxImage.isHidden = true
+        emptyLabel.isHidden = true
+    }
+    
     func loadDecks() {
         presenter.loadDecks(completion: {
             self.reloadData()
@@ -74,6 +92,11 @@ class DeckListScreenViewController: BaseViewController {
     
     func reloadData() {
         deckListCollectionView.reloadData()
+        if (presenter.isListEmpty()) {
+            showEmptyBox()
+        } else {
+            hideEmptyBox()
+        }
     }
 
     // MARK: - Actions

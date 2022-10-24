@@ -180,7 +180,6 @@ class DeckDetailScreenViewController: BaseViewController {
 
             filledView.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
             filledView.bottomAnchor.constraint(equalTo: curveLabel.topAnchor, constant: -10).isActive = true
-            print("colorCurve: \(colorCurve[index - 1]), maxCurve: \(maxValueCurve)")
             filledView.heightAnchor.constraint(equalToConstant: CGFloat(colorCurve[index - 1] * 80 / maxValueCurve)).isActive = true
             filledView.widthAnchor.constraint(equalToConstant: 40).isActive = true
             
@@ -196,12 +195,15 @@ class DeckDetailScreenViewController: BaseViewController {
             title.centerXAnchor.constraint(equalTo: curveLabel.centerXAnchor, constant: CGFloat(index * 50) - 175).isActive = true
             title.bottomAnchor.constraint(equalTo: curveView.topAnchor, constant: -10).isActive = true
         }
-        
-        
     }
     
     @objc func navigateToEditDeck() {
         presenter.navigateToEditDeck()
+    }
+    
+    // MARK: - Actions
+    func navigateToCardDetail(cardId: String) {
+        self.presenter.navigateToCardDetail(cardId: cardId)
     }
 }
 
@@ -255,6 +257,13 @@ extension DeckDetailScreenViewController: UICollectionViewDelegate, UICollection
                 quantity: Int(card.quantity))
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let collectionSection = CardTypes(rawValue: indexPath.section), let card = presenter.sortedCards[collectionSection]?[indexPath.row] {
+            navigateToCardDetail(cardId: card.id ?? "")
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

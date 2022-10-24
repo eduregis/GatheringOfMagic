@@ -19,12 +19,14 @@ class CardDetailScreenPresenter {
     let router: CardDetailScreenRouter
     var currentCard: CardDetail?
     var isFavorited: Bool?
+    var isCommingFromDeckDetail: Bool?
     
-    init(cardId: String, isFavorited: Bool?, delegate: CardDetailScreenPresenterDelegate, router: CardDetailScreenRouter) {
+    init(cardId: String, isFavorited: Bool?, isCommingFromDeckDetail: Bool?, delegate: CardDetailScreenPresenterDelegate, router: CardDetailScreenRouter) {
         self.cardId = cardId
         self.delegate = delegate
         self.router = router
         self.isFavorited = isFavorited
+        self.isCommingFromDeckDetail = isCommingFromDeckDetail
         currentCard = CardDetail()
     }
     

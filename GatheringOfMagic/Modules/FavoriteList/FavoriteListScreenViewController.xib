@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListScreenViewController" customModule="GatheringOfMagic" customModuleProvider="target">
             <connections>
+                <outlet property="emptyBoxImage" destination="2Dn-iN-kSK" id="McV-9U-DKC"/>
+                <outlet property="emptyLabel" destination="NqV-7b-PyY" id="t3a-Z4-Men"/>
                 <outlet property="favoriteListCollectionView" destination="eaj-o7-jeW" id="0km-Ob-P9q"/>
                 <outlet property="view" destination="vJP-ka-FTZ" id="QX4-xg-DAu"/>
             </connections>
@@ -29,6 +31,22 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyBox" translatesAutoresizingMaskIntoConstraints="NO" id="2Dn-iN-kSK">
+                    <rect key="frame" x="143" y="389" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="tow-g0-63Q"/>
+                        <constraint firstAttribute="width" constant="128" id="uXB-D5-XBc"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqV-7b-PyY">
+                    <rect key="frame" x="103.5" y="525" width="207" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="TIO-N6-POI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Eaq-L3-HGz"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,11 +55,17 @@
                 <constraint firstItem="eaj-o7-jeW" firstAttribute="leading" secondItem="Eaq-L3-HGz" secondAttribute="leading" id="8gr-hl-FcR"/>
                 <constraint firstItem="Eaq-L3-HGz" firstAttribute="bottom" secondItem="eaj-o7-jeW" secondAttribute="bottom" id="Bb8-Hr-4h6"/>
                 <constraint firstItem="eaj-o7-jeW" firstAttribute="top" secondItem="Eaq-L3-HGz" secondAttribute="top" id="EmO-yB-sww"/>
+                <constraint firstItem="2Dn-iN-kSK" firstAttribute="centerY" secondItem="eaj-o7-jeW" secondAttribute="centerY" id="LDT-KJ-AIr"/>
+                <constraint firstItem="NqV-7b-PyY" firstAttribute="centerX" secondItem="2Dn-iN-kSK" secondAttribute="centerX" id="YK0-k0-26i"/>
+                <constraint firstItem="NqV-7b-PyY" firstAttribute="top" secondItem="2Dn-iN-kSK" secondAttribute="bottom" constant="8" symbolic="YES" id="a2Y-C7-Wsr"/>
+                <constraint firstItem="2Dn-iN-kSK" firstAttribute="centerX" secondItem="eaj-o7-jeW" secondAttribute="centerX" id="e1S-N0-vLn"/>
+                <constraint firstItem="NqV-7b-PyY" firstAttribute="width" secondItem="eaj-o7-jeW" secondAttribute="width" multiplier="0.5" id="gla-IB-Vh1"/>
             </constraints>
             <point key="canvasLocation" x="188" y="80"/>
         </view>
     </objects>
     <resources>
+        <image name="emptyBox" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
