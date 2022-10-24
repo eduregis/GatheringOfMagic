@@ -40,6 +40,13 @@ class DeckListScreenPresenter {
         self.decks = DataManager.shared.getDecks().filter {$0.format != "Favorites"}
     }
     
+    func isListEmpty() -> Bool {
+        if let decks = decks {
+            return decks.isEmpty
+        }
+        return true
+    }
+    
     func loadDecks(completion: @escaping () -> Void) {
         
         delegate?.showLoader()

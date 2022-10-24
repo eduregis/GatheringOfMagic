@@ -11,6 +11,8 @@ class FavoriteListScreenViewController: BaseViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var favoriteListCollectionView: UICollectionView!
+    @IBOutlet weak var emptyBoxImage: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     // MARK: - Properties
     var presenter: FavoriteListScreenPresenter!
@@ -47,6 +49,7 @@ class FavoriteListScreenViewController: BaseViewController {
     
     // MARK: - Methods
     private func configureUI() {
+        hideEmptyBox()
         prepareCollection()
     }
     
@@ -59,6 +62,21 @@ class FavoriteListScreenViewController: BaseViewController {
         self.favoriteListCollectionView.backgroundColor = UIColor.clear
     }
     
+    private func showEmptyBox() {
+        emptyBoxImage.isHidden = false
+        emptyBoxImage.alpha = 0.5
+        emptyLabel.text = "Ainda não tem nenhuma carta favoritada! localizar"
+        emptyLabel.numberOfLines = 0
+        emptyLabel.lineBreakMode = .byTruncatingTail
+        emptyLabel.alpha = 0.5
+        emptyLabel.isHidden = false
+    }
+    
+    private func hideEmptyBox() {
+        emptyBoxImage.isHidden = true
+        emptyLabel.isHidden = true
+    }
+    
     func loadCards() {
         presenter.loadFavoriteCards(completion: {
             self.reloadData()
@@ -68,6 +86,11 @@ class FavoriteListScreenViewController: BaseViewController {
     func reloadData() {
         presenter.updateFavorites()
         favoriteListCollectionView.reloadData()
+        if (presenter.isListEmpty()) {
+            showEmptyBox()
+        } else {
+            hideEmptyBox()
+        }
     }
 
     // MARK: - Actions
