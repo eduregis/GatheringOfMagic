@@ -15,6 +15,9 @@
 "TabBarTexts_favorites" = "Favoritas";
 "TabBarTexts_decks" = "Grimórios";
 
+// MARK: - Card List Screen Texts
+"CardListScreenTexts_loadingMoreCards" = "Carregando mais cartas...";
+
 // MARK: - Card Detail Screen Texts
 "CardDetailScreenTexts_favorite" = "Favoritar";
 "CardDetailScreenTexts_unfavorite" = "Desfavoritar";
@@ -39,6 +42,7 @@
 "DeckDetailScreenTexts_edit" = "Editar";
 "DeckDetailScreenTexts_mana" = "Mana";
 "DeckDetailScreenTexts_averageCost" = "Custo médio";
+"DeckDetailScreenTexts_curve" = "Curva";
 "DeckDetailScreenTexts_land" = "Terrenos";
 "DeckDetailScreenTexts_instant" = "Instantâneas";
 "DeckDetailScreenTexts_sorcery" = "Feitiços";

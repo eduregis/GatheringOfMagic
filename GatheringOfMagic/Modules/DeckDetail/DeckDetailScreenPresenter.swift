@@ -105,9 +105,9 @@ class DeckDetailScreenPresenter {
         for card in cards {
             if card.cmc > 0 {
                 if card.cmc >= 6 {
-                    curve[5] += 1
+                    curve[5] += Int(card.quantity)
                 } else {
-                    curve[Int(card.cmc) - 1] += 1
+                    curve[Int(card.cmc) - 1] += Int(card.quantity)
                 }
             }
         }

@@ -47,4 +47,24 @@ class SnackBarHelper: NSObject {
         SwiftMessages.show(config: config, view: view)
     }
     
+    func showToast(message: String) {
+        let view = MessageView.viewFromNib(layout: .statusLine)
+        view.button?.isHidden = true
+        view.configureContent(title: "", body: message)
+        view.backgroundColor = .systemTeal
+        view.titleLabel?.tintColor = .white
+        
+        var config = SwiftMessages.Config()
+        config.presentationStyle = .bottom
+        config.duration = .forever
+       
+        view.id = "toast"
+        
+        SwiftMessages.show(config: config, view: view)
+    }
+    
+    func hideToast() {
+        SwiftMessages.hide(id: "toast")
+    }
+    
 }
