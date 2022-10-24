@@ -32,11 +32,13 @@ enum CardDetailScreenTexts: String, Localizable {
 
 enum FavoriteListScreenTexts: String, Localizable {
     case title = "FavoriteListScreenTexts_title"
+    case emptyListMessage = "FavoriteListScreenTexts_emptyListMessage"
 }
 
 enum DeckListScreenTexts: String, Localizable {
     case title = "DeckListScreenTexts_title"
     case wantToDeleteDeck = "DeckListScreenTexts_wantToDeleteDeck"
+    case emptyListMessage = "DeckListScreenTexts_emptyListMessage"
 }
 
 enum AddToDeckScreenTexts: String, Localizable {

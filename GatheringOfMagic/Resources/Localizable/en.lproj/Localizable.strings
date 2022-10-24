@@ -27,10 +27,12 @@
 
 // MARK: - Favorite List Screen Texts
 "FavoriteListScreenTexts_title" = "Favorites";
+"FavoriteListScreenTexts_emptyListMessage" = "You don't have any favorite cards yet!";
 
 // MARK: - Deck List Screen Texts
 "DeckListScreenTexts_title" = "Decks";
 "DeckListScreenTexts_wantToDeleteDeck" = "Do you want to delete the deck";
+"DeckListScreenTexts_emptyListMessage" = "You still don't have any decks!";
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Add to Deck";

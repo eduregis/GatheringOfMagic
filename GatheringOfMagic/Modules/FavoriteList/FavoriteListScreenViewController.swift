@@ -65,7 +65,7 @@ class FavoriteListScreenViewController: BaseViewController {
     private func showEmptyBox() {
         emptyBoxImage.isHidden = false
         emptyBoxImage.alpha = 0.5
-        emptyLabel.text = "Ainda não tem nenhuma carta favoritada! localizar"
+        emptyLabel.text = FavoriteListScreenTexts.emptyListMessage.localized()
         emptyLabel.numberOfLines = 0
         emptyLabel.lineBreakMode = .byTruncatingTail
         emptyLabel.alpha = 0.5

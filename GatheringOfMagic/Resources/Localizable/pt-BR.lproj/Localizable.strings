@@ -27,10 +27,12 @@
 
 // MARK: - Favorite List Screen Texts
 "FavoriteListScreenTexts_title" = "Favoritas";
+"FavoriteListScreenTexts_emptyListMessage" = "Ainda não tem nenhuma carta favoritada!";
 
 // MARK: - Favorite List Screen Texts
 "DeckListScreenTexts_title" = "Grimórios";
 "DeckListScreenTexts_wantToDeleteDeck" = "Deseja excluir o grimório";
+"DeckListScreenTexts_emptyListMessage" = "Ainda não tem nenhum grimório!";
 
 // MARK: - Add To Deck Screen Texts
 "AddToDeckScreenTexts_title" = "Adicionar à grimório";
